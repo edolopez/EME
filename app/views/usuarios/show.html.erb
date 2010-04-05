@@ -1,0 +1,37 @@
+<p>
+  <b>Nombre:</b>
+  <%=h @usuario.nombre %>
+</p>
+
+<p>
+  <b>Correoelectronico:</b>
+  <%=h @usuario.correoElectronico %>
+</p>
+
+<p>
+  <b>Telefono:</b>
+  <%=h @usuario.telefono %>
+</p>
+
+<p>
+  <b>Hashed password:</b>
+  <%=h @usuario.hashed_password %>
+</p>
+
+<p>
+  <b>Salt:</b>
+  <%=h @usuario.salt %>
+</p>
+
+<p>
+  <b>Datos:</b>
+  <%=h @usuario.datos_id %>
+</p>
+
+<p>
+  <b>Datos type:</b>
+  <%=h @usuario.datos_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_usuario_path(@usuario) %> |

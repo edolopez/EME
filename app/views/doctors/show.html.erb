@@ -1,0 +1,43 @@
+<p>
+  <b>Apellidopaterno:</b>
+  <%=h @doctor.apellidoPaterno %>
+</p>
+
+<p>
+  <b>Apellidomaterno:</b>
+  <%=h @doctor.apellidoMaterno %>
+</p>
+
+<p>
+  <b>Edad:</b>
+  <%=h @doctor.edad %>
+</p>
+
+<p>
+  <b>Sexo:</b>
+  <%=h @doctor.sexo %>
+</p>
+
+<p>
+  <b>Fechanacimiento:</b>
+  <%=h @doctor.fechaNacimiento %>
+</p>
+
+<p>
+  <b>Ciudadnacimiento:</b>
+  <%=h @doctor.ciudadNacimiento %>
+</p>
+
+<p>
+  <b>Estadonacimiento:</b>
+  <%=h @doctor.estadoNacimiento %>
+</p>
+
+<p>
+  <b>Especialidad:</b>
+  <%=h @doctor.especialidad %>
+</p>
+
+
+<%= link_to 'Edit', edit_doctor_path(@doctor) %> |
+<%= link_to 'Back', doctors_path %>

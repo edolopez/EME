@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  rfc: MyString
+  ciudad: MyString
+  estado: MyString
+  calle: MyString
+  colonia: MyString
+  codigoPostal: MyString
+  fax: MyString
+  tipoClinica: MyString
+  especialidad: MyString
+  sitioWeb: MyString
+
+two:
+  rfc: MyString
+  ciudad: MyString
+  estado: MyString
+  calle: MyString
+  colonia: MyString
+  codigoPostal: MyString
+  fax: MyString
+  tipoClinica: MyString
+  especialidad: MyString
+  sitioWeb: MyString

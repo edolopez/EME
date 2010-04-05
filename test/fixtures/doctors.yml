@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  apellidoPaterno: MyString
+  apellidoMaterno: MyString
+  edad: 1
+  sexo: MyString
+  fechaNacimiento: MyString
+  ciudadNacimiento: MyString
+  estadoNacimiento: MyString
+  especialidad: MyString
+
+two:
+  apellidoPaterno: MyString
+  apellidoMaterno: MyString
+  edad: 1
+  sexo: MyString
+  fechaNacimiento: MyString
+  ciudadNacimiento: MyString
+  estadoNacimiento: MyString
+  especialidad: MyString

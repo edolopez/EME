@@ -1,0 +1,39 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  apellidoPaterno: MyString
+  apellidoMaterno: MyString
+  edad: 1
+  sexo: MyString
+  fechaNacimiento: 2010-04-04
+  ciudadNacimiento: MyString
+  estadoNacimiento: MyString
+  estadoCivil: MyString
+  estatura: 9.99
+  tipoSangre: MyString
+  tatuajes: false
+  religion: MyString
+  peso: 9.99
+  preferenciaSexual: MyString
+  ocupacion: MyString
+  companiaSeguros: MyString
+  poliza: MyString
+
+two:
+  apellidoPaterno: MyString
+  apellidoMaterno: MyString
+  edad: 1
+  sexo: MyString
+  fechaNacimiento: 2010-04-04
+  ciudadNacimiento: MyString
+  estadoNacimiento: MyString
+  estadoCivil: MyString
+  estatura: 9.99
+  tipoSangre: MyString
+  tatuajes: false
+  religion: MyString
+  peso: 9.99
+  preferenciaSexual: MyString
+  ocupacion: MyString
+  companiaSeguros: MyString
+  poliza: MyString

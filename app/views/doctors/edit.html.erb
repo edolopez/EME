@@ -1,0 +1,44 @@
+<h1>Editing doctor</h1>
+
+<% form_for(@doctor) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :apellidoPaterno %><br />
+    <%= f.text_field :apellidoPaterno %>
+  </p>
+  <p>
+    <%= f.label :apellidoMaterno %><br />
+    <%= f.text_field :apellidoMaterno %>
+  </p>
+  <p>
+    <%= f.label :edad %><br />
+    <%= f.text_field :edad %>
+  </p>
+  <p>
+    <%= f.label :sexo %><br />
+    <%= f.text_field :sexo %>
+  </p>
+  <p>
+    <%= f.label :fechaNacimiento %><br />
+    <%= f.text_field :fechaNacimiento %>
+  </p>
+  <p>
+    <%= f.label :ciudadNacimiento %><br />
+    <%= f.text_field :ciudadNacimiento %>
+  </p>
+  <p>
+    <%= f.label :estadoNacimiento %><br />
+    <%= f.text_field :estadoNacimiento %>
+  </p>
+  <p>
+    <%= f.label :especialidad %><br />
+    <%= f.text_field :especialidad %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @doctor %> |
+<%= link_to 'Back', doctors_path %>

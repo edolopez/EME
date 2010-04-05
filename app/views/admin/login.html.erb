@@ -1,0 +1,20 @@
+  <% form_tag do %>
+    <fieldset>
+       <legend>Please Log In</legend>
+       <div>
+         <label for="nombre">Name:</label>
+         <%= text_field_tag :nombre, params[:nombre] %>
+       </div>
+       <div>
+         <label for="password">Password:</label>
+         <%= password_field_tag :password, params[:password] %>
+       </div>
+       <div>
+         <%= submit_tag "Login" %>
+       </div>
+    </fieldset>
+  <% end %>
+
+Nuevo usuario? <%= link_to 'Registrate', signup_path%>
+
+

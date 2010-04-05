@@ -1,0 +1,13 @@
+<p>
+  <b>Doctor:</b>
+  <%=h @doctor_clinica.doctor_id %>
+</p>
+
+<p>
+  <b>Clinica:</b>
+  <%=h @doctor_clinica.clinica_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_doctor_clinica_path(@doctor_clinica) %> |
+<%= link_to 'Back', doctor_clinicas_path %>

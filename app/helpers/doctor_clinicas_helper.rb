@@ -1,0 +1,2 @@
+module DoctorClinicasHelper
+end

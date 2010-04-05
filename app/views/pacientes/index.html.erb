@@ -1,0 +1,52 @@
+<h1>Listing pacientes</h1>
+
+<table>
+  <tr>
+    <th>Apellidopaterno</th>
+    <th>Apellidomaterno</th>
+    <th>Edad</th>
+    <th>Sexo</th>
+    <th>Fechanacimiento</th>
+    <th>Ciudadnacimiento</th>
+    <th>Estadonacimiento</th>
+    <th>Estadocivil</th>
+    <th>Estatura</th>
+    <th>Tiposangre</th>
+    <th>Tatuajes</th>
+    <th>Religion</th>
+    <th>Peso</th>
+    <th>Preferenciasexual</th>
+    <th>Ocupacion</th>
+    <th>Companiaseguros</th>
+    <th>Poliza</th>
+  </tr>
+
+<% @pacientes.each do |paciente| %>
+  <tr>
+    <td><%=h paciente.apellidoPaterno %></td>
+    <td><%=h paciente.apellidoMaterno %></td>
+    <td><%=h paciente.edad %></td>
+    <td><%=h paciente.sexo %></td>
+    <td><%=h paciente.fechaNacimiento %></td>
+    <td><%=h paciente.ciudadNacimiento %></td>
+    <td><%=h paciente.estadoNacimiento %></td>
+    <td><%=h paciente.estadoCivil %></td>
+    <td><%=h paciente.estatura %></td>
+    <td><%=h paciente.tipoSangre %></td>
+    <td><%=h paciente.tatuajes %></td>
+    <td><%=h paciente.religion %></td>
+    <td><%=h paciente.peso %></td>
+    <td><%=h paciente.preferenciaSexual %></td>
+    <td><%=h paciente.ocupacion %></td>
+    <td><%=h paciente.companiaSeguros %></td>
+    <td><%=h paciente.poliza %></td>
+    <td><%= link_to 'Show', paciente %></td>
+    <td><%= link_to 'Edit', edit_paciente_path(paciente) %></td>
+    <td><%= link_to 'Destroy', paciente, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New paciente', new_paciente_path %>

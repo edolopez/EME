@@ -1,0 +1,20 @@
+<h1>Editing paciente_doctor</h1>
+
+<% form_for(@paciente_doctor) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :paciente_id %><br />
+    <%= f.text_field :paciente_id %>
+  </p>
+  <p>
+    <%= f.label :doctor_id %><br />
+    <%= f.text_field :doctor_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @paciente_doctor %> |
+<%= link_to 'Back', paciente_doctors_path %>
