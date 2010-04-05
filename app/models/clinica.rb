@@ -19,4 +19,8 @@
 #
 
 class Clinica < ActiveRecord::Base
+
+validates_presence_of :rfc, :ciudad, :estado, :calle, :colonia, :codigoPostal, :fax, :tipoClinica, :especialidad
+
+
 end

@@ -33,7 +33,9 @@ before_filter :autorizar, :only => [:perfil, :show]
       if @usuario.save
         flash[:notice] = 'Usuario was successfully created.'
 				session[:usuario_id] = @usuario.id
-        format.html { redirect_to perfil_path }
+        format.html { redirect_to perfil_path }	
+				@title = Usuario.find_by_nombre(params[:nombre])
+
       else
         format.html { render :action => "new" }
       end

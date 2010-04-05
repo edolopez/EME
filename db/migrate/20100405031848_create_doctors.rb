@@ -5,7 +5,7 @@ class CreateDoctors < ActiveRecord::Migration
       t.string :apellidoMaterno
       t.integer :edad
       t.string :sexo
-      t.string :fechaNacimiento
+      t.date :fechaNacimiento
       t.string :ciudadNacimiento
       t.string :estadoNacimiento
       t.string :especialidad

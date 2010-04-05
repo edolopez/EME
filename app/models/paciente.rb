@@ -27,4 +27,13 @@
 #
 
 class Paciente < ActiveRecord::Base
+
+validates_presence_of :apellidoPaterno, :apellidoMaterno, :edad, :sexo, :ciudadNacimiento,
+																	  :estadoNacimiento, :estadoCivil, :estatura, :tipoSangre, :tatuajes,
+																		:religion, :peso, :preferenciaSexual, :ocupacion, :companiaSeguros, 
+																		:poliza
+
+validates_numericality_of :edad, :estatura, :peso
+
+
 end

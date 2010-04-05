@@ -1,3 +1,4 @@
+<h1>Welcome <%=h @usuario.nombre %></h1>
 <fieldset>
 <legend>Datos del usuario</legend>
 <p>
@@ -6,8 +7,13 @@
 </p>
 
 <p>
-<b>Correo</b>
+<b>Correo:</b>
 <%=h @usuario.correoElectronico%>
+</p>
+
+<p>
+<b>Telefono:</b>
+<%=h @usuario.telefono%>
 </p>
 
 </fieldset>

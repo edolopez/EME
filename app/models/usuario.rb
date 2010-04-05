@@ -23,6 +23,12 @@ validates_uniqueness_of :nombre
 attr_accessor :password_confirmation
 validates_confirmation_of :password
 
+EmailRegex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+validates_format_of   :correoElectronico, :with => EmailRegex
+
+TelRegex = /\((\d{3})\)\s+(\d{3})-(\d{4})/ #(123) 555-1234
+validates_format_of :telefono, :with => TelRegex
+
  validate :password_non_blank
   
 def self.authenticate(nombre, password)

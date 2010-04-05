@@ -8,7 +8,7 @@
 #  apellidoMaterno  :string(255)
 #  edad             :integer(4)
 #  sexo             :string(255)
-#  fechaNacimiento  :string(255)
+#  fechaNacimiento  :date
 #  ciudadNacimiento :string(255)
 #  estadoNacimiento :string(255)
 #  especialidad     :string(255)
@@ -17,4 +17,9 @@
 #
 
 class Doctor < ActiveRecord::Base
+
+validates_presence_of :apellidoPaterno, :apellidoMaterno, :edad, :sexo,  :ciudadNacimiento, :estadoNacimiento, :especialidad
+validates_numericality_of :edad
+
+
 end
