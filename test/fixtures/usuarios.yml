@@ -1,3 +1,20 @@
+# == Schema Information
+# Schema version: 20100405032418
+#
+# Table name: usuarios
+#
+#  id                :integer(4)      not null, primary key
+#  nombre            :string(255)
+#  correoElectronico :string(255)
+#  telefono          :string(255)
+#  hashed_password   :string(255)
+#  salt              :string(255)
+#  datos_id          :integer(4)
+#  datos_type        :string(255)
+#  created_at        :datetime
+#  updated_at        :datetime
+#
+
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
