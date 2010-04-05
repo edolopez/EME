@@ -31,10 +31,9 @@ before_filter :autorizar, :only => [:perfil, :show]
 
     respond_to do |format|
       if @usuario.save
-        flash[:notice] = 'Usuario was successfully created.'
-				session[:usuario_id] = @usuario.id
+        flash[:notice] = 'El usuario fue creado satisfactoriamente.'
+					session[:usuario_id] = @usuario.id
         format.html { redirect_to perfil_path }	
-				@title = Usuario.find_by_nombre(params[:nombre])
 
       else
         format.html { render :action => "new" }
@@ -49,7 +48,7 @@ before_filter :autorizar, :only => [:perfil, :show]
 
     respond_to do |format|
       if @usuario.update_attributes(params[:usuario])
-        flash[:notice] = 'Usuario was successfully updated.'
+        flash[:notice] = 'El usuario fue actualizado correctamente.'
         format.html { redirect_to(@usuario) }
         format.xml  { head :ok }
       else
@@ -73,5 +72,6 @@ before_filter :autorizar, :only => [:perfil, :show]
 
   def perfil
     @usuario = Usuario.find(session[:usuario_id])
+		@title = @usuario.nombre.capitalize
 end
 end

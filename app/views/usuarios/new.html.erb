@@ -4,16 +4,16 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :nombre %><br />
-    <%= f.text_field :nombre %>
+    <%= f.label :nombre, 'Nombre' %><br />
+    <%= f.text_field :nombre%>
   </p>
   <p>
-    <%= f.label :correoElectronico %><br />
-    <%= f.text_field :correoElectronico %>
+    <%= f.label :correoElectronico, 'Correo electronico' %><br />
+    <%= f.text_field :correoElectronico%>
   </p>
   <p>
-    <%= f.label :telefono %><br />
-    <%= f.text_field :telefono %>
+    <%= f.label :telefono, 'Telefono' %><br />
+    <%= f.text_field :telefono, :placeholder => "(123) 555-1234" %>
   </p>
 
   <p>

@@ -17,6 +17,8 @@
 
 class Usuario < ActiveRecord::Base
 
+belongs_to :datos, :polymorphic => true
+
 validates_presence_of :nombre
 validates_uniqueness_of :nombre
 

@@ -1,4 +1,8 @@
 class PacientesController < ApplicationController
+
+def autorizar
+end
+
   # GET /pacientes
   # GET /pacientes.xml
   def index
@@ -25,7 +29,7 @@ class PacientesController < ApplicationController
   # GET /pacientes/new.xml
   def new
     @paciente = Paciente.new
-
+		@usuario = Usuario.new
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @paciente }
@@ -41,9 +45,11 @@ class PacientesController < ApplicationController
   # POST /pacientes.xml
   def create
     @paciente = Paciente.new(params[:paciente])
+		@usuario = Usuario.new(params[:usuario])
+		@usuario.datos = @paciente
 
     respond_to do |format|
-      if @paciente.save
+      if @usuario.save
         flash[:notice] = 'Paciente was successfully created.'
         format.html { redirect_to(@paciente) }
         format.xml  { render :xml => @paciente, :status => :created, :location => @paciente }

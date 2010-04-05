@@ -20,6 +20,9 @@
 
 class Clinica < ActiveRecord::Base
 
+has_one :usuario, :as => :datos
+accepts_nested_attributes_for :usuario
+
 validates_presence_of :rfc, :ciudad, :estado, :calle, :colonia, :codigoPostal, :fax, :tipoClinica, :especialidad
 
 
