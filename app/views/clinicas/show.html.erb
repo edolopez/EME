@@ -1,4 +1,19 @@
 <p>
+  <b>Nombre:</b>
+  <%=h @usuario.nombre %>
+</p>
+
+<p>
+  <b>Correoelectronico:</b>
+  <%=h @usuario.correoElectronico %>
+</p>
+
+<p>
+  <b>Telefono:</b>
+  <%=h @usuario.telefono %>
+</p>
+
+<p>
   <b>Rfc:</b>
   <%=h @clinica.rfc %>
 </p>
@@ -51,3 +66,4 @@
 
 <%= link_to 'Edit', edit_clinica_path(@clinica) %> |
 <%= link_to 'Back', clinicas_path %>
+

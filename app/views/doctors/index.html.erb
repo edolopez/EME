@@ -2,6 +2,9 @@
 
 <table>
   <tr>
+    <th>Nombre</th>
+    <th>CorreoElectronico</th>
+    <th>Telefono</th>
     <th>Apellidopaterno</th>
     <th>Apellidomaterno</th>
     <th>Edad</th>
@@ -14,6 +17,9 @@
 
 <% @doctors.each do |doctor| %>
   <tr>
+    <td><%=h @usuarios[@cont].nombre %></td>
+    <td><%=h @usuarios[@cont].correoElectronico %></td>
+    <td><%=h @usuarios[@cont].telefono %></td>
     <td><%=h doctor.apellidoPaterno %></td>
     <td><%=h doctor.apellidoMaterno %></td>
     <td><%=h doctor.edad %></td>
@@ -25,6 +31,7 @@
     <td><%= link_to 'Show', doctor %></td>
     <td><%= link_to 'Edit', edit_doctor_path(doctor) %></td>
     <td><%= link_to 'Destroy', doctor, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% @cont = @cont + 1 %>
   </tr>
 <% end %>
 </table>
@@ -32,3 +39,4 @@
 <br />
 
 <%= link_to 'New doctor', new_doctor_path %>
+

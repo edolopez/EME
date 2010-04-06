@@ -1,8 +1,19 @@
 class DoctorsController < ApplicationController
+
+def autorizar
+end
+
+# Metodo que regresa todos los doctores en la tabla usuarios
+def doctores_todos(id)
+  Usuario.find_by_datos_id(id, :conditions => "datos_type = 'Doctor'")
+end
+
   # GET /doctors
   # GET /doctors.xml
   def index
+    @cont = 0 # Variable para acceso al arreglo de @usuarios en la vista
     @doctors = Doctor.all
+    @usuarios = Usuario.find(:all, :conditions => "datos_type = 'Doctor'")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +25,8 @@ class DoctorsController < ApplicationController
   # GET /doctors/1.xml
   def show
     @doctor = Doctor.find(params[:id])
+    id = @doctor.id
+    @usuario = doctores_todos(id)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +38,7 @@ class DoctorsController < ApplicationController
   # GET /doctors/new.xml
   def new
     @doctor = Doctor.new
+		@usuario = Usuario.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,15 +49,21 @@ class DoctorsController < ApplicationController
   # GET /doctors/1/edit
   def edit
     @doctor = Doctor.find(params[:id])
+    id = @doctor.id
+    @usuario = doctores_todos(id)
   end
 
   # POST /doctors
   # POST /doctors.xml
   def create
     @doctor = Doctor.new(params[:doctor])
+   	@usuario = Usuario.new(params[:usuario])
+		@usuario.datos = @doctor
 
     respond_to do |format|
-      if @doctor.save
+      if @doctor.valid? && @usuario.valid?
+        @doctor.save
+        @usuario.save
         flash[:notice] = 'Doctor was successfully created.'
         format.html { redirect_to(@doctor) }
         format.xml  { render :xml => @doctor, :status => :created, :location => @doctor }
@@ -58,9 +78,11 @@ class DoctorsController < ApplicationController
   # PUT /doctors/1.xml
   def update
     @doctor = Doctor.find(params[:id])
+    id = @doctor.id
+    @usuario = doctores_todos(id)
 
     respond_to do |format|
-      if @doctor.update_attributes(params[:doctor])
+      if @doctor.update_attributes(params[:doctor]) && @usuario.update_attributes(params[:usuario])
         flash[:notice] = 'Doctor was successfully updated.'
         format.html { redirect_to(@doctor) }
         format.xml  { head :ok }
@@ -75,7 +97,11 @@ class DoctorsController < ApplicationController
   # DELETE /doctors/1.xml
   def destroy
     @doctor = Doctor.find(params[:id])
+    id = @doctor.id
+    @usuario = doctores_todos(id)
+
     @doctor.destroy
+    @usuario.destroy
 
     respond_to do |format|
       format.html { redirect_to(doctors_url) }
@@ -83,3 +109,4 @@ class DoctorsController < ApplicationController
     end
   end
 end
+

@@ -2,7 +2,7 @@
 
 <% form_for(@paciente) do |f| %>
  <%= f.error_messages %>
-	
+
 <% fields_for(@usuario) do |u| %>
 <%= u.error_messages %>
 <fieldset>
@@ -26,9 +26,9 @@
   </p>
    <p>
   	<%= f.label :sexo, 'Sexo' %><br />
-        <%= label_tag(:sexo, "Masculino") %> 
+        <%= label_tag(:sexo, "Masculino") %>
     <%= f.radio_button(:sexo, "Masculino") %>
-        <%= label_tag(:sexo, "Femenino")  %> 
+        <%= label_tag(:sexo, "Femenino")  %>
     <%= f.radio_button(:sexo, "Femenino") %>
   </p>
 
@@ -81,7 +81,7 @@
 
 
 <%end%>
-  
+
   <p>
     <%= f.label :estatura %><br />
     <%= f.text_field :estatura %>
@@ -94,16 +94,12 @@
             :prompt => "Selecciona un tipo de sangre"
 %>
   </p>
-  <p>
-    <%= f.label :tipoSangre %><br />
-    <%= f.text_field :tipoSangre %>
-  </p>
 
    <p>
   	<%= f.label :tatuajes, 'Tatuaje' %><br />
-        <%= label_tag(:tatuajes, "Si") %> 
+        <%= label_tag(:tatuajes, "Si") %>
     <%= f.radio_button(:tatuajes, 1) %>
-        <%= label_tag(:tatuajes, "No")  %> 
+        <%= label_tag(:tatuajes, "No")  %>
     <%= f.radio_button(:tatuajes, 0) %>
   </p>
   <p>
@@ -139,3 +135,4 @@
 <% end %>
 
 <%= link_to 'Back', pacientes_path %>
+

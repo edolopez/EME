@@ -6,7 +6,9 @@ end
   # GET /pacientes
   # GET /pacientes.xml
   def index
+    @cont = 0 # Variable para acceso al arreglo de @usuarios en la vista
     @pacientes = Paciente.all
+    @usuarios = Usuario.find(:all, :conditions => "datos_type = 'Paciente'")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -18,6 +20,8 @@ end
   # GET /pacientes/1.xml
   def show
     @paciente = Paciente.find(params[:id])
+    id = @paciente.id
+    @usuario = Usuario.find_by_datos_id(id, :conditions => "datos_type = 'Paciente'")
 
     respond_to do |format|
       format.html # show.html.erb
@@ -40,6 +44,8 @@ end
   # GET /pacientes/1/edit
   def edit
     @paciente = Paciente.find(params[:id])
+    id = @paciente.id
+    @usuario = Usuario.find_by_datos_id(id, :conditions => "datos_type = 'Paciente'")
   end
 
   # POST /pacientes
@@ -50,7 +56,9 @@ end
 		@usuario.datos = @paciente
 
     respond_to do |format|
-      if @usuario.save
+      if @paciente.valid? && @usuario.valid?
+        @paciente.save
+        @usuario.save
         flash[:notice] = 'Paciente was successfully created.'
         format.html { redirect_to(@paciente) }
         format.xml  { render :xml => @paciente, :status => :created, :location => @paciente }
@@ -65,9 +73,11 @@ end
   # PUT /pacientes/1.xml
   def update
     @paciente = Paciente.find(params[:id])
+    id = @paciente.id
+    @usuario = Usuario.find_by_datos_id(id, :conditions => "datos_type = 'Paciente'")
 
     respond_to do |format|
-      if @paciente.update_attributes(params[:paciente])
+      if @paciente.update_attributes(params[:paciente]) && @usuario.update_attributes(params[:usuario])
         flash[:notice] = 'Paciente was successfully updated.'
         format.html { redirect_to(@paciente) }
         format.xml  { head :ok }
@@ -82,7 +92,11 @@ end
   # DELETE /pacientes/1.xml
   def destroy
     @paciente = Paciente.find(params[:id])
+    id = @paciente.id
+    @usuario = Usuario.find_by_datos_id(id, :conditions => "datos_type = 'Paciente'")
+
     @paciente.destroy
+    @usuario.destroy
 
     respond_to do |format|
       format.html { redirect_to(pacientes_url) }
@@ -90,3 +104,4 @@ end
     end
   end
 end
+

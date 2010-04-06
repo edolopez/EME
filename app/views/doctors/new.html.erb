@@ -3,6 +3,34 @@
 <% form_for(@doctor) do |f| %>
   <%= f.error_messages %>
 
+<% fields_for(@usuario) do |u| %>
+<%= u.error_messages %>
+
+	 <p>
+    <%= u.label :nombre, 'Nombre' %><br />
+    <%= u.text_field :nombre%>
+  </p>
+  <p>
+    <%= u.label :correoElectronico, 'Correo electronico' %><br />
+    <%= u.text_field :correoElectronico%>
+  </p>
+  <p>
+    <%= u.label :telefono, 'Telefono' %><br />
+    <%= u.text_field :telefono, :placeholder => "(123) 555-1234" %>
+  </p>
+
+  <p>
+    <%= u.label :usuario_password, 'Password' %><br />
+    <%= u.password_field :password %>
+  </p>
+
+  <p>
+    <%= u.label :usuario_password_confirmation, 'Confirmacion' %><br />
+    <%= u.password_field :password_confirmation %>
+  </p>
+
+<%end%>
+
   <p>
     <%= f.label :apellidoPaterno %><br />
     <%= f.text_field :apellidoPaterno %>
@@ -21,7 +49,7 @@
   </p>
   <p>
     <%= f.label :fechaNacimiento %><br />
-    <%= f.text_field :fechaNacimiento %>
+    <%= f.date_select :fechaNacimiento %>
   </p>
   <p>
     <%= f.label :ciudadNacimiento %><br />
@@ -41,3 +69,4 @@
 <% end %>
 
 <%= link_to 'Back', doctors_path %>
+

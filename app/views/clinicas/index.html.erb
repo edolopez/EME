@@ -2,6 +2,9 @@
 
 <table>
   <tr>
+    <th>Nombre</th>
+    <th>CorreoElectronico</th>
+    <th>Telefono</th>
     <th>Rfc</th>
     <th>Ciudad</th>
     <th>Estado</th>
@@ -16,6 +19,9 @@
 
 <% @clinicas.each do |clinica| %>
   <tr>
+    <td><%=h @usuarios[@cont].nombre %></td>
+    <td><%=h @usuarios[@cont].correoElectronico %></td>
+    <td><%=h @usuarios[@cont].telefono %></td>
     <td><%=h clinica.rfc %></td>
     <td><%=h clinica.ciudad %></td>
     <td><%=h clinica.estado %></td>
@@ -29,6 +35,7 @@
     <td><%= link_to 'Show', clinica %></td>
     <td><%= link_to 'Edit', edit_clinica_path(clinica) %></td>
     <td><%= link_to 'Destroy', clinica, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% @cont = @cont + 1 %>
   </tr>
 <% end %>
 </table>
@@ -36,3 +43,4 @@
 <br />
 
 <%= link_to 'New clinica', new_clinica_path %>
+

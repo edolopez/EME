@@ -2,7 +2,21 @@
 
 <% form_for(@paciente) do |f| %>
   <%= f.error_messages %>
-
+    <% fields_for(@usuario) do |u| %>
+      <%= error_messages_for :usuario %>
+      <p>
+        <%= u.label :nombre, 'Nombre' %><br />
+        <%= u.text_field :nombre%>
+      </p>
+      <p>
+        <%= u.label :correoElectronico, 'Correo electronico' %><br />
+        <%= u.text_field :correoElectronico%>
+      </p>
+      <p>
+        <%= u.label :telefono, 'Telefono' %><br />
+        <%= u.text_field :telefono, :placeholder => "(123) 555-1234" %>
+      </p>
+    <% end %>
   <p>
     <%= f.label :apellidoPaterno %><br />
     <%= f.text_field :apellidoPaterno %>
@@ -78,3 +92,4 @@
 
 <%= link_to 'Show', @paciente %> |
 <%= link_to 'Back', pacientes_path %>
+

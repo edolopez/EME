@@ -1,4 +1,19 @@
 <p>
+  <b>Nombre:</b>
+  <%=h @usuario.nombre %>
+</p>
+
+<p>
+  <b>Correoelectronico:</b>
+  <%=h @usuario.correoElectronico %>
+</p>
+
+<p>
+  <b>Telefono:</b>
+  <%=h @usuario.telefono %>
+</p>
+
+<p>
   <b>Apellidopaterno:</b>
   <%=h @doctor.apellidoPaterno %>
 </p>
@@ -41,3 +56,4 @@
 
 <%= link_to 'Edit', edit_doctor_path(@doctor) %> |
 <%= link_to 'Back', doctors_path %>
+
