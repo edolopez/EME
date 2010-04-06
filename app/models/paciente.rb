@@ -32,7 +32,7 @@ has_one :usuario, :as => :datos
 accepts_nested_attributes_for :usuario
 
 validates_presence_of :apellidoPaterno, :apellidoMaterno, :edad, :sexo, :ciudadNacimiento,
-																	  :estadoNacimiento, :estadoCivil, :estatura, :tipoSangre, :tatuajes,
+																	  :estadoNacimiento, :estadoCivil, :estatura, :tipoSangre, 
 																		:religion, :peso, :preferenciaSexual, :ocupacion, :companiaSeguros, 
 																		:poliza
 
@@ -76,6 +76,18 @@ ESTADONACIMIENTO = [
 validates_inclusion_of :estadoNacimiento, :in =>
   ESTADONACIMIENTO.map {|disp, value| value}
 
+ ESTADOCIVIL = [
+  # Displayed         stored in db
+  [ "Casado" , "Casado" ],
+	[ "Divorciado" , "Divorciado" ],  
+	[ "Viudo" , "Viudo" ],
+	[ "Soltero" , "Soltero" ]
+]
+
+validates_inclusion_of :estadoCivil, :in =>
+ESTADOCIVIL.map {|disp, value| value}
+
+
 RELIGION = [
   # Displayed         stored in db
   [ "Anglicanismo" , "Anglicanismo" ],
@@ -98,5 +110,18 @@ RELIGION = [
 validates_inclusion_of :religion, :in =>
 RELIGION.map {|disp, value| value}
 
+TIPOSANGRE = [
+  # Displayed         stored in db
+  [ "AB -" , "AB-" ],
+	[ "B -" , "B-" ],  
+	[ "B +" , "B+" ],
+	[ "A +" , "A+" ],
+	["A -","A-"],
+	["O +", "O+"],
+	["O -", "O-"]
+]
+
+validates_inclusion_of :tipoSangre, :in =>
+TIPOSANGRE.map {|disp, value| value}
 
 end

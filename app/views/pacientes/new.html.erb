@@ -5,8 +5,8 @@
 	
 <% fields_for(@usuario) do |u| %>
 <%= u.error_messages %>
-	 <fieldset>
-	<legend>Datos personales</legend>
+<fieldset>
+<legend>Datos del usuario</legend>
 		 <p>
     <%= u.label :nombre, 'Nombre' %><br />
     <%= u.text_field :nombre%>
@@ -35,7 +35,7 @@
   <p>
     <%= f.label :fechaNacimiento, 'Fecha de nacimiento' %><br />
     <%= f.date_select :fechaNacimiento, :start_year => Time.now.year-150, :end_year => Time.now.year,
-					:prompt => {:day => "Dia", :month => 'Mes', :year => 'Año'} %>
+					:prompt => {:day => "Dia", :month => 'Mes', :year => 'Año'}, :order => [:day,:month,:year] %>
   </p>
 
   <p>
@@ -60,11 +60,7 @@
     <%= u.text_field :telefono, :placeholder => "(123) 555-1234" %>
   </p>
 
-	</fieldset>
-	
- 
-
-
+</fieldset>
   <p>
     <%= u.label :usuario_password, 'Password' %><br />
     <%= u.password_field :password %>
@@ -76,20 +72,27 @@
   </p>
 
 <p>
-    <%= f.label :estadoCivil %><br />
-    <%= f.text_field :estadoCivil %>
+    <%= f.label :estadoCivil, 'Estado civil' %><br />
+    <%= f.select :estadoCivil,
+             Paciente::ESTADOCIVIL,
+            :prompt => "Selecciona un estado civil"
+%>
   </p>
 
 
 <%end%>
-
- 
-
-
   
   <p>
     <%= f.label :estatura %><br />
     <%= f.text_field :estatura %>
+  </p>
+
+<p>
+    <%= f.label :tipoSangre, 'Tipo de sangre' %><br />
+    <%= f.select :tipoSangre,
+             Paciente::TIPOSANGRE,
+            :prompt => "Selecciona un tipo de sangre"
+%>
   </p>
   <p>
     <%= f.label :tipoSangre %><br />
