@@ -38,5 +38,65 @@ validates_presence_of :apellidoPaterno, :apellidoMaterno, :edad, :sexo, :ciudadN
 
 validates_numericality_of :edad, :estatura, :peso
 
+ESTADONACIMIENTO = [
+  # Displayed         stored in db
+  [ "Aguascalientes" , "Aguascalientes" ],
+  [ "Baja California" , "Baja California" ],
+  [ "Baja California Sur" , "Baja California Sur" ],
+	["Campeche","Campeche"],
+	["Chiapas","Chiapas"],
+	["Chihuahua","Chihuahua"],
+	["Colima","Colima"],
+	["Distrito Federal","Distrito Federal"],
+	["Durango","Durango"],
+	["Estado de Mexico","Estado de Mexico"],
+	["Guanajuato","Guanajuato"],
+	["Guerrero","Guerrero"],
+	["Hidalgo","Hidalgo"],
+	["Jalisco","Jalisco"],
+	["Michoacan","Michoacan"],
+	["Morelos","Morelos"],
+	["Nayarit","Nayarit"],
+	["Nuevo Leon","Nuevo Leon"],
+	["Oaxaca","Oaxaca"],
+	["Puebla","Puebla"],
+	["Queretaro","Queretaro"],
+	["Quintana Roo","Quintana Roo"],
+	["San Luis Potosi","San Luis Potosi"],
+	["Sinaloa","Sinaloa"],
+	["Sonora","Sonora"],
+	["Tabasco","Tabasco"],
+	["Tamaulipas","Tamaulipas"],
+	["Tlaxcala","Tlaxcala"],
+	["Veracruz","Veracruz"],
+	["Yucatan","Yucatan"],
+	["Zacatecas","Zacatecas"]
+]
+
+validates_inclusion_of :estadoNacimiento, :in =>
+  ESTADONACIMIENTO.map {|disp, value| value}
+
+RELIGION = [
+  # Displayed         stored in db
+  [ "Anglicanismo" , "Anglicanismo" ],
+	[ "Ateismo" , "Ateismo" ],  
+	[ "Brahamanismo" , "Brahamanismo" ],
+	[ "Budismo" , "Budismo" ],
+	[ "Catolicismo" , "Catolicismo" ],
+	[ "Confucianismo" , "Confucianismo" ],
+	[ "Protestantismo" , "Protestantismo" ],
+	[ "Luteranos" , "Luteranos" ],
+	[ "Calvinista" , "Calvinista" ],
+	[ "Hinduismo" , "Hinduismo" ],
+	[ "Judaismo" , "Judaismo" ],
+	[ "Shintoismo" , "Shintoismo" ],
+	[ "Islamismo" , "Islamismo" ],
+	[ "Taoismo" , "Taoismo" ]	
+
+]
+
+validates_inclusion_of :religion, :in =>
+RELIGION.map {|disp, value| value}
+
 
 end

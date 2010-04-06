@@ -30,6 +30,7 @@ end
   def new
     @paciente = Paciente.new
 		@usuario = Usuario.new
+		@title = "Nuevo paciente"
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @paciente }

@@ -5,19 +5,65 @@
 	
 <% fields_for(@usuario) do |u| %>
 <%= u.error_messages %>
-	 
-	 <p>
+	 <fieldset>
+	<legend>Datos personales</legend>
+		 <p>
     <%= u.label :nombre, 'Nombre' %><br />
     <%= u.text_field :nombre%>
   </p>
+ <p>
+    <%= f.label :apellidoPaterno %><br />
+    <%= f.text_field :apellidoPaterno %>
+  </p>
   <p>
+    <%= f.label :apellidoMaterno %><br />
+    <%= f.text_field :apellidoMaterno %>
+  </p>
+
+ <p>
+    <%= f.label :edad %><br />
+    <%= f.text_field :edad %>
+  </p>
+   <p>
+  	<%= f.label :sexo, 'Sexo' %><br />
+        <%= label_tag(:sexo, "Masculino") %> 
+    <%= f.radio_button(:sexo, "Masculino") %>
+        <%= label_tag(:sexo, "Femenino")  %> 
+    <%= f.radio_button(:sexo, "Femenino") %>
+  </p>
+
+  <p>
+    <%= f.label :fechaNacimiento, 'Fecha de nacimiento' %><br />
+    <%= f.date_select :fechaNacimiento, :start_year => Time.now.year-150, :end_year => Time.now.year,
+					:prompt => {:day => "Dia", :month => 'Mes', :year => 'Año'} %>
+  </p>
+
+  <p>
+    <%= f.label :ciudadNacimiento %><br />
+    <%= f.text_field :ciudadNacimiento %>
+  </p>
+ <p>
+    <%= f.label :estadoNacimiento, 'Estado de nacimiento' %><br />
+    <%= f.select :estadoNacimiento,
+             Paciente::ESTADONACIMIENTO,
+            :prompt => "Selecciona un estado"
+%>
+  </p>
+
+ <p>
     <%= u.label :correoElectronico, 'Correo electronico' %><br />
     <%= u.text_field :correoElectronico%>
   </p>
+
   <p>
     <%= u.label :telefono, 'Telefono' %><br />
     <%= u.text_field :telefono, :placeholder => "(123) 555-1234" %>
   </p>
+
+	</fieldset>
+	
+ 
+
 
   <p>
     <%= u.label :usuario_password, 'Password' %><br />
@@ -29,40 +75,18 @@
     <%= u.password_field :password_confirmation %>
   </p>
 
-<%end%>
-
-  <p>
-    <%= f.label :apellidoPaterno %><br />
-    <%= f.text_field :apellidoPaterno %>
-  </p>
-  <p>
-    <%= f.label :apellidoMaterno %><br />
-    <%= f.text_field :apellidoMaterno %>
-  </p>
-  <p>
-    <%= f.label :edad %><br />
-    <%= f.text_field :edad %>
-  </p>
-  <p>
-    <%= f.label :sexo %><br />
-    <%= f.text_field :sexo %>
-  </p>
-  <p>
-    <%= f.label :fechaNacimiento %><br />
-    <%= f.date_select :fechaNacimiento %>
-  </p>
-  <p>
-    <%= f.label :ciudadNacimiento %><br />
-    <%= f.text_field :ciudadNacimiento %>
-  </p>
-  <p>
-    <%= f.label :estadoNacimiento %><br />
-    <%= f.text_field :estadoNacimiento %>
-  </p>
-  <p>
+<p>
     <%= f.label :estadoCivil %><br />
     <%= f.text_field :estadoCivil %>
   </p>
+
+
+<%end%>
+
+ 
+
+
+  
   <p>
     <%= f.label :estatura %><br />
     <%= f.text_field :estatura %>
@@ -71,13 +95,20 @@
     <%= f.label :tipoSangre %><br />
     <%= f.text_field :tipoSangre %>
   </p>
-  <p>
-    <%= f.label :tatuajes %><br />
-    <%= f.check_box :tatuajes %>
+
+   <p>
+  	<%= f.label :tatuajes, 'Tatuaje' %><br />
+        <%= label_tag(:tatuajes, "Si") %> 
+    <%= f.radio_button(:tatuajes, 1) %>
+        <%= label_tag(:tatuajes, "No")  %> 
+    <%= f.radio_button(:tatuajes, 0) %>
   </p>
   <p>
-    <%= f.label :religion %><br />
-    <%= f.text_field :religion %>
+    <%= f.label :religion, 'Religion' %><br />
+    <%= f.select :religion,
+             Paciente::RELIGION,
+            :prompt => "Selecciona una religion"
+%>
   </p>
   <p>
     <%= f.label :peso %><br />
