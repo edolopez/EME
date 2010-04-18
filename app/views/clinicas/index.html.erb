@@ -1,17 +1,9 @@
-<h1>Listing clinicas</h1>
+<h1>Clinicas</h1>
 
 <table>
   <tr>
     <th>Nombre</th>
-    <th>CorreoElectronico</th>
-    <th>Telefono</th>
-    <th>Rfc</th>
-    <th>Ciudad</th>
     <th>Estado</th>
-    <th>Calle</th>
-    <th>Colonia</th>
-    <th>Codigopostal</th>
-    <th>Fax</th>
     <th>Tipoclinica</th>
     <th>Especialidad</th>
     <th>Sitioweb</th>
@@ -20,21 +12,13 @@
 <% @clinicas.each do |clinica| %>
   <tr>
     <td><%=h @usuarios[@cont].nombre %></td>
-    <td><%=h @usuarios[@cont].correoElectronico %></td>
-    <td><%=h @usuarios[@cont].telefono %></td>
-    <td><%=h clinica.rfc %></td>
-    <td><%=h clinica.ciudad %></td>
     <td><%=h clinica.estado %></td>
-    <td><%=h clinica.calle %></td>
-    <td><%=h clinica.colonia %></td>
-    <td><%=h clinica.codigoPostal %></td>
-    <td><%=h clinica.fax %></td>
     <td><%=h clinica.tipoClinica %></td>
     <td><%=h clinica.especialidad %></td>
     <td><%=h clinica.sitioWeb %></td>
-    <td><%= link_to 'Show', clinica %></td>
-    <td><%= link_to 'Edit', edit_clinica_path(clinica) %></td>
-    <td><%= link_to 'Destroy', clinica, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Mostrar', clinica %></td>
+    <td><%= link_to 'Editar', edit_clinica_path(clinica) %></td>
+    <td><%= link_to 'Eliminar', clinica, :confirm => '¿Seguro de que quieres eliminar el registro?', :method => :delete %></td>
     <% @cont = @cont + 1 %>
   </tr>
 <% end %>

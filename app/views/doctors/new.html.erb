@@ -1,22 +1,22 @@
-<h1>New doctor</h1>
+<h1>Agregar Doctor</h1>
 
 <% form_for(@doctor) do |f| %>
-  <%= f.error_messages %>
 
 <% fields_for(@usuario) do |u| %>
-<%= u.error_messages %>
+  <%= error_messages_for :usuario, :doctor %>
 
 	 <p>
     <%= u.label :nombre, 'Nombre' %><br />
     <%= u.text_field :nombre%>
   </p>
+
   <p>
-    <%= u.label :correoElectronico, 'Correo electronico' %><br />
-    <%= u.text_field :correoElectronico%>
+    <%= f.label :apellidoPaterno, 'Apellido Paterno'  %><br />
+    <%= f.text_field :apellidoPaterno %>
   </p>
   <p>
-    <%= u.label :telefono, 'Telefono' %><br />
-    <%= u.text_field :telefono, :placeholder => "(123) 555-1234" %>
+    <%= f.label :apellidoMaterno, 'Apellido Materno'  %><br />
+    <%= f.text_field :apellidoMaterno %>
   </p>
 
   <p>
@@ -29,43 +29,51 @@
     <%= u.password_field :password_confirmation %>
   </p>
 
-<%end%>
+   <p>
+  	<%= f.label :sexo, 'Sexo' %><br />
+        <%= label_tag(:sexo, "Masculino") %>
+    <%= f.radio_button(:sexo, "Masculino") %>
+        <%= label_tag(:sexo, "Femenino")  %>
+    <%= f.radio_button(:sexo, "Femenino") %>
+  </p>
+  <p>
+    <%= f.label :fechaNacimiento, 'Fecha de nacimiento' %><br />
+    <%= f.date_select :fechaNacimiento, :end_year => Time.now.year-150, :start_year => Time.now.year,
+					:prompt => {:day => "Dia", :month => 'Mes', :year => 'Año'}, :order => [:day,:month,:year] %>
+  </p>
+
+ <p>
+    <%= f.label :estadoNacimiento, 'Estado de nacimiento' %><br />
+    <%= f.select :estadoNacimiento,
+             Paciente::ESTADONACIMIENTO,
+            :prompt => "Selecciona un estado"%>
+  </p>
 
   <p>
-    <%= f.label :apellidoPaterno %><br />
-    <%= f.text_field :apellidoPaterno %>
-  </p>
-  <p>
-    <%= f.label :apellidoMaterno %><br />
-    <%= f.text_field :apellidoMaterno %>
-  </p>
-  <p>
-    <%= f.label :edad %><br />
-    <%= f.text_field :edad %>
-  </p>
-  <p>
-    <%= f.label :sexo %><br />
-    <%= f.text_field :sexo %>
-  </p>
-  <p>
-    <%= f.label :fechaNacimiento %><br />
-    <%= f.date_select :fechaNacimiento %>
-  </p>
-  <p>
-    <%= f.label :ciudadNacimiento %><br />
+    <%= f.label :ciudadNacimiento, 'Ciudad de Nacimiento'  %><br />
     <%= f.text_field :ciudadNacimiento %>
   </p>
+
   <p>
-    <%= f.label :estadoNacimiento %><br />
-    <%= f.text_field :estadoNacimiento %>
-  </p>
-  <p>
-    <%= f.label :especialidad %><br />
+    <%= f.label :especialidad, 'Especialidad'  %><br />
     <%= f.text_field :especialidad %>
   </p>
+
+    <p>
+    <%= u.label :correoElectronico, 'Correo electronico' %><br />
+    <%= u.text_field :correoElectronico%>
+  </p>
+  <p>
+    <%= u.label :telefono, 'Telefono' %><br />
+    <%= u.text_field :telefono, :placeholder => "(123) 555-1234" %>
+  </p>
+
   <p>
     <%= f.submit 'Create' %>
   </p>
+
+
+<%end%>
 <% end %>
 
 <%= link_to 'Back', doctors_path %>

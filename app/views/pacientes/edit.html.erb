@@ -1,93 +1,111 @@
-<h1>Editing paciente</h1>
+<h1>Editar paciente</h1>
 
 <% form_for(@paciente) do |f| %>
-  <%= f.error_messages %>
     <% fields_for(@usuario) do |u| %>
-      <%= error_messages_for :usuario %>
+      <%= error_messages_for :usuario, :paciente %>
       <p>
         <%= u.label :nombre, 'Nombre' %><br />
         <%= u.text_field :nombre%>
       </p>
+
       <p>
+        <%= f.label :apellidoPaterno, 'Apellido Paterno'  %><br />
+        <%= f.text_field :apellidoPaterno %>
+      </p>
+      <p>
+        <%= f.label :apellidoMaterno, 'Apellido Materno'  %><br />
+        <%= f.text_field :apellidoMaterno %>
+      </p>
+
+
+   <p>
+  	<%= f.label :sexo, 'Sexo' %><br />
+        <%= label_tag(:sexo, "Masculino") %>
+    <%= f.radio_button(:sexo, "Masculino") %>
+        <%= label_tag(:sexo, "Femenino")  %>
+    <%= f.radio_button(:sexo, "Femenino") %>
+  </p>
+<p>
+    <%= f.label :fechaNacimiento, 'Fecha de nacimiento' %><br />
+    <%= f.date_select :fechaNacimiento, :end_year => Time.now.year-150, :start_year => Time.now.year,
+					:prompt => {:day => "Dia", :month => 'Mes', :year => 'Año'}, :order => [:day,:month,:year] %>
+  </p>
+
+ <p>
+    <%= f.label :estadoNacimiento, 'Estado de nacimiento' %><br />
+    <%= f.select :estadoNacimiento,
+             Paciente::ESTADONACIMIENTO,
+            :prompt => "Selecciona un estado"%>
+  </p>
+
+    <p>
+    <%= f.label :ciudadNacimiento, 'Ciudad de Nacimiento' %><br />
+    <%= f.text_field :ciudadNacimiento %>
+  </p>
+
+        <p>
         <%= u.label :correoElectronico, 'Correo electronico' %><br />
         <%= u.text_field :correoElectronico%>
       </p>
       <p>
         <%= u.label :telefono, 'Telefono' %><br />
-        <%= u.text_field :telefono, :placeholder => "(123) 555-1234" %>
+        <%= u.text_field :telefono %>
       </p>
-    <% end %>
+
   <p>
-    <%= f.label :apellidoPaterno %><br />
-    <%= f.text_field :apellidoPaterno %>
+    <%= f.label :estadoCivil, 'Estado civil' %><br />
+    <%= f.select :estadoCivil,
+             Paciente::ESTADOCIVIL,
+            :prompt => "Selecciona un estado civil"%>
   </p>
   <p>
-    <%= f.label :apellidoMaterno %><br />
-    <%= f.text_field :apellidoMaterno %>
-  </p>
-  <p>
-    <%= f.label :edad %><br />
-    <%= f.text_field :edad %>
-  </p>
-  <p>
-    <%= f.label :sexo %><br />
-    <%= f.text_field :sexo %>
-  </p>
-  <p>
-    <%= f.label :fechaNacimiento %><br />
-    <%= f.date_select :fechaNacimiento %>
-  </p>
-  <p>
-    <%= f.label :ciudadNacimiento %><br />
-    <%= f.text_field :ciudadNacimiento %>
-  </p>
-  <p>
-    <%= f.label :estadoNacimiento %><br />
-    <%= f.text_field :estadoNacimiento %>
-  </p>
-  <p>
-    <%= f.label :estadoCivil %><br />
-    <%= f.text_field :estadoCivil %>
-  </p>
-  <p>
-    <%= f.label :estatura %><br />
+    <%= f.label :estatura, 'Estatura'  %><br />
     <%= f.text_field :estatura %>
   </p>
   <p>
-    <%= f.label :tipoSangre %><br />
-    <%= f.text_field :tipoSangre %>
+      <%= f.label :tipoSangre, 'Tipo de sangre' %><br />
+      <%= f.select :tipoSangre,
+               Paciente::TIPOSANGRE,
+              :prompt => "Selecciona un tipo de sangre"%>
+    </p>
+   <p>
+  	<%= f.label :tatuajes, 'Tatuajes' %><br />
+        <%= label_tag(:tatuajes, "Si") %>
+    <%= f.radio_button(:tatuajes, 1) %>
+        <%= label_tag(:tatuajes, "No")  %>
+    <%= f.radio_button(:tatuajes, 0) %>
   </p>
   <p>
-    <%= f.label :tatuajes %><br />
-    <%= f.check_box :tatuajes %>
+    <%= f.label :religion, 'Religion' %><br />
+    <%= f.select :religion,
+             Paciente::RELIGION,
+            :prompt => "Selecciona una religion"%>
   </p>
   <p>
-    <%= f.label :religion %><br />
-    <%= f.text_field :religion %>
-  </p>
-  <p>
-    <%= f.label :peso %><br />
+    <%= f.label :peso, 'Peso'  %><br />
     <%= f.text_field :peso %>
   </p>
   <p>
-    <%= f.label :preferenciaSexual %><br />
+    <%= f.label :preferenciaSexual, 'Preferencia Sexual'  %><br />
     <%= f.text_field :preferenciaSexual %>
   </p>
   <p>
-    <%= f.label :ocupacion %><br />
+    <%= f.label :ocupacion, 'Ocupacion'  %><br />
     <%= f.text_field :ocupacion %>
   </p>
   <p>
-    <%= f.label :companiaSeguros %><br />
+    <%= f.label :companiaSeguros, 'Compania de seguros'  %><br />
     <%= f.text_field :companiaSeguros %>
   </p>
   <p>
-    <%= f.label :poliza %><br />
+    <%= f.label :poliza, 'Poliza'  %><br />
     <%= f.text_field :poliza %>
   </p>
   <p>
     <%= f.submit 'Update' %>
   </p>
+
+  <% end %>
 <% end %>
 
 <%= link_to 'Show', @paciente %> |

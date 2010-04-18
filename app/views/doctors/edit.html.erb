@@ -1,57 +1,67 @@
-<h1>Editing doctor</h1>
+<h1>Editar Doctor</h1>
 
 <% form_for(@doctor) do |f| %>
-  <%= f.error_messages %>
   <% fields_for(@usuario) do |u| %>
-      <%= error_messages_for :usuario %>
+      <%= error_messages_for :usuario, :doctor %>
       <p>
         <%= u.label :nombre, 'Nombre' %><br />
         <%= u.text_field :nombre%>
       </p>
-      <p>
-        <%= u.label :correoElectronico, 'Correo electronico' %><br />
-        <%= u.text_field :correoElectronico%>
-      </p>
-      <p>
-        <%= u.label :telefono, 'Telefono' %><br />
-        <%= u.text_field :telefono, :placeholder => "(123) 555-1234" %>
-      </p>
-    <% end %>
-  <p>
-    <%= f.label :apellidoPaterno %><br />
+
+        <p>
+    <%= f.label :apellidoPaterno, 'Apellido Paterno'  %><br />
     <%= f.text_field :apellidoPaterno %>
   </p>
   <p>
-    <%= f.label :apellidoMaterno %><br />
+    <%= f.label :apellidoMaterno, 'Apellido Materno'  %><br />
     <%= f.text_field :apellidoMaterno %>
   </p>
-  <p>
-    <%= f.label :edad %><br />
-    <%= f.text_field :edad %>
+
+   <p>
+  	<%= f.label :sexo, 'Sexo' %><br />
+        <%= label_tag(:sexo, "Masculino") %>
+    <%= f.radio_button(:sexo, "Masculino") %>
+        <%= label_tag(:sexo, "Femenino")  %>
+    <%= f.radio_button(:sexo, "Femenino") %>
   </p>
+
   <p>
-    <%= f.label :sexo %><br />
-    <%= f.text_field :sexo %>
+    <%= f.label :fechaNacimiento, 'Fecha de nacimiento' %><br />
+    <%= f.date_select :fechaNacimiento, :end_year => Time.now.year-150, :start_year => Time.now.year,
+					:prompt => {:day => "Dia", :month => 'Mes', :year => 'Año'}, :order => [:day,:month,:year] %>
   </p>
-  <p>
-    <%= f.label :fechaNacimiento %><br />
-    <%= f.date_select :fechaNacimiento %>
+
+   <p>
+    <%= f.label :estadoNacimiento, 'Estado de nacimiento' %><br />
+    <%= f.select :estadoNacimiento,
+             Paciente::ESTADONACIMIENTO,
+            :prompt => "@doctor.estadoNacimiento"%>
   </p>
+
   <p>
-    <%= f.label :ciudadNacimiento %><br />
+    <%= f.label :ciudadNacimiento, 'Ciudad de Nacimiento'  %><br />
     <%= f.text_field :ciudadNacimiento %>
   </p>
+
   <p>
-    <%= f.label :estadoNacimiento %><br />
-    <%= f.text_field :estadoNacimiento %>
+    <%= f.label :especialidad, 'Especialidad'  %><br />
+    <%= f.text_field :especialidad %>
+  </p>
+
+  <p>
+    <%= u.label :correoElectronico, 'Correo electronico' %><br />
+    <%= u.text_field :correoElectronico%>
   </p>
   <p>
-    <%= f.label :especialidad %><br />
-    <%= f.text_field :especialidad %>
+    <%= u.label :telefono, 'Telefono' %><br />
+    <%= u.text_field :telefono %>
   </p>
   <p>
     <%= f.submit 'Update' %>
   </p>
+
+
+  <% end %>
 <% end %>
 
 <%= link_to 'Show', @doctor %> |

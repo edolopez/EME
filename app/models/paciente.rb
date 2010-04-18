@@ -29,14 +29,16 @@
 class Paciente < ActiveRecord::Base
 
 has_one :usuario, :as => :datos
+has_and_belongs_to_many :doctors
+
 accepts_nested_attributes_for :usuario
 
-validates_presence_of :apellidoPaterno, :apellidoMaterno, :edad, :sexo, :ciudadNacimiento,
-																	  :estadoNacimiento, :estadoCivil, :estatura, :tipoSangre, 
-																		:religion, :peso, :preferenciaSexual, :ocupacion, :companiaSeguros, 
+validates_presence_of :apellidoPaterno, :apellidoMaterno, :sexo, :ciudadNacimiento,
+																	  :estadoNacimiento, :estadoCivil, :estatura, :tipoSangre,
+																		:religion, :peso, :preferenciaSexual, :ocupacion, :companiaSeguros,
 																		:poliza
 
-validates_numericality_of :edad, :estatura, :peso
+validates_numericality_of :estatura, :peso
 
 ESTADONACIMIENTO = [
   # Displayed         stored in db
@@ -79,7 +81,7 @@ validates_inclusion_of :estadoNacimiento, :in =>
  ESTADOCIVIL = [
   # Displayed         stored in db
   [ "Casado" , "Casado" ],
-	[ "Divorciado" , "Divorciado" ],  
+	[ "Divorciado" , "Divorciado" ],
 	[ "Viudo" , "Viudo" ],
 	[ "Soltero" , "Soltero" ]
 ]
@@ -91,7 +93,7 @@ ESTADOCIVIL.map {|disp, value| value}
 RELIGION = [
   # Displayed         stored in db
   [ "Anglicanismo" , "Anglicanismo" ],
-	[ "Ateismo" , "Ateismo" ],  
+	[ "Ateismo" , "Ateismo" ],
 	[ "Brahamanismo" , "Brahamanismo" ],
 	[ "Budismo" , "Budismo" ],
 	[ "Catolicismo" , "Catolicismo" ],
@@ -103,7 +105,7 @@ RELIGION = [
 	[ "Judaismo" , "Judaismo" ],
 	[ "Shintoismo" , "Shintoismo" ],
 	[ "Islamismo" , "Islamismo" ],
-	[ "Taoismo" , "Taoismo" ]	
+	[ "Taoismo" , "Taoismo" ]
 
 ]
 
@@ -113,7 +115,7 @@ RELIGION.map {|disp, value| value}
 TIPOSANGRE = [
   # Displayed         stored in db
   [ "AB -" , "AB-" ],
-	[ "B -" , "B-" ],  
+	[ "B -" , "B-" ],
 	[ "B +" , "B+" ],
 	[ "A +" , "A+" ],
 	["A -","A-"],
@@ -125,3 +127,4 @@ validates_inclusion_of :tipoSangre, :in =>
 TIPOSANGRE.map {|disp, value| value}
 
 end
+

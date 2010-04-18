@@ -62,6 +62,7 @@ end
 
     respond_to do |format|
       if @doctor.valid? && @usuario.valid?
+        @doctor.edad = Time.now.year - @doctor.fechaNacimiento.year
         @doctor.save
         @usuario.save
         flash[:notice] = 'Doctor was successfully created.'

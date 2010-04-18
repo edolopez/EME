@@ -1,9 +1,8 @@
-<h1>New clinica</h1>
+<h1>Nueva clinica</h1>
 
 <% form_for(@clinica) do |f| %>
-  <%= f.error_messages %>
 <% fields_for(@usuario) do |u| %>
-<%= u.error_messages %>
+  <%= error_messages_for :usuario, :clinica %>
 
 	 <p>
     <%= u.label :nombre, 'Nombre' %><br />
@@ -19,6 +18,11 @@
   </p>
 
   <p>
+    <%= f.label :fax, 'Fax'  %><br />
+    <%= f.text_field :fax %>
+  </p>
+
+  <p>
     <%= u.label :usuario_password, 'Password' %><br />
     <%= u.password_field :password %>
   </p>
@@ -28,50 +32,54 @@
     <%= u.password_field :password_confirmation %>
   </p>
 
-<%end%>
   <p>
-    <%= f.label :rfc %><br />
+    <%= f.label :rfc, 'RFC'  %><br />
     <%= f.text_field :rfc %>
   </p>
+
+ <p>
+    <%= f.label :estado, 'Estado' %><br />
+    <%= f.select :estado,
+             Clinica::ESTADO,
+            :prompt => "Selecciona un estado"%>
+  </p>
+
   <p>
-    <%= f.label :ciudad %><br />
+    <%= f.label :ciudad, 'Ciudad'  %><br />
     <%= f.text_field :ciudad %>
   </p>
   <p>
-    <%= f.label :estado %><br />
-    <%= f.text_field :estado %>
-  </p>
-  <p>
-    <%= f.label :calle %><br />
+    <%= f.label :calle, 'Calle'  %><br />
     <%= f.text_field :calle %>
   </p>
   <p>
-    <%= f.label :colonia %><br />
+    <%= f.label :colonia, 'Colonia'  %><br />
     <%= f.text_field :colonia %>
   </p>
   <p>
-    <%= f.label :codigoPostal %><br />
+    <%= f.label :codigoPostal, 'Codigo Postal'  %><br />
     <%= f.text_field :codigoPostal %>
   </p>
+
   <p>
-    <%= f.label :fax %><br />
-    <%= f.text_field :fax %>
+  	<%= f.label :tipoClinica, 'Tipo de Clinica' %><br />
+        <%= label_tag(:tipoClinica, "Publica") %>
+    <%= f.radio_button(:tipoClinica, "Publica") %>
+        <%= label_tag(:tipoClinica, "Privada")  %>
+    <%= f.radio_button(:tipoClinica, "Privada") %>
   </p>
   <p>
-    <%= f.label :tipoClinica %><br />
-    <%= f.text_field :tipoClinica %>
-  </p>
-  <p>
-    <%= f.label :especialidad %><br />
+    <%= f.label :especialidad, 'Especialidad'  %><br />
     <%= f.text_field :especialidad %>
   </p>
   <p>
-    <%= f.label :sitioWeb %><br />
-    <%= f.text_field :sitioWeb %>
+    <%= f.label :sitioWeb, 'Sitio Web'  %><br />
+    <%= f.text_field :sitioWeb%>
   </p>
   <p>
     <%= f.submit 'Create' %>
   </p>
+  <% end %>
 <% end %>
 
 <%= link_to 'Back', clinicas_path %>

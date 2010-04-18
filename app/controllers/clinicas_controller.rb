@@ -51,6 +51,9 @@ class ClinicasController < ApplicationController
     @clinica = Clinica.find(params[:id])
     id = @clinica.id
     @usuario = clinicas_todas(id)
+
+    # @clinica.sitioWeb = @clinica.sitioWeb.split('//')[1]
+
   end
 
   # POST /clinicas
@@ -59,6 +62,8 @@ class ClinicasController < ApplicationController
     @clinica = Clinica.new(params[:clinica])
     @usuario = Usuario.new(params[:usuario])
 		@usuario.datos = @clinica
+
+		# @clinica.sitioWeb = "http://#{@clinica.sitioWeb}"
 
     respond_to do |format|
       if @clinica.valid? && @usuario.valid?
@@ -80,6 +85,8 @@ class ClinicasController < ApplicationController
     @clinica = Clinica.find(params[:id])
     id = @clinica.id
     @usuario = clinicas_todas(id)
+
+    # @clinica.sitioWeb = "http://#{@clinica.sitioWeb}"
 
     respond_to do |format|
       if @clinica.update_attributes(params[:clinica]) && @usuario.update_attributes(params[:usuario])
