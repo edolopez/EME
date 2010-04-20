@@ -21,6 +21,12 @@
 class Clinica < ActiveRecord::Base
 
 has_one :usuario, :as => :datos
+
+# Lineas para la relacion many-to-many con la posibilidad de agregar mas atributos
+# en la tabla join
+has_many :trabajos
+has_many :doctors, :through => :trabajos
+
 accepts_nested_attributes_for :usuario
 
 validates_presence_of :rfc, :ciudad, :estado, :calle, :colonia, :codigoPostal, :fax, :tipoClinica, :especialidad

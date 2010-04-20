@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  doctor_id: 1
+  clinica_id: 1
+
+two:
+  doctor_id: 1
+  clinica_id: 1

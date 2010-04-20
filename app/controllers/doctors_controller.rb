@@ -63,10 +63,16 @@ end
     respond_to do |format|
       if @doctor.valid? && @usuario.valid?
         @doctor.edad = Time.now.year - @doctor.fechaNacimiento.year
+        # relacion del trabajo entre doctor creado y clinica en el momento
+        Trabajo.create(:doctor => @doctor, :clinica => Clinica.find(Usuario.find(session[:usuario_id]).datos_id))
         @doctor.save
         @usuario.save
-        flash[:notice] = 'Doctor was successfully created.'
-        format.html { redirect_to(@doctor) }
+        flash[:notice] = 'El Doctor fue creado.'
+        if Usuario.find(session[:usuario_id]).datos_type = "Clinica"
+          format.html { redirect_to trabajos_path }
+        else
+          format.html { redirect_to perfil_path }
+        end
         format.xml  { render :xml => @doctor, :status => :created, :location => @doctor }
       else
         format.html { render :action => "new" }
@@ -105,7 +111,7 @@ end
     @usuario.destroy
 
     respond_to do |format|
-      format.html { redirect_to(doctors_url) }
+      format.html { redirect_to(trabajos_url) }
       format.xml  { head :ok }
     end
   end

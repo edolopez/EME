@@ -19,7 +19,13 @@
 class Doctor < ActiveRecord::Base
 
 has_one :usuario, :as => :datos
-has_and_belongs_to_many :pacientes
+
+# Lineas para la relacion many-to-many con la posibilidad de agregar mas atributos
+# en la tabla join
+has_many :trabajos
+has_many :clinicas, :through => :trabajos
+
+
 
 accepts_nested_attributes_for :usuario
 
