@@ -24,5 +24,12 @@
 
 <br />
 
-<%= link_to 'New doctor', new_doctor_path %>
+<%= link_to 'Nuevo doctor', new_doctor_path %> |
+<%= link_to 'Atras', clinica_path %>
+
+ <%=
+     #link_to_if(session[:usuario_id], "Back", { :controller => "usuarios", :action => "perfilClinica" }) do
+       #link_to("Back", {:controller => "doctors", :action => "index"})
+     #end
+  %>
 

@@ -1,4 +1,5 @@
 <h1>Bienvenido <%=h @usuario.nombre.titleize %></h1>
+
 <fieldset>
 <legend>Datos del usuario</legend>
 
@@ -8,7 +9,9 @@
 
 <p>
   <b>Nombre:</b>
+
   <%=h @usuario.nombre.titleize %> 
+
 </p>
 
 <p>
@@ -24,3 +27,4 @@
 <%= link_to 'Editar', edit_usuario_path(@usuario) %>
 
 </fieldset>
+

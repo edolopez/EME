@@ -60,5 +60,9 @@
 
 
 <%= link_to 'Edit', edit_doctor_path(@doctor) %> |
-<%= link_to 'Back', doctors_path %>
+<%=
+     link_to_if(current_page?(:controller => 'doctors', :action => 'show'), "Back", { :controller => "trabajos", :action => "index" }) do
+       link_to("Back", {:controller => "doctors", :action => "index"})
+     end
+  %>
 

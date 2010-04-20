@@ -1,0 +1,24 @@
+<h1>Doctores en la clinica</h1>
+
+<table>
+  <tr>
+    <th>Doctor</th>
+    <th>Especialidad</th>
+  </tr>
+
+<% @doctors.each do |doctor| %>
+  <tr>
+    <td><%=h doctor.usuario.nombre %></td>
+    <td><%=h doctor.especialidad %></td>
+    <td><%= link_to 'Show', doctor %></td>
+    <td><%= link_to 'Edit', edit_doctor_path(doctor) %></td>
+    <td><%= link_to 'Destroy', doctor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Agregar Doctor', new_doctor_path %> |
+<%= link_to 'Atras', clinica_path %>
+

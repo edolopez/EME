@@ -1,0 +1,20 @@
+<h1>Editing trabajo</h1>
+
+<% form_for(@trabajo) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :doctor_id %><br />
+    <%= f.text_field :doctor_id %>
+  </p>
+  <p>
+    <%= f.label :clinica_id %><br />
+    <%= f.text_field :clinica_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @trabajo %> |
+<%= link_to 'Back', trabajos_path %>

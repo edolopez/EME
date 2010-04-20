@@ -8,8 +8,11 @@ def login
       session[:usuario_id] = usuario.id
       uri = session[:original_uri]
 			session[:original_uri] = nil
-			redirect_to(uri || perfil_path)
-
+			if usuario.datos_type == 'Clinica'
+			  redirect_to(uri || clinica_path)
+      else
+		    redirect_to(uri || perfil_path)
+      end
     else
       flash.now[:notice] = "El nombre de usuario o password son incorrectos"
     end
@@ -18,9 +21,8 @@ end
 
 
   def logout
-	session[:usuario_id] = nil
-redirect_to(:action => "login" )
-
+	  session[:usuario_id] = nil
+    redirect_to(:action => "login" )
   end
 
 end

@@ -1,0 +1,13 @@
+<p>
+  <b>Doctor:</b>
+  <%=h @trabajo.doctor_id %>
+</p>
+
+<p>
+  <b>Clinica:</b>
+  <%=h @trabajo.clinica_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_trabajo_path(@trabajo) %> |
+<%= link_to 'Back', trabajos_path %>
