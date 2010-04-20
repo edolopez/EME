@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100405032418) do
+ActiveRecord::Schema.define(:version => 20100418080713) do
 
   create_table "clinicas", :force => true do |t|
     t.string   "rfc"
@@ -26,13 +26,6 @@ ActiveRecord::Schema.define(:version => 20100405032418) do
     t.datetime "updated_at"
   end
 
-  create_table "doctor_clinicas", :force => true do |t|
-    t.integer  "doctor_id"
-    t.integer  "clinica_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "doctors", :force => true do |t|
     t.string   "apellidoPaterno"
     t.string   "apellidoMaterno"
@@ -42,15 +35,6 @@ ActiveRecord::Schema.define(:version => 20100405032418) do
     t.string   "ciudadNacimiento"
     t.string   "estadoNacimiento"
     t.string   "especialidad"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "paciente_doctors", :force => true do |t|
-    t.integer  "paciente_id"
-    t.integer  "doctor_id"
-    t.string   "motivoConsulta"
-    t.text     "detalles"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -88,6 +72,10 @@ ActiveRecord::Schema.define(:version => 20100405032418) do
     t.string   "datos_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "imagen_file_name"
+    t.string   "imagen_content_type"
+    t.integer  "imagen_file_size"
+    t.datetime "imagen_updated_at"
   end
 
 end

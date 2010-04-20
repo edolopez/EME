@@ -21,7 +21,7 @@ before_filter :autorizar, :only => [:perfil, :show]
 
   # GET /usuarios/1/edit
   def edit
-    @usuario = Usuario.find(params[:id])
+    @usuario = Usuario.find(session[:usuario_id])
   end
 
   # POST /usuarios
@@ -49,7 +49,7 @@ before_filter :autorizar, :only => [:perfil, :show]
     respond_to do |format|
       if @usuario.update_attributes(params[:usuario])
         flash[:notice] = 'El usuario fue actualizado correctamente.'
-        format.html { redirect_to(@usuario) }
+        format.html { redirect_to perfil_path }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -72,6 +72,6 @@ before_filter :autorizar, :only => [:perfil, :show]
 
   def perfil
     @usuario = Usuario.find(session[:usuario_id])
-		@title = @usuario.nombre.capitalize
+		@title = @usuario.nombre.titleize
 end
 end

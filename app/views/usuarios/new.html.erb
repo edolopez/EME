@@ -1,7 +1,12 @@
 <h1>New usuario</h1>
 
-<% form_for(@usuario) do |f| %>
+<% form_for (@usuario, :html => {:multipart => true }) do |f| %>
   <%= f.error_messages %>
+
+<p>
+<%= f.label :imagen %><br />
+<%= f.file_field :imagen %>
+</p>
 
   <p>
     <%= f.label :nombre, 'Nombre' %><br />

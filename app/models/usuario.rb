@@ -17,6 +17,7 @@
 
 class Usuario < ActiveRecord::Base
 
+has_attached_file :imagen, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 belongs_to :datos, :polymorphic => true
 
 validates_presence_of :nombre
