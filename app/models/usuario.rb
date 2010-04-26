@@ -34,8 +34,8 @@ validates_format_of :telefono, :with => TelRegex
 
  validate :password_non_blank
   
-def self.authenticate(nombre, password)
-    usuario = self.find_by_nombre(nombre)
+def self.authenticate(id, password)
+    usuario = self.find_by_id(id)
     if usuario
       expected_password = encrypted_password(password, usuario.salt)
       if usuario.hashed_password != expected_password
@@ -67,6 +67,15 @@ end
 def self.encrypted_password(password, salt)
   string_to_hash = password + "wibble" + salt
   Digest::SHA1.hexdigest(string_to_hash)
+end
+
+def self.busqueda(busqueda)
+		if busqueda
+find_by_sql("SELECT * FROM pacientes WHERE id = '#{busqueda}'")
+
+
+end
+	
 end
 
 end

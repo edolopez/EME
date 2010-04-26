@@ -3,7 +3,7 @@
        <legend>Datos de acceso</legend>
        <div>
          <label for="nombre">Usuario:</label>
-         <%= text_field_tag :nombre, params[:nombre], :placeholder => "Nombre de usuario" %>
+         <%= text_field_tag :id, params[:id], :placeholder => "Nombre de usuario" %>
        </div>
 <p>
 </p>
@@ -17,6 +17,8 @@
     </fieldset>
   <% end %>
 
-Nuevo usuario? <%= link_to 'Registrate', signup_path%>
+Nuevo usuario? <%= link_to 'Registrate como paciente', signup_path%>
+<br />
+Nueva clinica? <%= link_to 'Registra tu clinica', new_clinica_path %>
 
 

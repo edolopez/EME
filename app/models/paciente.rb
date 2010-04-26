@@ -31,7 +31,7 @@ class Paciente < ActiveRecord::Base
 has_one :usuario, :as => :datos
 accepts_nested_attributes_for :usuario
 
-validates_presence_of :apellidoPaterno, :apellidoMaterno, :edad, :sexo, :ciudadNacimiento,
+validates_presence_of :apellidoPaterno, :apellidoMaterno, :sexo, :ciudadNacimiento,
 																	  :estadoNacimiento, :estadoCivil, :estatura, :tipoSangre,
 																		:religion, :peso, :preferenciaSexual, :ocupacion, :companiaSeguros,
 																		:poliza
@@ -123,6 +123,7 @@ TIPOSANGRE = [
 
 validates_inclusion_of :tipoSangre, :in =>
 TIPOSANGRE.map {|disp, value| value}
+
 
 end
 

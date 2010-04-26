@@ -1,7 +1,12 @@
 class UsuariosController < ApplicationController
 
-before_filter :autorizar, :only => [:perfil, :show]
+before_filter :autorizar, :only => [:perfil, :show, :busqueda]
 
+
+def index
+@usuarios = Usuario.busqueda(params[:busqueda])
+	
+end
   # GET /usuarios/1
   # GET /usuarios/1.xml
   def show
@@ -72,10 +77,10 @@ before_filter :autorizar, :only => [:perfil, :show]
 
   def perfil
     @usuario = Usuario.find(session[:usuario_id])
-
-		@title = @usuario.nombre.titleize
-
+		
   end
+
+
 
   def perfilClinica
     @usuario = Usuario.find(session[:usuario_id])

@@ -2,7 +2,7 @@ class AdminController < ApplicationController
 
 def login
   if request.post?
-    usuario = Usuario.authenticate(params[:nombre], params[:password])
+    usuario = Usuario.authenticate(params[:id], params[:password])
     if usuario
 
       session[:usuario_id] = usuario.id

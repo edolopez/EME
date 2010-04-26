@@ -70,7 +70,7 @@ class ClinicasController < ApplicationController
         @clinica.save
         @usuario.save
         flash[:notice] = 'Clinica was successfully created.'
-        format.html { redirect_to(@clinica) }
+        format.html { redirect_to :controller => clinicas, :action => index }
         format.xml  { render :xml => @clinica, :status => :created, :location => @clinica }
       else
         format.html { render :action => "new" }
