@@ -66,5 +66,76 @@ ESTADONACIMIENTO = [
 	["Zacatecas","Zacatecas"]
 ]
 
+validates_inclusion_of :estadoNacimiento, :in =>
+  ESTADONACIMIENTO.map {|disp, value| value}
+
+ESPECIALIDAD = [
+  # Displayed         stored in db
+  [ "Alergología" , "Alergologia" ],
+  [ "Algología" , "Algologia" ],
+  [ "Anestesiología" , "Anestesiologia" ],
+	["Angiología y cirugía vascular","Angiologia y cirugia vascular"],
+	["Audiología, foniatría","Audiologia, foniatria"],
+	["Bariatría","Bariatria"],
+	["Cardiología","Cardiologia"],
+	["Cirugía plática y reconstructiva","Cirugia platica y reconstructiva"],
+	["Coloproctología","Coloproctologia"],
+	["Dermatología","Dermatologia"],
+	["Dermatología pediátrica","Dermatologia pediatrica"],
+	["Endocrinología","Endocrinologia"],
+	["Endoscopía","Endoscopia"],
+	["Endodoncia","Endodoncia"],
+	["Gastroenterología","Gastroenterologia"],
+	["Genética","Genetica"],
+	["Geriatría","Geriatria"],
+	["Gerontología","Gerontología"],
+	["Ginecología","Ginecologia"],
+	["Hematología","Hematologia"],
+	["Hemato-Oncología","Hemato-Oncologia"],
+	["Hepatología","Hepatologia"],
+	["Imagenología","Imagenologia"],
+	["Infectología","Infectologia"],
+	["Inhaloterapia","Inhaloterapia"],
+	["Inmunología clínica y alergología pediátrica","Inmunologia clinica y alergologia pediatrica"],
+	["Medicina física y de rehabilitación","Medicina fisica y de rehabilitacion"],
+	["Medicina Crítica","Medicina Critica"],
+	["Medicina general","Medicina general"],
+	["Medicina familiar","Medicina familiar"],
+	["Medicina del deporte","Medicina del deporte"],
+	["Medicina Nuclear" , "Medicina Nuclear" ],
+  ["Medicina preventiva" , "Medicina preventiva" ],
+  ["Nefrología" , "Nefrologia" ],
+	["Neonatología","Neonatologia"],
+	["Neumología","Neumologia"],
+	["Neurocirugía","Neurocirugia"],
+	["Neuroradiología","Neuroradiologia"],
+	["Nutriología","Nutriologia"],
+	["Odontología","Odontologia"],
+	["Oftalmología","Oftalmologia"],
+	["Oncología","Oncologia"],
+	["Técnico Ortesista","Técnico Ortesista"],
+	["Ortopedia","Ortopedia"],
+	["Otorrinolaringología","Otorrinolaringologia"],
+	["Patología","Patología"],
+	["Pediatría","Pediatria"],
+	["Perinatología","Perinatologia"],
+	["Proctología","Proctologia"],
+	["Psicología","Psicologia"],
+	["Psiquiatría","Psiquiatria"],
+	["Quiropraxia","Quiropraxia"],
+	["Radiología","Radiologia"],
+	["Radioterapia","Radioterapia"],
+	["Rehabilitación pulmonar","Rehabilitacion pulmonar"],
+	["Reumatología","Reumatologia"],
+	["Traumatología y ortopedia","Traumatologia y ortopedia"],
+	["Traumatología deportiva","Traumatologia deportiva"],
+	["Urología","Urologia"]
+]
+
+validates_inclusion_of :especialidad, :in =>
+  ESPECIALIDAD.map {|disp, value| value}
+
+
+
 end
 
