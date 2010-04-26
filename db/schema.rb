@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(:version => 20100418080713) do
     t.string   "salt"
     t.integer  "datos_id"
     t.string   "datos_type"
+    t.string   "paciente_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "imagen_file_name"
