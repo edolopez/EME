@@ -8,6 +8,7 @@ class CreateUsuarios < ActiveRecord::Migration
       t.string :salt
       t.integer :datos_id
       t.string :datos_type
+			t.string :paciente_id
 
       t.timestamps
     end

@@ -19,7 +19,7 @@ class Usuario < ActiveRecord::Base
 
 has_attached_file :imagen, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 belongs_to :datos, :polymorphic => true
-
+has_one :pacientes
 validates_presence_of :nombre
 validates_uniqueness_of :correoElectronico
 

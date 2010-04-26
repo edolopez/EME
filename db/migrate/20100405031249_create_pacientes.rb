@@ -19,7 +19,6 @@ class CreatePacientes < ActiveRecord::Migration
       t.string :companiaSeguros
       t.string :poliza
 			t.integer :expediente_id
-
       t.timestamps
     end
   end

@@ -33,6 +33,8 @@ end
   # POST /usuarios.xml
   def create
     @usuario = Usuario.new(params[:usuario])
+		@paciente_id = Paciente.new(params[:paciente_id])
+		@usuario.paciente_id = @paciente_id
 
     respond_to do |format|
       if @usuario.save

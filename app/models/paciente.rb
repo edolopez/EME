@@ -29,8 +29,7 @@
 class Paciente < ActiveRecord::Base
 
 has_one :usuario, :as => :datos
-accepts_nested_attributes_for :usuario
-
+belongs_to :usuario
 validates_presence_of :apellidoPaterno, :apellidoMaterno, :sexo, :ciudadNacimiento,
 																	  :estadoNacimiento, :estadoCivil, :estatura, :tipoSangre,
 																		:religion, :peso, :preferenciaSexual, :ocupacion, :companiaSeguros,

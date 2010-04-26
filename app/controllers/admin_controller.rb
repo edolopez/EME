@@ -11,7 +11,7 @@ def login
 			if usuario.datos_type == 'Clinica'
 			  redirect_to(uri || clinica_path)
       else
-		    redirect_to(uri || perfil_path)
+		    redirect_to(uri || paciente_path(usuario.id))
       end
     else
       flash.now[:notice] = "El nombre de usuario o password son incorrectos"
