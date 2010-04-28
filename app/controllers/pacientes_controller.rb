@@ -6,21 +6,24 @@ end
   # GET /pacientes
   # GET /pacientes.xml
   def index
-    @cont = 0 # Variable para acceso al arreglo de @usuarios en la vista
-    @pacientes = Paciente.all
-    @usuarios = Usuario.find(:all, :conditions => "datos_type = 'Paciente'")
+		
+#		@pacientes = Paciente.find(:all, :conditions => ['apellidoMaterno LIKE ?', "%#{params[:busqueda]}%"])
 
-    respond_to do |format|
+   @cont = 0 # Variable para acceso al arreglo de @usuarios en la vista
+  @pacientes = Paciente.all
+  		@usuarios = Usuario.find(:all, :conditions => "datos_type = 'Paciente'")
+
+   respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @pacientes }
-    end
+end
   end
 
   # GET /pacientes/1
   # GET /pacientes/1.xml
   def show
-    @paciente = Paciente.find(params[:id])
-    id = @paciente.id
+  @paciente = Paciente.find(params[:id])
+	id = @paciente.id
     @usuario = Usuario.find_by_datos_id(id, :conditions => "datos_type = 'Paciente'")
 
     respond_to do |format|

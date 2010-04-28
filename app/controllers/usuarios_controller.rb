@@ -1,7 +1,12 @@
 class UsuariosController < ApplicationController
 
-before_filter :autorizar, :only => [:perfil, :show]
+before_filter :autorizar, :only => [:perfil, :show, :busqueda]
 
+
+def index
+@usuarios = Usuario.busqueda(params[:busqueda])
+	
+end
   # GET /usuarios/1
   # GET /usuarios/1.xml
   def show
@@ -28,6 +33,8 @@ before_filter :autorizar, :only => [:perfil, :show]
   # POST /usuarios.xml
   def create
     @usuario = Usuario.new(params[:usuario])
+		@paciente_id = Paciente.new(params[:usuario_id])
+		@usuario._id = @paciente_id
 
     respond_to do |format|
       if @usuario.save
@@ -72,10 +79,10 @@ before_filter :autorizar, :only => [:perfil, :show]
 
   def perfil
     @usuario = Usuario.find(session[:usuario_id])
-
-		@title = @usuario.nombre.titleize
-
+		
   end
+
+
 
 end
 

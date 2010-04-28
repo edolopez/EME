@@ -11,7 +11,8 @@
 <% if session[:usuario_id] == nil %>
 								
 			<% else %>
-				<%= link_to "Cerrar sesión", :controller => "admin", :action => "logout" %>
+<%= link_to "Cerrar sesión", :controller => "admin", :action => "logout" %>
+				
 			<% end %>
 
       <%- flash.each do |name, msg| -%>

@@ -16,7 +16,7 @@
 #  sitioWeb     :string(255)
 #  created_at   :datetime
 #  updated_at   :datetime
-#
+
 
 class Clinica < ActiveRecord::Base
 

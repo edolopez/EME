@@ -29,6 +29,7 @@
 class Paciente < ActiveRecord::Base
 
 has_one :usuario, :as => :datos
+
 accepts_nested_attributes_for :usuario
 
 has_many :consultas
@@ -126,6 +127,7 @@ TIPOSANGRE = [
 
 validates_inclusion_of :tipoSangre, :in =>
 TIPOSANGRE.map {|disp, value| value}
+
 
 end
 

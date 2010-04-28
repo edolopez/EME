@@ -98,7 +98,8 @@
   <%=h @paciente.poliza %>
 </p>
 
-
+<% if @usuario.datos_type != 'Paciente' %>
 <%= link_to 'Edit', edit_paciente_path(@paciente) %> |
 <%= link_to 'Back', pacientes_path %>
+<%end%>
 

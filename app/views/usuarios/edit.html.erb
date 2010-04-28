@@ -10,7 +10,7 @@
 
   <p>
     <%= f.label :nombre %><br />
-    <%= f.text_field :nombre %>
+    <%= f.text_field :nombre, :disabled => "disabled" %>
   </p>
   <p>
     <%= f.label :correoElectronico %><br />
@@ -26,4 +26,3 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @usuario %>

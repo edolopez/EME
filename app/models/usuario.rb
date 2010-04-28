@@ -19,7 +19,7 @@ class Usuario < ActiveRecord::Base
 
 has_attached_file :imagen, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 belongs_to :datos, :polymorphic => true
-
+has_one :paciente
 validates_presence_of :nombre
 validates_uniqueness_of :correoElectronico
 
@@ -34,8 +34,8 @@ validates_format_of :telefono, :with => TelRegex
 
  validate :password_non_blank
   
-def self.authenticate(nombre, password)
-    usuario = self.find_by_nombre(nombre)
+def self.authenticate(id, password)
+    usuario = self.find_by_id(id)
     if usuario
       expected_password = encrypted_password(password, usuario.salt)
       if usuario.hashed_password != expected_password
@@ -67,6 +67,15 @@ end
 def self.encrypted_password(password, salt)
   string_to_hash = password + "wibble" + salt
   Digest::SHA1.hexdigest(string_to_hash)
+end
+
+def self.busqueda(busqueda)
+		if busqueda
+#­SELECT * FROM `usuarios`, `pacientes` WHERE usuarios.id = 9 And usuarios.datos_id = pacientes.id AND usuarios.datos_type = "Paciente"
+			find_by_sql("SELECT * FROM pacientes, usuarios WHERE usuarios.id = '#{busqueda}' AND usuarios.datos_id = pacientes.id AND usuarios.datos_type = 'Paciente'")
+
+		end
+	
 end
 
 end
