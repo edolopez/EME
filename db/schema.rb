@@ -26,31 +26,15 @@ ActiveRecord::Schema.define(:version => 20100418080713) do
     t.datetime "updated_at"
   end
 
-  create_table "doctor_clinicas", :force => true do |t|
-    t.integer  "doctor_id"
-    t.integer  "clinica_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "doctors", :force => true do |t|
     t.string   "apellidoPaterno"
     t.string   "apellidoMaterno"
     t.integer  "edad"
     t.string   "sexo"
-    t.string   "fechaNacimiento"
+    t.date     "fechaNacimiento"
     t.string   "ciudadNacimiento"
     t.string   "estadoNacimiento"
     t.string   "especialidad"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "paciente_doctors", :force => true do |t|
-    t.integer  "paciente_id"
-    t.integer  "doctor_id"
-    t.string   "motivoConsulta"
-    t.text     "detalles"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -94,7 +78,6 @@ ActiveRecord::Schema.define(:version => 20100418080713) do
     t.string   "salt"
     t.integer  "datos_id"
     t.string   "datos_type"
-    t.string   "paciente_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "imagen_file_name"
