@@ -2,9 +2,17 @@ class TrabajosController < ApplicationController
   # GET /trabajos
   # GET /trabajos.xml
   def index
-    @clinica = Clinica.find(Usuario.find(session[:usuario_id]).datos_id)
-    #@trabajos = Trabajo.find_by_clinica_id(@clinica.id)
-    @doctors = @clinica.doctors
+    # Despliega los doctores que aun estan trabajando en la clinica
+    # es decir, que aun no tienen fecha de salida en la relacion entre doctor-clinica
+    @clinicas = Clinica.find(:all)
+    if (@clinicas == nil) # Por si no existen aun trabajos en la clinica
+      @trabajos = Trabajo.find(:all)
+    else
+      @clinica = Clinica.find(Usuario.find(session[:usuario_id]).datos_id)
+      @trabajos = Trabajo.find_by_clinica_id(@clinica.id)
+      @doctors = @clinica.doctors.find(:all, :conditions => "salida IS NULL")
+    end
+    @cont = 0
 
     respond_to do |format|
       format.html # index.html.erb
@@ -77,7 +85,8 @@ class TrabajosController < ApplicationController
   # DELETE /trabajos/1.xml
   def destroy
     @trabajo = Trabajo.find(params[:id])
-    @trabajo.destroy
+    @trabajo.salida = Time.now
+    @trabajo.save
 
     respond_to do |format|
       format.html { redirect_to(trabajos_url) }

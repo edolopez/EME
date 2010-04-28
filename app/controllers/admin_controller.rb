@@ -10,6 +10,8 @@ def login
 			session[:original_uri] = nil
 			if usuario.datos_type == 'Clinica'
 			  redirect_to(uri || clinica_path)
+      elsif usuario.datos_type == 'Admin'
+			  redirect_to(uri || administrador_path)
       else
 		    redirect_to(uri || perfil_path)
       end

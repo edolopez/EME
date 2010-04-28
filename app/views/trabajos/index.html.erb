@@ -1,18 +1,29 @@
 <h1>Doctores en la clinica</h1>
 
 <table>
+
+<% if @doctors != nil %>
+  <% @doctors.each do |doctor| %>
   <tr>
-    <th>Doctor</th>
+    <th>Nombre</th>
+    <th>Paterno</th>
+    <th>Materno</th>
     <th>Especialidad</th>
   </tr>
-
-<% @doctors.each do |doctor| %>
+    <tr>
+      <td><%=h doctor.usuario.nombre %></td>
+      <td><%=h doctor.apellidoPaterno %></td>
+      <td><%=h doctor.apellidoMaterno %></td>
+      <td><%=h doctor.especialidad %></td>
+      <td><%= link_to 'Show', doctor %></td>
+      <td><%= link_to 'Edit', edit_doctor_path(doctor) %></td>
+      <td><%= link_to 'Destroy', doctor.trabajos[@cont], :confirm => 'Are you sure?', :method => :delete %></td>
+      <% @cont = @cont + 1 %>
+    </tr>
+  <% end %>
+<% else %>
   <tr>
-    <td><%=h doctor.usuario.nombre %></td>
-    <td><%=h doctor.especialidad %></td>
-    <td><%= link_to 'Show', doctor %></td>
-    <td><%= link_to 'Edit', edit_doctor_path(doctor) %></td>
-    <td><%= link_to 'Destroy', doctor, :confirm => 'Are you sure?', :method => :delete %></td>
+    <h2>No hay doctores trabajando en la clinica aun</h2>
   </tr>
 <% end %>
 </table>

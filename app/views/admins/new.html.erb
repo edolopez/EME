@@ -1,0 +1,39 @@
+<h1>New admin</h1>
+
+<% form_for(@admin) do |f| %>
+<% fields_for(@usuario) do |u| %>
+  <%= error_messages_for :usuario, :admin %>
+
+	 <p>
+    <%= u.label :nombre, 'Nombre' %><br />
+    <%= u.text_field :nombre%>
+  </p>
+
+  <p>
+    <%= u.label :usuario_password, 'Password' %><br />
+    <%= u.password_field :password %>
+  </p>
+
+  <p>
+    <%= u.label :usuario_password_confirmation, 'Confirmacion' %><br />
+    <%= u.password_field :password_confirmation %>
+  </p>
+
+  <p>
+    <%= u.label :correoElectronico, 'Correo electronico' %><br />
+    <%= u.text_field :correoElectronico%>
+  </p>
+  <p>
+    <%= u.label :telefono, 'Telefono' %><br />
+    <%= u.text_field :telefono, :placeholder => "(123) 555-1234" %>
+  </p>
+
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+
+  <% end %>
+<% end %>
+
+<%= link_to 'Back', admins_path %>
+

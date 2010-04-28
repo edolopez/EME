@@ -3,6 +3,14 @@ class ClinicasController < ApplicationController
   def autorizar
   end
 
+  def perfil
+    @usuario = Usuario.find(session[:usuario_id])
+    @clinica = Clinica.find(@usuario.datos_id)
+    @busca_clinica = Paciente.new
+		@busca_usuario = Usuario.new
+		@title = @usuario.nombre.capitalize
+  end
+
   # Metodo que regresa todos los doctores en la tabla usuarios
   def clinicas_todas(id)
     Usuario.find_by_datos_id(id, :conditions => "datos_type = 'Clinica'")
@@ -70,7 +78,7 @@ class ClinicasController < ApplicationController
         @clinica.save
         @usuario.save
         flash[:notice] = 'Clinica was successfully created.'
-        format.html { redirect_to(@clinica) }
+        format.html { redirect_to :back }
         format.xml  { render :xml => @clinica, :status => :created, :location => @clinica }
       else
         format.html { render :action => "new" }

@@ -9,19 +9,20 @@
     <th>Sitioweb</th>
   </tr>
 
-<% @clinicas.each do |clinica| %>
-  <tr>
-    <td><%=h @usuarios[@cont].nombre %></td>
-    <td><%=h clinica.estado %></td>
-    <td><%=h clinica.tipoClinica %></td>
-    <td><%=h clinica.especialidad %></td>
-    <td><%=h clinica.sitioWeb %></td>
-    <td><%= link_to 'Mostrar', clinica %></td>
-    <td><%= link_to 'Editar', edit_clinica_path(clinica) %></td>
-    <td><%= link_to 'Eliminar', clinica, :confirm => '¿Seguro de que quieres eliminar el registro?', :method => :delete %></td>
-    <% @cont = @cont + 1 %>
-  </tr>
-<% end %>
+  <%@clinicas.each do |clinica| %>
+    <tr>
+      <td><%=h @usuarios[@cont].nombre %></td>
+      <td><%=h clinica.estado %></td>
+      <td><%=h clinica.tipoClinica %></td>
+      <td><%=h clinica.especialidad %></td>
+      <td><%=h clinica.sitioWeb %></td>
+      <td><%= link_to 'Mostrar', :controller => "clinicas", :action => "show", :id => clinica %>
+      <td><%= link_to 'Editar', edit_clinica_path(clinica) %></td>
+      <td><%= link_to 'Eliminar', :controller => "clinicas", :action => "destroy", :id => clinica %>
+      <% @cont = @cont + 1 %>
+    </tr>
+  <% end %>
+
 </table>
 
 <br />

@@ -9,8 +9,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100418044730) do
+ActiveRecord::Schema.define(:version => 20100426082426) do
 
+  create_table "admins", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "clinicas", :force => true do |t|
     t.string   "rfc"
@@ -23,6 +27,17 @@ ActiveRecord::Schema.define(:version => 20100418044730) do
     t.string   "tipoClinica"
     t.string   "especialidad"
     t.string   "sitioWeb"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "consultas", :force => true do |t|
+    t.integer  "paciente_id"
+    t.integer  "doctor_id"
+    t.string   "motivo"
+    t.date     "fecha"
+    t.time     "hora"
+    t.text     "detalles"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -49,11 +64,11 @@ ActiveRecord::Schema.define(:version => 20100418044730) do
     t.string   "ciudadNacimiento"
     t.string   "estadoNacimiento"
     t.string   "estadoCivil"
-    t.integer  "estatura",          :limit => 10, :precision => 10, :scale => 0
+    t.integer  "estatura"
     t.string   "tipoSangre"
     t.boolean  "tatuajes"
     t.string   "religion"
-    t.integer  "peso",              :limit => 10, :precision => 10, :scale => 0
+    t.integer  "peso"
     t.string   "preferenciaSexual"
     t.string   "ocupacion"
     t.string   "companiaSeguros"

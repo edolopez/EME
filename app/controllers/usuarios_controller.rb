@@ -77,13 +77,5 @@ before_filter :autorizar, :only => [:perfil, :show]
 
   end
 
-  def perfilClinica
-    @usuario = Usuario.find(session[:usuario_id])
-    @clinica = Clinica.find(@usuario.datos_id)
-    @busca_clinica = Paciente.new
-		@busca_usuario = Usuario.new
-		@title = @usuario.nombre.capitalize
-  end
-
 end
 
