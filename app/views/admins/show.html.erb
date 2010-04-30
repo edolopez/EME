@@ -1,4 +1,4 @@
-<%= image_tag @usuario.imagen(:thumb)%>
+<h1>Bienvenido <%=h @usuario.nombre.capitalize %></h1>
 
 <p>
   <b>Nombre:</b>
@@ -15,5 +15,5 @@
   <%=h @usuario.telefono %>
 </p>
 
-<%= link_to 'Editar', edit_usuario_path(@usuario) %>
-<%= link_to 'Perfil', perfil_path%>
+
+<%= link_to 'Edit', edit_admin_path(@admin) %>

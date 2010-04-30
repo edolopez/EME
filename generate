@@ -1,0 +1,206 @@
+Script iniciado (lun 26 abr 2010 03:07:12 CDT
+)]0;ando@ando-laptop: ~/Proyecto/EMEando@ando-laptop:~/Proyecto/EME$ script/console[Kscript/generate scaffold consulta motivo:[K:string [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cg  fecha:date hora:time detalles.text
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+      exists  app/models/
+      exists  app/controllers/
+      exists  app/helpers/
+      create  app/views/consultas
+      exists  app/views/layouts/
+      exists  test/functional/
+      exists  test/unit/
+      exists  test/unit/helpers/
+      exists  public/stylesheets/
+      create  app/views/consultas/index.html.erb
+wrong number of arguments (1 for 2)
+]0;ando@ando-laptop: ~/Proyecto/EMEando@ando-laptop:~/Proyecto/EME$ script/generate scaffold consulta motivo:string  fecha:date hora:time detalles.text[1Ptext:text[C[C[C[C
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+      exists  app/models/
+      exists  app/controllers/
+      exists  app/helpers/
+      exists  app/views/consultas
+      exists  app/views/layouts/
+      exists  test/functional/
+      exists  test/unit/
+      exists  test/unit/helpers/
+      exists  public/stylesheets/
+overwrite app/views/consultas/index.html.erb? (enter "h" for help) [Ynaqdh] Y
+       force  app/views/consultas/index.html.erb
+      create  app/views/consultas/show.html.erb
+      create  app/views/consultas/new.html.erb
+      create  app/views/consultas/edit.html.erb
+      create  app/views/layouts/consultas.html.erb
+   identical  public/stylesheets/scaffold.css
+      create  app/controllers/consultas_controller.rb
+      create  test/functional/consultas_controller_test.rb
+      create  app/helpers/consultas_helper.rb
+      create  test/unit/helpers/consultas_helper_test.rb
+       route  map.resources :consultas
+  dependency  model
+      exists    app/models/
+      exists    test/unit/
+      exists    test/fixtures/
+      create    app/models/consulta.rb
+      create    test/unit/consulta_test.rb
+      create    test/fixtures/consultas.yml
+      exists    db/migrate
+      create    db/migrate/20100426080843_create_consultas.rb
+]0;ando@ando-laptop: ~/Proyecto/EMEando@ando-laptop:~/Proyecto/EME$ rake db:migrae[Kte
+(in /home/ando/Proyecto/EME)
+==  CreateConsultas: migrating ================================================
+-- create_table(:consultas)
+   -> 0.9066s
+==  CreateConsultas: migrated (0.9073s) =======================================
+
+]0;ando@ando-laptop: ~/Proyecto/EMEando@ando-laptop:~/Proyecto/EME$ rake db:migratescript/generate scaffold consulta motivo:string  fecha:date hora:time detalles:text[Arake db:migrate[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[Krollback
+(in /home/ando/Proyecto/EME)
+==  CreateConsultas: reverting ================================================
+-- drop_table(:consultas)
+   -> 1.6914s
+==  CreateConsultas: reverted (1.6918s) =======================================
+
+]0;ando@ando-laptop: ~/Proyecto/EMEando@ando-laptop:~/Proyecto/EME$ rake db:rollback[Krake db:rollback[1Pmigratescript/generate scaffold consulta motivo:string  fecha:date hora:time detalles:text[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpmotivo:string[1@ [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Camotivo:strin[1@g[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccmotivo:stri[1@n[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cimotivo:str[1@i[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cemotivo:st[1@r[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cnmotivo:s[1@t[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ctmotivo:[1@s[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cemotivo[1@:[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C_motiv[1@o[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cimoti[1@v[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cdmot[1@i[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C:mo[1@t[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cim[1@o[1@n[1@t[1@e[1@g[1@e[1@r[1@ [1@d[1@o[1@c[1@t[1@o[1@r[1@_[1@i[1@d[1@:[1@i[1@n[1@t[1@e[1@g[1@e[1@r[1@ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+      exists  app/models/
+      exists  app/controllers/
+      exists  app/helpers/
+      exists  app/views/consultas
+      exists  app/views/layouts/
+      exists  test/functional/
+      exists  test/unit/
+      exists  test/unit/helpers/
+      exists  public/stylesheets/
+overwrite app/views/consultas/index.html.erb? (enter "h" for help) [Ynaqdh] /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails_generator/commands.rb:102:in `gets': Interrupt
+	from /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails_generator/commands.rb:102:in `force_file_collision?'
+	from /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails_generator/commands.rb:233:in `file'
+	from /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails_generator/commands.rb:298:in `template'
+	from /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails_generator/manifest.rb:47:in `send'
+	from /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails_generator/manifest.rb:47:in `send_actions'
+	from /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails_generator/manifest.rb:46:in `each'
+	from /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails_generator/manifest.rb:46:in `send_actions'
+	from /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails_generator/manifest.rb:31:in `replay'
+	from /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails_generator/commands.rb:42:in `invoke!'
+	from /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails_generator/scripts/../scripts.rb:31:in `run'
+	from /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/commands/generate.rb:6
+	from /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+	from /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+	from script/generate:3
+
+]0;ando@ando-laptop: ~/Proyecto/EMEando@ando-laptop:~/Proyecto/EME$ script/generate scaffold consulta paciente_id:innteger doctor_id:integer motivo:string fecha:date hora:time detalles:text
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+      exists  app/models/
+      exists  app/controllers/
+      exists  app/helpers/
+      exists  app/views/consultas
+      exists  app/views/layouts/
+      exists  test/functional/
+      exists  test/unit/
+      exists  test/unit/helpers/
+      exists  public/stylesheets/
+overwrite app/views/consultas/index.html.erb? (enter "h" for help) [Ynaqdh] Y
+       force  app/views/consultas/index.html.erb
+overwrite app/views/consultas/show.html.erb? (enter "h" for help) [Ynaqdh] Y
+       force  app/views/consultas/show.html.erb
+overwrite app/views/consultas/new.html.erb? (enter "h" for help) [Ynaqdh] Y
+       force  app/views/consultas/new.html.erb
+overwrite app/views/consultas/edit.html.erb? (enter "h" for help) [Ynaqdh] Y
+       force  app/views/consultas/edit.html.erb
+   identical  app/views/layouts/consultas.html.erb
+   identical  public/stylesheets/scaffold.css
+   identical  app/controllers/consultas_controller.rb
+   identical  test/functional/consultas_controller_test.rb
+   identical  app/helpers/consultas_helper.rb
+   identical  test/unit/helpers/consultas_helper_test.rb
+       route  map.resources :consultas
+  dependency  model
+      exists    app/models/
+      exists    test/unit/
+      exists    test/fixtures/
+        skip    app/models/consulta.rb
+   identical    test/unit/consulta_test.rb
+        skip    test/fixtures/consultas.yml
+      exists    db/migrate
+Another migration is already named create_consultas: db/migrate/20100426080843_create_consultas.rb
+]0;ando@ando-laptop: ~/Proyecto/EMEando@ando-laptop:~/Proyecto/EME$ script/generate scaffold consulta paciente_id:innteger doctor_id:integer motivo:string fecha:date hora:time detalles:text[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[31Prake db:rollback
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1Pmigrate
+(in /home/ando/Proyecto/EME)
+==  CreateConsultas: migrating ================================================
+-- create_table(:consultas)
+   -> 0.0510s
+==  CreateConsultas: migrated (0.0513s) =======================================
+
+]0;ando@ando-laptop: ~/Proyecto/EMEando@ando-laptop:~/Proyecto/EME$ rake db:migratescript/generate scaffold consulta paciente_id:innteger doctor_id:integer motivo:string fecha:date hora:time detalles:text[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Crake db:migrate[K
+[K[A[C[C[C[/EME$ rake db:migratescript/generate scaffold consulta paciente_id:innteger doctor_id:integer motivo:string fecha:date hora:time detalles:text[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Crake db:migrate[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Krake db:migrate[K[K[K[K[K[K[K[K:rollback
+(in /home/ando/Proyecto/EME)
+==  CreateConsultas: reverting ================================================
+-- drop_table(:consultas)
+   -> 0.0428s
+==  CreateConsultas: reverted (0.0438s) =======================================
+
+]0;ando@ando-laptop: ~/Proyecto/EMEando@ando-laptop:~/Proyecto/EME$ rake db:rollback[1Pmigratescript/generate scaffold consulta paciente_id:innteger doctor_id:integer motivo:string fecha:date hora:time detalles:text
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+      exists  app/models/
+      exists  app/controllers/
+      exists  app/helpers/
+      exists  app/views/consultas
+      exists  app/views/layouts/
+      exists  test/functional/
+      exists  test/unit/
+      exists  test/unit/helpers/
+      exists  public/stylesheets/
+   identical  app/views/consultas/index.html.erb
+   identical  app/views/consultas/show.html.erb
+   identical  app/views/consultas/new.html.erb
+   identical  app/views/consultas/edit.html.erb
+   identical  app/views/layouts/consultas.html.erb
+   identical  public/stylesheets/scaffold.css
+   identical  app/controllers/consultas_controller.rb
+   identical  test/functional/consultas_controller_test.rb
+   identical  app/helpers/consultas_helper.rb
+   identical  test/unit/helpers/consultas_helper_test.rb
+       route  map.resources :consultas
+  dependency  model
+      exists    app/models/
+      exists    test/unit/
+      exists    test/fixtures/
+        skip    app/models/consulta.rb
+   identical    test/unit/consulta_test.rb
+        skip    test/fixtures/consultas.yml
+      exists    db/migrate
+Another migration is already named create_consultas: db/migrate/20100426080843_create_consultas.rb
+]0;ando@ando-laptop: ~/Proyecto/EMEando@ando-laptop:~/Proyecto/EME$ script/generate scaffold consulta paciente_id:innteger doctor_id:integer motivo:string fecha:date hora:time detalles:text
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+      exists  app/models/
+      exists  app/controllers/
+      exists  app/helpers/
+      exists  app/views/consultas
+      exists  app/views/layouts/
+      exists  test/functional/
+      exists  test/unit/
+      exists  test/unit/helpers/
+      exists  public/stylesheets/
+   identical  app/views/consultas/index.html.erb
+   identical  app/views/consultas/show.html.erb
+   identical  app/views/consultas/new.html.erb
+   identical  app/views/consultas/edit.html.erb
+   identical  app/views/layouts/consultas.html.erb
+   identical  public/stylesheets/scaffold.css
+   identical  app/controllers/consultas_controller.rb
+   identical  test/functional/consultas_controller_test.rb
+   identical  app/helpers/consultas_helper.rb
+   identical  test/unit/helpers/consultas_helper_test.rb
+       route  map.resources :consultas
+  dependency  model
+      exists    app/models/
+      exists    test/unit/
+      exists    test/fixtures/
+        skip    app/models/consulta.rb
+   identical    test/unit/consulta_test.rb
+        skip    test/fixtures/consultas.yml
+      exists    db/migrate
+      create    db/migrate/20100426082426_create_consultas.rb
+]0;ando@ando-laptop: ~/Proyecto/EMEando@ando-laptop:~/Proyecto/EME$ rake db:migrate
+(in /home/ando/Proyecto/EME)
+==  CreateConsultas: migrating =

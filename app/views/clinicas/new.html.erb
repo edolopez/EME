@@ -1,4 +1,16 @@
+<br/>
+ <div class="body">
+	
+
+
+<div class = "tabla"> 
+<div class = "tablaArriba"> 
 <h1>Nueva clinica</h1>
+</div>
+<div class = "contenidoTabla">
+
+
+
 
 <% form_for(@clinica) do |f| %>
 <% fields_for(@usuario) do |u| %>
@@ -6,59 +18,59 @@
 
 	 <p>
     <%= u.label :nombre, 'Nombre' %><br />
-    <%= u.text_field :nombre%>
+    <%= u.text_field :nombre, :class => 'round'%>
   </p>
   <p>
     <%= u.label :correoElectronico, 'Correo electronico' %><br />
-    <%= u.text_field :correoElectronico%>
+    <%= u.text_field :correoElectronico, :class => 'round'%>
   </p>
   <p>
     <%= u.label :telefono, 'Telefono' %><br />
-    <%= u.text_field :telefono, :placeholder => "(123) 555-1234" %>
+    <%= u.text_field :telefono, :placeholder => "(123) 555-1234", :class => 'round' %>
   </p>
 
   <p>
     <%= f.label :fax, 'Fax'  %><br />
-    <%= f.text_field :fax %>
+    <%= f.text_field :fax, :class => 'round' %>
   </p>
 
   <p>
-    <%= u.label :usuario_password, 'Password' %><br />
-    <%= u.password_field :password %>
+    <%= u.label :usuario_password, 'Contraseña' %><br />
+    <%= u.password_field :password, :class => 'round' %>
   </p>
 
   <p>
-    <%= u.label :usuario_password_confirmation, 'Confirmacion' %><br />
-    <%= u.password_field :password_confirmation %>
+    <%= u.label :usuario_password_confirmation, 'Confirmación de Contraseña' %><br />
+    <%= u.password_field :password_confirmation, :class => 'round'%>
   </p>
 
   <p>
     <%= f.label :rfc, 'RFC'  %><br />
-    <%= f.text_field :rfc %>
+    <%= f.text_field :rfc, :class => 'round' %>
   </p>
 
  <p>
     <%= f.label :estado, 'Estado' %><br />
     <%= f.select :estado,
              Clinica::ESTADO,
-            :prompt => "Selecciona un estado"%>
+            :prompt => "Selecciona un estado", :class => 'round'%>
   </p>
 
   <p>
     <%= f.label :ciudad, 'Ciudad'  %><br />
-    <%= f.text_field :ciudad %>
+    <%= f.text_field :ciudad, :class => 'round' %>
   </p>
   <p>
     <%= f.label :calle, 'Calle'  %><br />
-    <%= f.text_field :calle %>
+    <%= f.text_field :calle, :class => 'round' %>
   </p>
   <p>
     <%= f.label :colonia, 'Colonia'  %><br />
-    <%= f.text_field :colonia %>
+    <%= f.text_field :colonia, :class => 'round' %>
   </p>
   <p>
     <%= f.label :codigoPostal, 'Codigo Postal'  %><br />
-    <%= f.text_field :codigoPostal %>
+    <%= f.text_field :codigoPostal, :class => 'round' %>
   </p>
 
   <p>
@@ -70,17 +82,23 @@
   </p>
   <p>
     <%= f.label :especialidad, 'Especialidad'  %><br />
-    <%= f.text_field :especialidad %>
+    <%= f.text_field :especialidad, :class => 'round' %>
   </p>
   <p>
     <%= f.label :sitioWeb, 'Sitio Web'  %><br />
-    <%= f.text_field :sitioWeb%>
+    <%= f.text_field :sitioWeb, :class => 'round'%>
   </p>
-  <p>
     <%= f.submit 'Create' %>
-  </p>
+ 
   <% end %>
 <% end %>
 
 <%= link_to 'Back', clinicas_path %>
+
+</div>
+<div class = "tablaAbajo">
+</div>
+</div>
+</div>
+
 

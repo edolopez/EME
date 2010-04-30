@@ -1,7 +1,33 @@
-<h1>Editar paciente</h1>
+<br/>
+ <div class="body">
+	
+	<div class = "menu">
 
-<% form_for(@paciente) do |f| %>
-    <% fields_for(@usuario) do |u| %>
+		<div class = "menuArriba"></div>
+
+		<div class = "contenidomenu">
+
+			<%= link_to 'Atras', :controller => "pacientes", :action => "show", :id => @paciente.id %>
+
+
+		</div>
+		<div class = "menuAbajo"></div>
+	</div>
+	
+
+
+<div class = "tabla"> 
+<div class = "tablaArriba"> 
+<h1>Editando a <%= @usuario.nombre.titleize%></h1>
+</div>
+<div class = "contenidoTabla">
+
+
+
+
+
+<% form_for @paciente, :paciente,  :url => { :action => "update"}  do |f| %>
+    <% fields_for :usuario, @usuario, :url => { :action => "update"} do |u| %>
       <%= error_messages_for :usuario, :paciente %>
       <p>
         <%= u.label :nombre, 'Nombre' %><br />
@@ -101,13 +127,16 @@
     <%= f.label :poliza, 'Poliza'  %><br />
     <%= f.text_field :poliza %>
   </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
+
+    <%= f.submit 'Actualizar' %>
+
 
   <% end %>
 <% end %>
 
-<%= link_to 'Show', @paciente %> |
-<%= link_to 'Back', pacientes_path %>
+</div>
+<div class = "tablaAbajo">
+</div>
+</div>
+</div>
 

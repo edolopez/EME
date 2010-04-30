@@ -1,32 +1,39 @@
-<h1>Agregar Doctor</h1>
+<br/>
+ <div class="body">
+	
 
-<% form_for(@doctor) do |f| %>
+
+<div class = "tabla"> 
+<div class = "tablaArriba"> 
+<h1>Nuevo Doctor</h1>
+</div>
+<div class = "contenidoTabla"><% form_for(@doctor) do |f| %>
 
 <% fields_for(@usuario) do |u| %>
   <%= error_messages_for :usuario, :doctor %>
 
 	 <p>
     <%= u.label :nombre, 'Nombre' %><br />
-    <%= u.text_field :nombre%>
+    <%= u.text_field :nombre, :class => 'round'%>
   </p>
 
   <p>
     <%= f.label :apellidoPaterno, 'Apellido Paterno'  %><br />
-    <%= f.text_field :apellidoPaterno %>
+    <%= f.text_field :apellidoPaterno, :class => 'round' %>
   </p>
   <p>
     <%= f.label :apellidoMaterno, 'Apellido Materno'  %><br />
-    <%= f.text_field :apellidoMaterno %>
+    <%= f.text_field :apellidoMaterno, :class => 'round' %>
   </p>
 
   <p>
-    <%= u.label :usuario_password, 'Password' %><br />
-    <%= u.password_field :password %>
+    <%= u.label :usuario_password, 'Contraseña' %><br />
+    <%= u.password_field :password, :class => 'round' %>
   </p>
 
   <p>
-    <%= u.label :usuario_password_confirmation, 'Confirmacion' %><br />
-    <%= u.password_field :password_confirmation %>
+    <%= u.label :usuario_password_confirmation, 'Confirmación de Contraseña' %><br />
+    <%= u.password_field :password_confirmation, :class => 'round' %>
   </p>
 
    <p>
@@ -51,21 +58,21 @@
 
   <p>
     <%= f.label :ciudadNacimiento, 'Ciudad de Nacimiento'  %><br />
-    <%= f.text_field :ciudadNacimiento %>
+    <%= f.text_field :ciudadNacimiento, :class => 'round' %>
   </p>
-
-
 
  <p>
     <%= f.label :especialidad, 'Especialidad' %><br />
     <%= f.select :especialidad,
              Doctor::ESPECIALIDAD,
-            :prompt => "Selecciona la especialidad"%>
+
+            :prompt => "Selecciona tu especialidad"%>
+
   </p>
 
     <p>
-    <%= u.label :correoElectronico, 'Correo electronico' %><br />
-    <%= u.text_field :correoElectronico%>
+    <%= u.label :correoElectronico, 'Correo electrónico' %><br />
+    <%= u.text_field :correoElectronico, :class => 'round'%>
   </p>
   <p>
     <%= u.label :telefono, 'Telefono' %><br />
@@ -82,3 +89,8 @@
 
 <%= link_to("Back", {:controller => "doctors", :action => "index"})%>
 
+</div>
+<div class = "tablaAbajo">
+</div>
+</div>
+</div>

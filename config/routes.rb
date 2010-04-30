@@ -1,14 +1,16 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :pacientes
+
+
 	map.signup '/signup', :controller => "pacientes", :action => "new"
-	map.perfil '/perfil', :controller => "usuarios", :action => "perfil"
-	map.clinica '/clinica', :controller => "usuarios", :action => "perfilClinica"
+	map.paciente '/root', :controller => "admins", :action => "index"
 
   map.resources :clinicas
   map.resources :doctors
-  map.resources :pacientes
   map.resources :usuarios
   map.resources :trabajos
-
+  map.resources :admins
+	map.resources :consultas
 	map.root :controller => "admin", :action => "login"
 
   map.connect ':controller/:action/:id'

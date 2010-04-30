@@ -25,6 +25,9 @@ has_one :usuario, :as => :datos
 has_many :trabajos
 has_many :clinicas, :through => :trabajos
 
+has_many :consultas
+has_many :pacientes, :through => :consultas
+
 
 
 accepts_nested_attributes_for :usuario

@@ -1,27 +1,26 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
-  <head>
+<head>
     <title><%= title%></title>
-    <%= stylesheet_link_tag 'application' %>
-    <%= yield(:head) %>
-  </head>
-  <body>
-    <div id="container">
-<% if session[:usuario_id] == nil %>
-								
-			<% else %>
-<%= link_to "Cerrar sesión", :controller => "admin", :action => "logout" %>
-				
-			<% end %>
+    <%= stylesheet_link_tag 'EMELoginCSS' %>
 
-      <%- flash.each do |name, msg| -%>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <%- end -%>
-      
-     
-      
-      <%= yield %>
+
+
+</head>
+
+<body>
+    <div class="encabezado">
+    	<div class="content">
+        	<img class="logo" src="../imagenes/logo.png" />
+        </div>
     </div>
-  </body>
+
+	
+	 <%- flash.each do |name, msg| -%>
+	        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+	      <%- end -%>    
+
+	<%=yield%>
+    
+</body>
 </html>

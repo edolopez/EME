@@ -1,0 +1,33 @@
+<p>
+  <b>Paciente:</b>
+  <%=h @consulta.paciente_id %>
+</p>
+
+<p>
+  <b>Doctor:</b>
+  <%=h @consulta.doctor_id %>
+</p>
+
+<p>
+  <b>Motivo:</b>
+  <%=h @consulta.motivo %>
+</p>
+
+<p>
+  <b>Fecha:</b>
+  <%=h @consulta.fecha %>
+</p>
+
+<p>
+  <b>Hora:</b>
+  <%=h @consulta.hora %>
+</p>
+
+<p>
+  <b>Detalles:</b>
+  <%=h @consulta.detalles %>
+</p>
+
+
+<%= link_to 'Edit', edit_consulta_path(@consulta) %> |
+<%= link_to 'Back', consultas_path %>

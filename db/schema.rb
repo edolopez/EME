@@ -9,7 +9,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100418080713) do
+ActiveRecord::Schema.define(:version => 20100428230605) do
+
+  create_table "admins", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "clinicas", :force => true do |t|
     t.string   "rfc"
@@ -26,9 +31,14 @@ ActiveRecord::Schema.define(:version => 20100418080713) do
     t.datetime "updated_at"
   end
 
-  create_table "doctor_clinicas", :force => true do |t|
+  create_table "consultas", :force => true do |t|
+    t.integer  "paciente_id"
     t.integer  "doctor_id"
-    t.integer  "clinica_id"
+    t.string   "motivo"
+    t.date     "fecha"
+    t.time     "hora"
+    t.text     "detalles"
+    t.string   "nombre_clinica"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -38,19 +48,10 @@ ActiveRecord::Schema.define(:version => 20100418080713) do
     t.string   "apellidoMaterno"
     t.integer  "edad"
     t.string   "sexo"
-    t.string   "fechaNacimiento"
+    t.date     "fechaNacimiento"
     t.string   "ciudadNacimiento"
     t.string   "estadoNacimiento"
     t.string   "especialidad"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "paciente_doctors", :force => true do |t|
-    t.integer  "paciente_id"
-    t.integer  "doctor_id"
-    t.string   "motivoConsulta"
-    t.text     "detalles"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

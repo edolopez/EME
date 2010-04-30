@@ -1,26 +1,31 @@
-  <% form_tag do %>
-    <fieldset>
-       <legend>Datos de acceso</legend>
-       <div>
-         <label for="nombre">Usuario:</label>
-         <%= text_field_tag :id, params[:id], :placeholder => "Nombre de usuario" %>
+<div class="content" style="padding-top: 50px;"> 
+
+
+<div class="login">
+	<p style="text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:18px; padding:10px 0 10px 0">Ingresa con tu Cuenta</p>
+	
+ <% form_tag do %>
+
+       
+       <div style="margin-bottom:8px; float:left">
+         <label for="nombre", class= "labels">Usuario:</label>
+         <%= text_field_tag :id, params[:id], :placeholder => "Nombre de usuario", :class  => 'usuario' %>
        </div>
-<p>
-</p>
-       <div>
-         <label for="password">Contrasenia:</label>
-         <%= password_field_tag :password, params[:password] %>
+
+      <div style="margin-bottom:8px; float:left">
+         <label for="password", class= "labels">Contrasenia:</label>
+         <%= password_field_tag :password, params[:password], :placeholder => "Password del usuario", :class  => 'contrasenia' %>
        </div>
        <div>
-         <%= submit_tag "Entrar" %>
+         <%= submit_tag "",:class => 'botonEntrar' %>
        </div>
-    </fieldset>
   <% end %>
 
-Nuevo usuario? <%= link_to 'Registrate como paciente', signup_path%>
-<br />
-Nueva clinica? <%= link_to 'Registra tu clinica', new_clinica_path %>
-<br />
-Nuevo doctor? <%= link_to 'Registrate como doctor', new_doctor_path%>
+            <p style="clear:both;text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:18px; padd "><%= link_to 'Registrate como paciente', signup_path%></p>
+
+</div>
 
 
+
+      
+     

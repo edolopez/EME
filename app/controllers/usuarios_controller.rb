@@ -1,40 +1,41 @@
 class UsuariosController < ApplicationController
 
-before_filter :autorizar, :only => [:perfil, :show, :busqueda]
+before_filter :autorizar, :only => [:show, :busqueda, :index, :edit]
 
 
 def index
+
 @usuarios = Usuario.busqueda(params[:busqueda])
-	
+
 end
   # GET /usuarios/1
   # GET /usuarios/1.xml
   def show
+
     @usuario = Usuario.find(session[:usuario_id])
   end
 
   # GET /usuarios/new
   # GET /usuarios/new.xml
   def new
+
     @usuario = Usuario.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @usuario }
-    end
   end
 
   # GET /usuarios/1/edit
   def edit
+
     @usuario = Usuario.find(session[:usuario_id])
+
   end
 
   # POST /usuarios
   # POST /usuarios.xml
   def create
     @usuario = Usuario.new(params[:usuario])
-		@paciente_id = Paciente.new(params[:paciente_id])
-		@usuario.paciente_id = @paciente_id
+		@paciente_id = Paciente.new(params[:usuario_id])
+		@usuario._id = @paciente_id
 
     respond_to do |format|
       if @usuario.save
@@ -56,7 +57,7 @@ end
     respond_to do |format|
       if @usuario.update_attributes(params[:usuario])
         flash[:notice] = 'El usuario fue actualizado correctamente.'
-        format.html { redirect_to perfil_path }
+        format.html { redirect_to :back }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -77,20 +78,7 @@ end
     end
   end
 
-  def perfil
-    @usuario = Usuario.find(session[:usuario_id])
-		
-  end
 
-
-
-  def perfilClinica
-    @usuario = Usuario.find(session[:usuario_id])
-    @clinica = Clinica.find(@usuario.datos_id)
-    @busca_clinica = Paciente.new
-		@busca_usuario = Usuario.new
-		@title = @usuario.nombre.capitalize
-  end
 
 end
 
