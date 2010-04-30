@@ -1,4 +1,7 @@
 class TrabajosController < ApplicationController
+
+before_filter :autorizar, :only => [:index, :show, :edit, :new]
+
   # GET /trabajos
   # GET /trabajos.xml
   def index

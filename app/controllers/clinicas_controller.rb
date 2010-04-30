@@ -1,15 +1,7 @@
 class ClinicasController < ApplicationController
 
-  def autorizar
-  end
+before_filter :autorizar, :only => [:show, :busqueda,:index, :edit]
 
-  def perfil
-    @usuario = Usuario.find(session[:usuario_id])
-    @clinica = Clinica.find(@usuario.datos_id)
-    @busca_clinica = Paciente.new
-		@busca_usuario = Usuario.new
-		@title = @usuario.nombre.capitalize
-  end
 
   # Metodo que regresa todos los doctores en la tabla usuarios
   def clinicas_todas(id)
@@ -19,50 +11,41 @@ class ClinicasController < ApplicationController
   # GET /clinicas
   # GET /clinicas.xml
   def index
+
+
     @cont = 0 # Variable para acceso al arreglo de @usuarios en la vista
     @clinicas = Clinica.all
     @usuarios = Usuario.find(:all, :conditions => "datos_type = 'Clinica'")
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @clinicas }
-    end
+
   end
 
   # GET /clinicas/1
   # GET /clinicas/1.xml
   def show
-    @clinica = Clinica.find(params[:id])
-    id = @clinica.id
-    @usuario = clinicas_todas(id)
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @clinica }
-    end
+    @usuario = Usuario.find(session[:usuario_id])
+    @clinica = Clinica.find(@usuario.datos_id)
+    
   end
 
   # GET /clinicas/new
   # GET /clinicas/new.xml
   def new
+
     @clinica = Clinica.new
     @usuario = Usuario.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @clinica }
-    end
+    
   end
 
   # GET /clinicas/1/edit
   def edit
+
     @clinica = Clinica.find(params[:id])
     id = @clinica.id
     @usuario = clinicas_todas(id)
 
-    # @clinica.sitioWeb = @clinica.sitioWeb.split('//')[1]
-
-  end
+     end
 
   # POST /clinicas
   # POST /clinicas.xml
@@ -77,8 +60,8 @@ class ClinicasController < ApplicationController
       if @clinica.valid? && @usuario.valid?
         @clinica.save
         @usuario.save
-        flash[:notice] = 'Clinica was successfully created.'
-        format.html { redirect_to :back }
+        flash[:notice] = 'La clinica fue creada satisfactoriamente'
+        format.html { redirect_to clinicas_path}
         format.xml  { render :xml => @clinica, :status => :created, :location => @clinica }
       else
         format.html { render :action => "new" }
@@ -90,16 +73,18 @@ class ClinicasController < ApplicationController
   # PUT /clinicas/1
   # PUT /clinicas/1.xml
   def update
-    @clinica = Clinica.find(params[:id])
-    id = @clinica.id
-    @usuario = clinicas_todas(id)
+		@clinica = Clinica.find(params[:id])
+		  id = @clinica.id
+		@usuario = Usuario.find_by_datos_id(id, :conditions => "datos_type = 'Clinica'")
 
     # @clinica.sitioWeb = "http://#{@clinica.sitioWeb}"
 
     respond_to do |format|
-      if @clinica.update_attributes(params[:clinica]) && @usuario.update_attributes(params[:usuario])
-        flash[:notice] = 'Clinica was successfully updated.'
-        format.html { redirect_to(@clinica) }
+      if @clinica.valid? && @usuario.valid?
+				@clinica.update_attributes(params[:clinica])
+				@usuario.update_attributes(params[:usuario])
+        flash[:notice] = 'La clinica fue actualizada satisfactoriamente'
+        format.html { redirect_to :back }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -123,5 +108,13 @@ class ClinicasController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+	def datos
+
+		@clinica = Clinica.find(params[:id])
+		  id = @clinica.id
+		@usuario = Usuario.find_by_datos_id(id, :conditions => "datos_type = 'Clinica'")
+	
+end
 end
 

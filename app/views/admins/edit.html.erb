@@ -1,12 +1,24 @@
 <h1>Editing admin</h1>
 
-<% form_for(@admin) do |f| %>
-  <%= f.error_messages %>
+<% form_for(@usuario) do |u| %>
+	<%= u.error_messages %>
+
+ <p>
+    <%= u.label :nombre %><br />
+    <%= u.text_field :nombre %>
+  </p>
+  <p>
+    <%= u.label :correoElectronico %><br />
+    <%= u.text_field :correoElectronico %>
+  </p>
+  <p>
+    <%= u.label :telefono %><br />
+    <%= u.text_field :telefono %>
+  </p>
 
   <p>
-    <%= f.submit 'Update' %>
+    <%= u.submit 'Update' %>
   </p>
-<% end %>
 
-<%= link_to 'Show', @admin %> |
-<%= link_to 'Back', admins_path %>
+<% end %>	
+<%= link_to 'Back', @admin %>

@@ -1,4 +1,4 @@
-# This file is auto-generated from the current state of the database. Instead of editing this file,
+# This file is auto-generated from the current state of the database. Instead of editing this file, 
 # please use the migrations feature of Active Record to incrementally modify your database, and
 # then regenerate this schema definition.
 #
@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100426082426) do
+ActiveRecord::Schema.define(:version => 20100428230605) do
 
   create_table "admins", :force => true do |t|
     t.datetime "created_at"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20100426082426) do
     t.date     "fecha"
     t.time     "hora"
     t.text     "detalles"
+    t.string   "nombre_clinica"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -64,11 +65,11 @@ ActiveRecord::Schema.define(:version => 20100426082426) do
     t.string   "ciudadNacimiento"
     t.string   "estadoNacimiento"
     t.string   "estadoCivil"
-    t.integer  "estatura"
+    t.integer  "estatura",          :limit => 10, :precision => 10, :scale => 0
     t.string   "tipoSangre"
     t.boolean  "tatuajes"
     t.string   "religion"
-    t.integer  "peso"
+    t.integer  "peso",              :limit => 10, :precision => 10, :scale => 0
     t.string   "preferenciaSexual"
     t.string   "ocupacion"
     t.string   "companiaSeguros"
@@ -103,4 +104,3 @@ ActiveRecord::Schema.define(:version => 20100426082426) do
   end
 
 end
-

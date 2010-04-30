@@ -71,7 +71,7 @@ end
 
 def self.busqueda(busqueda)
 		if busqueda
-#­SELECT * FROM `usuarios`, `pacientes` WHERE usuarios.id = 9 And usuarios.datos_id = pacientes.id AND usuarios.datos_type = "Paciente"
+
 			find_by_sql("SELECT * FROM pacientes, usuarios WHERE usuarios.id = '#{busqueda}' AND usuarios.datos_id = pacientes.id AND usuarios.datos_type = 'Paciente'")
 
 		end

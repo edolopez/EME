@@ -54,9 +54,12 @@
     <%= f.text_field :ciudadNacimiento %>
   </p>
 
-
-
-
+ <p>
+    <%= f.label :especialidad, 'Especialidad' %><br />
+    <%= f.select :especialidad,
+             Doctor::ESPECIALIDAD,
+            :prompt => "Selecciona tu especialidad"%>
+  </p>
 
     <p>
     <%= u.label :correoElectronico, 'Correo electronico' %><br />

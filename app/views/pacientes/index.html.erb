@@ -20,9 +20,8 @@
     <td><%=h paciente.estadoNacimiento %></td>
     <td><%=h paciente.companiaSeguros %></td>
     <td><%=h paciente.poliza %></td>
-    <td><%= link_to 'Mostrar', paciente %></td>
-    <td><%= link_to 'Editar', edit_paciente_path(paciente) %></td>
-    <td><%= link_to 'Eliminar', paciente, :confirm => '¿Seguro que deseas eliminar el registro?', :method => :delete %></td>
+    <td><%= link_to 'Mostrar', :controller => "pacientes", :action => "datos", :id => paciente.id %></td>
+    <td><%= link_to 'Editar', :controller => "pacientes", :action => "edit", :id => paciente.id %></td>
     <% @cont = @cont + 1 %>
   </tr>
 <% end %>

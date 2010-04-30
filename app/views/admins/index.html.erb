@@ -1,4 +1,4 @@
-<h1>Listing admins</h1>
+<h1>Lista de administradores</h1>
 
 <table>
 
@@ -10,11 +10,11 @@
   <tr>
     <td><%=h @usuarios[@cont].nombre %></td>
     <td><%=h @usuarios[@cont].correoElectronico %></td>
-    <td><%= link_to 'Show', admin %></td>
+    <td><%= link_to 'Show', :controller => "admins", :action => "datos", :id => admin.id  %></td>
     <td><%= link_to 'Edit', edit_admin_path(admin) %></td>
     <td><%= link_to 'Destroy', admin, :confirm => 'Are you sure?', :method => :delete %></td>
-    <% @cont = @cont + 1 %>
-  </tr>
+    <% @cont = @cont + 1 %>  
+</tr>
 <% end %>
 </table>
 

@@ -1,7 +1,4 @@
-<p>
-  <b>Nombre:</b>
-  <%=h @usuario.nombre %>
-</p>
+<h1>Informacion Personal de <%= @usuario.nombre.titleize%></h1>
 
 <p>
   <b>Correoelectronico:</b>
@@ -98,8 +95,6 @@
   <%=h @paciente.poliza %>
 </p>
 
-<% if @usuario.datos_type != 'Paciente' %>
-<%= link_to 'Edit', edit_paciente_path(@paciente) %> |
-<%= link_to 'Back', pacientes_path %>
-<%end%>
+<%= link_to 'Editar', edit_paciente_path(@paciente) %>
+
 

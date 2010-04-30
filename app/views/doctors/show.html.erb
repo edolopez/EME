@@ -1,3 +1,11 @@
+<h1>Bienvenido Dr.  <%=h @doctor.apellidoPaterno.titleize %></h1>
+<% if @usuario.datos_type == 'Doctor' %>
+<% form_tag({:controller => "usuarios", :action => "index"}, :method => 'GET') do %>
+<%= text_field_tag :busqueda %>
+<%= submit_tag "Buscar", :name => "" %>
+<% end %>
+<% end %>
+
 <p>
   <b>ID:</b>
   <%=h @usuario.id %>
@@ -59,6 +67,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_doctor_path(@doctor) %> |
-<%= link_to("Back", {:controller => "doctors", :action => "index"})%>
+<%= link_to 'Editar', edit_doctor_path(@doctor) %>
 

@@ -16,9 +16,9 @@
       <td><%=h clinica.tipoClinica %></td>
       <td><%=h clinica.especialidad %></td>
       <td><%=h clinica.sitioWeb %></td>
-      <td><%= link_to 'Mostrar', :controller => "clinicas", :action => "show", :id => clinica %>
+      <td><%= link_to 'Mostrar', :controller => "clinicas", :action => "datos", :id => clinica.id %>
       <td><%= link_to 'Editar', edit_clinica_path(clinica) %></td>
-      <td><%= link_to 'Eliminar', :controller => "clinicas", :action => "destroy", :id => clinica %>
+      <td><%= link_to 'Destroy', clinica, :confirm => 'Are you sure?', :method => :delete %></td>
       <% @cont = @cont + 1 %>
     </tr>
   <% end %>

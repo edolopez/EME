@@ -14,7 +14,7 @@
     <td><%=h doctor.apellidoPaterno %></td>
     <td><%=h doctor.apellidoMaterno %></td>
     <td><%=h doctor.especialidad %></td>
-    <td><%= link_to 'Mostrar', doctor %></td>
+    <td><%= link_to 'Mostrar', :controller => "doctors", :action => "datos", :id => doctor.id %></td>
     <td><%= link_to 'Editar', edit_doctor_path(doctor) %></td>
     <td><%= link_to 'Eliminar', doctor, :confirm => '¿Seguro que deseas eliminar el registro?', :method => :delete %></td>
     <% @cont = @cont + 1 %>
@@ -25,7 +25,7 @@
 <br />
 
 <%= link_to 'Nuevo doctor', new_doctor_path %> |
-<%= link_to 'Atras', clinica_path %>
+<%= link_to 'Atras', clinicas_path %>
 
  <%=
      #link_to_if(session[:usuario_id], "Back", { :controller => "usuarios", :action => "perfilClinica" }) do

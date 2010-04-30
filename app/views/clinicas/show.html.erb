@@ -1,56 +1,25 @@
-<p>
-  <b>ID:</b>
-  <%=h @usuario.id %>
-</p>
-
+<h1>Bienvenido <%=h @usuario.nombre %></h1>
+<% if @usuario.datos_type == 'Clinica' %>
+<% form_tag({:controller => "usuarios", :action => "index"}, :method => 'GET') do %>
+<%= text_field_tag :busqueda %>
+<%= submit_tag "Buscar", :name => "" %>
+<% end %>
+<% end %>
+<fieldset>
+<legend>Datos del usuario</legend>
 <p>
   <b>Nombre:</b>
   <%=h @usuario.nombre %>
 </p>
 
 <p>
-  <b>Correoelectronico:</b>
-  <%=h @usuario.correoElectronico %>
+<b>Correo:</b>
+<%=h @usuario.correoElectronico%>
 </p>
 
 <p>
-  <b>Telefono:</b>
-  <%=h @usuario.telefono %>
-</p>
-
-<p>
-  <b>Rfc:</b>
-  <%=h @clinica.rfc %>
-</p>
-
-<p>
-  <b>Ciudad:</b>
-  <%=h @clinica.ciudad %>
-</p>
-
-<p>
-  <b>Estado:</b>
-  <%=h @clinica.estado %>
-</p>
-
-<p>
-  <b>Calle:</b>
-  <%=h @clinica.calle %>
-</p>
-
-<p>
-  <b>Colonia:</b>
-  <%=h @clinica.colonia %>
-</p>
-
-<p>
-  <b>Codigopostal:</b>
-  <%=h @clinica.codigoPostal %>
-</p>
-
-<p>
-  <b>Fax:</b>
-  <%=h @clinica.fax %>
+<b>Telefono:</b>
+<%=h @usuario.telefono%>
 </p>
 
 <p>
@@ -67,8 +36,10 @@
   <b>Sitioweb:</b>
   <%=h @clinica.sitioWeb %>
 </p>
+ <td><%= link_to 'Editar', edit_clinica_path(@clinica) %></td>
+</fieldset>
 
-
-<%= link_to 'Edit', edit_clinica_path(@clinica) %> |
-<%= link_to 'Back', clinicas_path %>
+<%= link_to 'Doctores en la clinica', trabajos_path %> <br>
+<%= link_to 'Doctores en el pais', doctors_path%> <br>
+<%= link_to 'Busqueda de Expediente' %> <br>
 
