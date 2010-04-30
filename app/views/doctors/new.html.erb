@@ -56,7 +56,12 @@
 
 
 
-
+ <p>
+    <%= f.label :especialidad, 'Especialidad' %><br />
+    <%= f.select :especialidad,
+             Doctor::ESPECIALIDAD,
+            :prompt => "Selecciona la especialidad"%>
+  </p>
 
     <p>
     <%= u.label :correoElectronico, 'Correo electronico' %><br />
