@@ -1,16 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :consultas
 
-  map.resources :consultas
-
-  map.resources :consultas
-
-  map.resources :consultas
-
 	map.signup '/signup', :controller => "pacientes", :action => "new"
-	map.perfil '/perfil', :controller => "usuarios", :action => "perfil"
-	map.clinica '/clinica', :controller => "clinicas", :action => "perfil"
-  map.administrador '/administrador', :controller => "admins", :action => "perfil"
+	map.perfil '/perfil', :controller => "usuarios", :action => "show"
+	map.clinica '/clinica', :controller => "clinicas", :action => "show"
+	map.paciente '/paciente', :controller => "pacientes", :action => "show"
+  map.administrador '/administrador', :controller => "admins", :action => "show"
 
   map.resources :clinicas
   map.resources :doctors

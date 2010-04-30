@@ -12,6 +12,8 @@ def login
 			  redirect_to(uri || clinica_path)
       elsif usuario.datos_type == 'Admin'
 			  redirect_to(uri || administrador_path)
+      elsif usuario.datos_type == 'Paciente'
+			  redirect_to(uri || paciente_path)
       else
 		    redirect_to(uri || perfil_path)
       end
