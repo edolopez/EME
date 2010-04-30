@@ -33,7 +33,7 @@ TelRegex = /\((\d{3})\)\s+(\d{3})-(\d{4})/ #(123) 555-1234
 validates_format_of :telefono, :with => TelRegex
 
  validate :password_non_blank
-  
+
 def self.authenticate(id, password)
     usuario = self.find_by_id(id)
     if usuario
@@ -60,7 +60,7 @@ private
   def password_non_blank
     errors.add(:password, "Missing password" ) if hashed_password.blank?
   end
-                                                                                   
+
 def create_new_salt
   self.salt = self.object_id.to_s + rand.to_s
 end
@@ -71,11 +71,12 @@ end
 
 def self.busqueda(busqueda)
 		if busqueda
-#­SELECT * FROM `usuarios`, `pacientes` WHERE usuarios.id = 9 And usuarios.datos_id = pacientes.id AND usuarios.datos_type = "Paciente"
-			find_by_sql("SELECT * FROM pacientes, usuarios WHERE usuarios.id = '#{busqueda}' AND usuarios.datos_id = pacientes.id AND usuarios.datos_type = 'Paciente'")
+
+		find_by_sql("SELECT * FROM pacientes, usuarios WHERE usuarios.id = '#{busqueda}' AND usuarios.datos_id = pacientes.id AND usuarios.datos_type = 'Paciente'")
 
 		end
-	
+
 end
 
 end
+

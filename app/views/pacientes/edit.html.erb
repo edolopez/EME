@@ -1,7 +1,8 @@
-<h1>Editar paciente</h1>
+<h1>Editando a <%= @usuario.nombre.titleize%></h1>
 
-<% form_for(@paciente) do |f| %>
-    <% fields_for(@usuario) do |u| %>
+
+<% form_for @paciente, :paciente,  :url => { :action => "update"}  do |f| %>
+    <% fields_for :usuario, @usuario, :url => { :action => "update"} do |u| %>
       <%= error_messages_for :usuario, :paciente %>
       <p>
         <%= u.label :nombre, 'Nombre' %><br />
@@ -102,9 +103,10 @@
     <%= f.text_field :poliza %>
   </p>
   <p>
-    <%= f.submit 'Update' %>
+    <%= f.submit 'Actualizar' %>
   </p>
 
   <% end %>
 <% end %>
 
+<%= link_to 'Atras', :controller => "pacientes", :action => "show", :id => @paciente.id %>

@@ -1,4 +1,4 @@
-<h1>Editar clinica</h1>
+ ­<h1>Editar clinica</h1>
 
 <% form_for(@clinica) do |f| %>
 <% fields_for(@usuario) do |u| %>
@@ -12,7 +12,8 @@
     <%= u.label :correoElectronico, 'Correo electronico' %><br />
     <%= u.text_field :correoElectronico%>
   </p>
-  <p>
+
+ ­<p>
     <%= u.label :telefono, 'Telefono' %><br />
     <%= u.text_field :telefono, :placeholder => "(123) 555-1234" %>
   </p>
@@ -34,7 +35,7 @@
             :prompt => "@clinica.estado"%>
   </p>
 
-  <p>
+ ­ <p>
     <%= f.label :ciudad, 'Ciudad'  %><br />
     <%= f.text_field :ciudad %>
   </p>
@@ -58,7 +59,8 @@
         <%= label_tag(:tipoClinica, "Privada")  %>
     <%= f.radio_button(:tipoClinica, "Privada") %>
   </p>
-  <p>
+
+ ­ <p>
     <%= f.label :especialidad, 'Especialidad'  %><br />
     <%= f.text_field :especialidad %>
   </p>
@@ -67,11 +69,9 @@
     <%= f.text_field :sitioWeb%>
   </p>
   <p>
-    <%= f.submit 'Create' %>
+    <%= f.submit 'Actualizar' %>
   </p>
   <% end %>
 <% end %>
 
-<%= link_to 'Show', @clinica %> |
-<%= link_to 'Back', clinicas_path %>
-
+<%= link_to 'Ver Clinicas', clinicas_path %>

@@ -64,6 +64,9 @@
   <% end %>
 <% end %>
 
-<%= link_to 'Show', @doctor %> |
-<%= link_to 'Back', doctors_path %>
+  <%=
+     link_to_if(Usuario.find(session[:usuario_id]).datos_type == "Doctor", "Atras", { :controller => "doctors", :action => "show", :id => Usuario.find(session[:usuario_id]).datos_id }) do
+       link_to("Ver doctores", :controller => "doctors", :action => "index")
+     end
+  %>
 

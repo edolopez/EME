@@ -1,48 +1,44 @@
 class AdminsController < ApplicationController
-  # GET /admins
+
+before_filter :autorizar, :only => [:show, :edit, :datos, :update, :destroy]
+
+# GET /admins
   # GET /admins.xml
 
-  def perfil
-
-  end
-
   def index
+
     @admins = Admin.all
     @usuarios = Usuario.find(:all, :conditions => "datos_type = 'Admin'")
     @cont = 0
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @admins }
-    end
   end
 
   # GET /admins/1
   # GET /admins/1.xml
   def show
-    @admin = Admin.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @admin }
-    end
+@admin = Admin.find(params[:id])
+id = @admin.id
+@usuario = Usuario.find_by_datos_id(id, :conditions => "datos_type = 'Admin'")
+
   end
 
   # GET /admins/new
   # GET /admins/new.xml
   def new
+
     @admin = Admin.new
     @usuario = Usuario.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @admin }
-    end
   end
 
   # GET /admins/1/edit
   def edit
-    @admin = Admin.find(params[:id])
+
+@admin = Admin.find(params[:id])
+id = @admin.id
+@usuario = Usuario.find_by_datos_id(id, :conditions => "datos_type = 'Admin'")
+
   end
 
   # POST /admins
@@ -56,8 +52,8 @@ class AdminsController < ApplicationController
       if @admin.valid? && @usuario.valid?
         @admin.save
         @usuario.save
-        flash[:notice] = 'Admin was successfully created.'
-        format.html { redirect_to(@admin) }
+        flash[:notice] = 'Administrador Creado.'
+        format.html { redirect_to admins_path }
         format.xml  { render :xml => @admin, :status => :created, :location => @admin }
       else
         format.html { render :action => "new" }
@@ -69,12 +65,15 @@ class AdminsController < ApplicationController
   # PUT /admins/1
   # PUT /admins/1.xml
   def update
-    @admin = Admin.find(params[:id])
+       @admin = Admin.find(Usuario.find(session[:usuario_id]).datos_id)
+		@usuario = Usuario.find(session[:usuario_id])
 
     respond_to do |format|
-      if @admin.update_attributes(params[:admin])
+      if @admin.valid? && @usuario.valid?
+				@admin.update_attributes(params[:admin])
+				@usuario.update_attributes(params[:usuario])
         flash[:notice] = 'Admin was successfully updated.'
-        format.html { redirect_to(@admin) }
+        format.html { redirect_to :back }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -87,13 +86,25 @@ class AdminsController < ApplicationController
   # DELETE /admins/1.xml
   def destroy
     @admin = Admin.find(params[:id])
+		    id = @admin.id
+    @usuario = Usuario.find_by_datos_id(id, :conditions => "datos_type = 'Admin'")
+
     @admin.destroy
+		@usuario.destroy
 
     respond_to do |format|
       format.html { redirect_to(admins_url) }
       format.xml  { head :ok }
     end
   end
+
+def datos
+
+	@admin = Admin.find(params[:id])
+    id = @admin.id
+  @usuario = Usuario.find_by_datos_id(id, :conditions => "datos_type = 'Admin'")
+
+end
 
 end
 

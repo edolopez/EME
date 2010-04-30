@@ -1,4 +1,7 @@
 class TrabajosController < ApplicationController
+
+before_filter :autorizar, :only => [:index, :show, :edit, :new]
+
   # GET /trabajos
   # GET /trabajos.xml
   def index
@@ -29,6 +32,12 @@ class TrabajosController < ApplicationController
       format.html # show.html.erb
       format.xml  { render :xml => @trabajo }
     end
+  end
+
+  def datos
+    #@doctor = Doctor.find()
+    #@usuario =
+
   end
 
   # GET /trabajos/new

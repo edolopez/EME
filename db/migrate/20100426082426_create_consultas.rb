@@ -7,6 +7,7 @@ class CreateConsultas < ActiveRecord::Migration
       t.date :fecha
       t.time :hora
       t.text :detalles
+			t.string :nombre_clinica
 
       t.timestamps
     end

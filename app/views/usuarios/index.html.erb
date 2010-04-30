@@ -1,4 +1,8 @@
 <h1>Resultado de la busqueda</h1>
+<% form_tag({:controller => "usuarios", :action => "index"}, :method => 'GET') do %>
+<%= text_field_tag :busqueda %>
+<%= submit_tag "Buscar", :name => "" %>
+<% end %>
 
 <table>
   <tr>
@@ -9,9 +13,8 @@
 <% @usuarios.each do |usuario| %>
   <tr>
 
-    <td><%= link_to usuario.id, paciente_path(usuario.id) %></td>
-   
-    
+    <td><%= link_to usuario.id, :controller => "pacientes", :action => "datos", :id => Paciente.find(Usuario.find(usuario.datos_id)) %></td>
+
   </tr>
 <% end %>
 </table>
@@ -19,4 +22,4 @@
 <br />
 
 <%= link_to 'Agregar Doctor', new_doctor_path %> |
-<%= link_to 'Atras', clinica_path %>
+

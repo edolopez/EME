@@ -1,3 +1,13 @@
+<h1>Bienvenido Dr.  <%=h @doctor.apellidoPaterno.titleize %></h1>
+<% if @usuario.datos_type == 'Doctor' %>
+<% form_tag({:controller => "usuarios", :action => "index"}, :method => 'GET') do %>
+<%= text_field_tag :busqueda %>
+<%= submit_tag "Buscar", :name => "" %>
+<% end %>
+<% end %>
+
+<fieldset>
+<legend>Informacion relevante</legend>
 <p>
   <b>ID:</b>
   <%=h @usuario.id %>
@@ -19,46 +29,11 @@
 </p>
 
 <p>
-  <b>Edad de inscripcion:</b>
-  <%=h @doctor.edad %>
-</p>
-
-<p>
-  <b>Sexo:</b>
-  <%=h @doctor.sexo %>
-</p>
-
-<p>
-  <b>Fecha de Nacimiento:</b>
-  <%=h @doctor.fechaNacimiento %>
-</p>
-
-<p>
-  <b>Ciudad de Nacimiento:</b>
-  <%=h @doctor.ciudadNacimiento %>
-</p>
-
-<p>
-  <b>Estado de Nacimiento:</b>
-  <%=h @doctor.estadoNacimiento %>
-</p>
-
-<p>
   <b>Especialidad:</b>
   <%=h @doctor.especialidad %>
 </p>
-
-<p>
-  <b>Correo Electronico:</b>
-  <%=h @usuario.correoElectronico %>
-</p>
-
-<p>
-  <b>Telefono:</b>
-  <%=h @usuario.telefono %>
-</p>
+</fieldset>
 
 
-<%= link_to 'Edit', edit_doctor_path(@doctor) %> |
-<%= link_to("Back", {:controller => "doctors", :action => "index"})%>
+<%= link_to 'Editar', edit_doctor_path(@doctor) %>
 

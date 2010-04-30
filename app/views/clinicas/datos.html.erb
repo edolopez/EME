@@ -1,0 +1,35 @@
+<fieldset>
+<legend>Datos del usuario</legend>
+<p>
+  <b>Nombre:</b>
+  <%=h @usuario.nombre %>
+</p>
+
+<p>
+<b>Correo:</b>
+<%=h @usuario.correoElectronico%>
+</p>
+
+<p>
+<b>Telefono:</b>
+<%=h @usuario.telefono%>
+</p>
+
+<p>
+  <b>Tipoclinica:</b>
+  <%=h @clinica.tipoClinica %>
+</p>
+
+<p>
+  <b>Especialidad:</b>
+  <%=h @clinica.especialidad %>
+</p>
+
+<p>
+  <b>Sitioweb:</b>
+  <%=h @clinica.sitioWeb %>
+</p>
+
+</fieldset>
+<%= link_to 'Atras', clinicas_path %>
+

@@ -130,8 +130,5 @@
 
 <!--<%= link_to 'Back', pacientes_path %>-->
 
- <%=link_to_if(session[:usuario_id], "Atras", { :controller => "pacientes", :action => "index" }) do
-       link_to("Atras", {:controller => "admin", :action => "login"})
-    end
-  %>
+ <%= link_to 'Atras', :controller => "pacientes", :action => "index" %>
 

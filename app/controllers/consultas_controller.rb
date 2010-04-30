@@ -1,5 +1,8 @@
 class ConsultasController < ApplicationController
-  # GET /consultas
+
+before_filter :autorizar, :only => [:new, :show, :edit,:index]
+  
+# GET /consultas
   # GET /consultas.xml
   def index
     @consultas = Consulta.all

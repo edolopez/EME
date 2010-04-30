@@ -1,16 +1,10 @@
+<h1>Bienvenido <%= @usuario.nombre.titleize%></h1>
+
+<fieldset>
+<legend>Datos relevantes</legend>
 <p>
   <b>Nombre:</b>
   <%=h @usuario.nombre %>
-</p>
-
-<p>
-  <b>Correoelectronico:</b>
-  <%=h @usuario.correoElectronico %>
-</p>
-
-<p>
-  <b>Telefono:</b>
-  <%=h @usuario.telefono %>
 </p>
 
 <p>
@@ -24,82 +18,16 @@
 </p>
 
 <p>
-  <b>Edad:</b>
-  <%=h @paciente.edad %>
+  <b>Correoelectronico:</b>
+  <%=h @usuario.correoElectronico %>
 </p>
 
 <p>
-  <b>Sexo:</b>
-  <%=h @paciente.sexo %>
+  <b>Telefono:</b>
+  <%=h @usuario.telefono %>
 </p>
+</fieldset>
+<br/>
 
-<p>
-  <b>Fechanacimiento:</b>
-  <%=h @paciente.fechaNacimiento %>
-</p>
-
-<p>
-  <b>Ciudadnacimiento:</b>
-  <%=h @paciente.ciudadNacimiento %>
-</p>
-
-<p>
-  <b>Estadonacimiento:</b>
-  <%=h @paciente.estadoNacimiento %>
-</p>
-
-<p>
-  <b>Estadocivil:</b>
-  <%=h @paciente.estadoCivil %>
-</p>
-
-<p>
-  <b>Estatura:</b>
-  <%=h @paciente.estatura %>
-</p>
-
-<p>
-  <b>Tiposangre:</b>
-  <%=h @paciente.tipoSangre %>
-</p>
-
-<p>
-  <b>Tatuajes:</b>
-  <%=h @paciente.tatuajes %>
-</p>
-
-<p>
-  <b>Religion:</b>
-  <%=h @paciente.religion %>
-</p>
-
-<p>
-  <b>Peso:</b>
-  <%=h @paciente.peso %>
-</p>
-
-<p>
-  <b>Preferenciasexual:</b>
-  <%=h @paciente.preferenciaSexual %>
-</p>
-
-<p>
-  <b>Ocupacion:</b>
-  <%=h @paciente.ocupacion %>
-</p>
-
-<p>
-  <b>Companiaseguros:</b>
-  <%=h @paciente.companiaSeguros %>
-</p>
-
-<p>
-  <b>Poliza:</b>
-  <%=h @paciente.poliza %>
-</p>
-
-<% if @usuario.datos_type != 'Paciente' %>
-<%= link_to 'Edit', edit_paciente_path(@paciente) %> |
-<%= link_to 'Back', pacientes_path %>
-<%end%>
+<%= link_to 'Expediente Médico', :controller => "pacientes", :action => "datos", :id => @paciente.id %>
 
