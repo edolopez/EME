@@ -1,4 +1,30 @@
- ­<h1>Editar clinica</h1>
+<br/>
+ <div class="body">
+	
+	<div class = "menu">
+
+		<div class = "menuArriba"></div>
+
+		<div class = "contenidomenu">
+
+			<%= link_to 'Atras', :controller => "clinicas", :action => "show", :id => @clinica.id %>
+
+
+		</div>
+		<div class = "menuAbajo"></div>
+	</div>
+	
+
+
+<div class = "tabla"> 
+<div class = "tablaArriba"> 
+<h1>Editar clinica</h1>
+</div>
+<div class = "contenidoTabla">
+
+
+
+
 
 <% form_for(@clinica) do |f| %>
 <% fields_for(@usuario) do |u| %>
@@ -75,3 +101,9 @@
 <% end %>
 
 <%= link_to 'Ver Clinicas', clinicas_path %>
+
+</div>
+<div class = "tablaAbajo">
+</div>
+</div>
+</div>

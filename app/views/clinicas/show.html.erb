@@ -1,4 +1,38 @@
+<br/>
+
+
+
+
+<div class = "body">
+<div class = "menu">
+
+	<div class = "menuArriba"></div>
+	
+	<div class = "contenidomenu" >
+	
+	
+	<%= link_to 'Editar', edit_clinica_path(@clinica) %>
+	
+	
+		
+	</div>
+	<div class = "menuAbajo"></div>
+</div>
+
+<div class = "tabla">
+ 
+
+
+
+<div class = "tablaArriba">
 <h1>Bienvenido <%=h @usuario.nombre %></h1>
+</div>
+<div class = "contenidoTabla">
+
+
+
+
+
 <% if @usuario.datos_type == 'Clinica' %>
 <% form_tag({:controller => "usuarios", :action => "index"}, :method => 'GET') do %>
 <%= text_field_tag :busqueda %>
@@ -41,4 +75,11 @@
 
 <%= link_to 'Doctores en la clinica', trabajos_path %> <br>
 <%= link_to 'Doctores en el pais', doctors_path%> <br>
+
+
+</div>
+<div class = "tablaAbajo">
+</div>
+</div>
+</div>
 
