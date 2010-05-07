@@ -4,20 +4,20 @@
 <div class = "menu">
 
 	<div class = "menuArriba"></div>
-	
+
 	<div class = "contenidomenu" >
-	
-	
+
+
 		<%= link_to 'Editar', edit_doctor_path(@doctor) %>
-	
-	
-		
+
+
+
 	</div>
 	<div class = "menuAbajo"></div>
 </div>
 
 <div class = "tabla">
- 
+
 
 
 
@@ -61,11 +61,12 @@
   <b>Especialidad:</b>
   <%=h @doctor.especialidad %>
 </p>
-</fieldset>
-
 
 <%= link_to 'Editar', edit_doctor_path(@doctor) %>
 
+</fieldset>
+
+<%= link_to 'Pacientes', pacientes_path %>
 
 </div>
 <div class = "tablaAbajo">

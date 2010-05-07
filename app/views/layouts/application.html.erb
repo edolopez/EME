@@ -4,9 +4,16 @@
     <title><%= title%></title>
         <%= stylesheet_link_tag 'EMELoginCSS' %>
     <%= yield(:head) %>
+
   </head>
-  <body>
-    <div id="container">
+
+<body>
+    <div class="encabezado">
+    	<div class="content">
+        	<img class="logo" src="../imagenes/logo.png" />
+        </div>
+    </div>
+
 <% if session[:usuario_id] == nil %>
 
 			<% else %>
@@ -26,14 +33,6 @@
 <% if session[:usuario_id] != nil %>
 | <%= link_to "Cerrar sesión", :controller => "admin", :action => "logout" %>
 <% end %>
-
-<body>
-    <div class="encabezado">
-    	<div class="content">
-        	<img class="logo" src="../imagenes/logo.png" />
-        </div>
-    </div>
-
 
 	 <%- flash.each do |name, msg| -%>
 	        <%= content_tag :div, msg, :id => "flash_#{name}" %>

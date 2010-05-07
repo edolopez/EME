@@ -4,7 +4,7 @@
 </p>
 
 <p>
-  <b>Correoelectronico:</b>
+  <b>Correo Electronico:</b>
   <%=h @usuario.correoElectronico %>
 </p>
 
@@ -14,12 +14,12 @@
 </p>
 
 <p>
-  <b>Apellidopaterno:</b>
+  <b>Apellido Paterno:</b>
   <%=h @paciente.apellidoPaterno %>
 </p>
 
 <p>
-  <b>Apellidomaterno:</b>
+  <b>Apellido Materno:</b>
   <%=h @paciente.apellidoMaterno %>
 </p>
 
@@ -34,22 +34,22 @@
 </p>
 
 <p>
-  <b>Fechanacimiento:</b>
+  <b>Fecha de nacimiento:</b>
   <%=h @paciente.fechaNacimiento %>
 </p>
 
 <p>
-  <b>Ciudadnacimiento:</b>
+  <b>Ciudad de nacimiento:</b>
   <%=h @paciente.ciudadNacimiento %>
 </p>
 
 <p>
-  <b>Estadonacimiento:</b>
+  <b>Estado de nacimiento:</b>
   <%=h @paciente.estadoNacimiento %>
 </p>
 
 <p>
-  <b>Estadocivil:</b>
+  <b>Estado civil:</b>
   <%=h @paciente.estadoCivil %>
 </p>
 
@@ -59,7 +59,7 @@
 </p>
 
 <p>
-  <b>Tiposangre:</b>
+  <b>Tipo de sangre:</b>
   <%=h @paciente.tipoSangre %>
 </p>
 
@@ -79,7 +79,7 @@
 </p>
 
 <p>
-  <b>Preferenciasexual:</b>
+  <b>Preferencia Sexual:</b>
   <%=h @paciente.preferenciaSexual %>
 </p>
 
@@ -89,13 +89,54 @@
 </p>
 
 <p>
-  <b>Companiaseguros:</b>
+  <b>Compania de Seguros:</b>
   <%=h @paciente.companiaSeguros %>
 </p>
 
 <p>
   <b>Poliza:</b>
   <%=h @paciente.poliza %>
+</p>
+
+<p>
+  <fieldset>
+  <legend>Información de citas</legend>
+    <% unless @paciente.consultas == nil %>
+      <% @paciente.consultas.each do |consulta| %>
+        <p>
+          <b>Consulta:</b>
+          <%= @cont %>
+        </p>
+        <p>
+          <b>Motivo:</b>
+          <%= consulta.motivo %>
+        </p>
+        <p>
+          <b>Doctor que atendio:</b>
+          <%= consulta.doctor.usuario.nombre %>
+          <%= consulta.doctor.apellidoPaterno %>
+          <%= consulta.doctor.apellidoMaterno %>
+        </p>
+        <p>
+          <b>Fecha:</b>
+          <%= consulta.fecha %>
+        </p>
+        <p>
+          <b>Hora:</b>
+          <%= consulta.hora %>
+        </p>
+        <p>
+          <b>Detalles:</b>
+          <%= consulta.detalles %>
+        </p>
+        <p>
+        ------------------
+        </p>
+        <% @cont = @cont + 1 %>
+      <% end %>
+    <% end %>
+    <td><%= link_to 'Agregar una cita', :controller => "pacientes", :action => "citas", :id => @paciente.id %></td><br />
+  </fieldset>
 </p>
 
   <%=

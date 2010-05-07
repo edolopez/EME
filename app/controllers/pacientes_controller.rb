@@ -99,13 +99,40 @@ before_filter :autorizar, :only => [:show, :edit, :datos, :update, :destroy]
   end
 
 	def datos
-
-
 		@paciente = Paciente.find(params[:id])
 		  id = @paciente.id
 		@usuario = Usuario.find_by_datos_id(id, :conditions => "datos_type = 'Paciente'")
+		@cont = 1
+  end
 
-end
+  def citas
+		@paciente = Paciente.find(params[:id])
+    @doctor = Doctor.find(Usuario.find(session[:usuario_id]).datos_id)
+    @consulta = Consulta.new
+  end
+
+  def consulta
+    @paciente = Paciente.find(params[:id])
+    @doctor = Doctor.find(Usuario.find(session[:usuario_id]).datos_id)
+    @consulta = Consulta.new(params[:consulta])
+    @consulta.doctor = @doctor
+    @consulta.paciente = @paciente
+    #@consulta.nombre_clinica = @doctor.clinicas
+    #>> doctor.clinicas[0].usuario.nombre
+    #=> "Conchita"
+
+
+    respond_to do |format|
+      if @consulta.save
+        flash[:notice] = 'Consulta was successfully created.'
+        format.html { redirect_to :controller => "pacientes", :action => "datos", :id => @paciente.id }
+        format.xml  { render :xml => @consulta, :status => :created, :location => @consulta }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @consulta.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
 
 end
 
