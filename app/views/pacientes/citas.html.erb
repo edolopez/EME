@@ -1,0 +1,28 @@
+<h1>Nueva cita</h1>
+<% form_for @consulta, :consulta,  :url => { :action => "consulta", :id => @paciente.id}  do |f| %>
+<% fields_for @paciente, :paciente, :url =>  { :action => "consulta", :id => @paciente.id}  do |u| %>
+  <%= error_messages_for :consulta, :paciente%>
+    <p>
+      <%= f.label :motivo, 'Motivo' %><br />
+      <%= f.text_field :motivo %>
+    </p>
+    <p>
+      <%= f.label :fecha, 'Fecha de la consulta' %><br />
+      <%= f.date_select :fecha %>
+    </p>
+    <p>
+      <%= f.label :hora, 'Hora de la consulta' %><br />
+      <%= f.time_select :hora %>
+    </p>
+    <p>
+      <%= f.label :detalles, 'Detalles' %><br />
+      <%= f.text_area :detalles %>
+    </p>
+
+      <%= f.submit 'Agregar Consulta' %>
+
+  <% end %>
+<% end %>
+
+<%= link_to 'Back', :controller => 'pacientes', :action => 'datos', :id => @paciente.id %>
+

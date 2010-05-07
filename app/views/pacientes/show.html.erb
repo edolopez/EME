@@ -1,23 +1,64 @@
-<h1>Informacion Personal de <%= @usuario.nombre.titleize%></h1>
+<br/>
+
+
+
+
+<div class = "body">
+<div class = "menu">
+
+	<div class = "menuArriba"></div>
+
+	<div class = "contenidomenu" >
+
+
+		<%= link_to 'Editar', edit_paciente_path(@paciente) %>
+
+
+
+	</div>
+	<div class = "menuAbajo"></div>
+</div>
+
+<div class = "tabla">
+
+
+
+
+<div class = "tablaArriba">
+<h1>Información Personal de <%= @usuario.nombre.titleize%></h1>
+</div>
+<div class = "contenidoTabla">
 
 <p>
-  <b>Correoelectronico:</b>
+  <b>ID:</b>
+  <%=h @usuario.id %>
+</p>
+
+
+<p>
+  <b>Nombre:</b>
+  <%=h @usuario.nombre %>
+</p>
+
+<p>
+  <b>Apellido Paterno:</b>
+  <%=h @paciente.apellidoPaterno %>
+</p>
+
+<p>
+  <b>Apellido Materno:</b>
+  <%=h @paciente.apellidoMaterno %>
+</p>
+
+<p>
+  <b>Correo Electrónico:</b>
   <%=h @usuario.correoElectronico %>
+
 </p>
 
 <p>
   <b>Telefono:</b>
   <%=h @usuario.telefono %>
-</p>
-
-<p>
-  <b>Apellidopaterno:</b>
-  <%=h @paciente.apellidoPaterno %>
-</p>
-
-<p>
-  <b>Apellidomaterno:</b>
-  <%=h @paciente.apellidoMaterno %>
 </p>
 
 <p>
@@ -31,22 +72,22 @@
 </p>
 
 <p>
-  <b>Fechanacimiento:</b>
+  <b>Fecha Nacimiento:</b>
   <%=h @paciente.fechaNacimiento %>
 </p>
 
 <p>
-  <b>Ciudadnacimiento:</b>
+  <b>Ciudad Nacimiento:</b>
   <%=h @paciente.ciudadNacimiento %>
 </p>
 
 <p>
-  <b>Estadonacimiento:</b>
+  <b>Estado Nacimiento:</b>
   <%=h @paciente.estadoNacimiento %>
 </p>
 
 <p>
-  <b>Estadocivil:</b>
+  <b>Estado Civil:</b>
   <%=h @paciente.estadoCivil %>
 </p>
 
@@ -56,7 +97,7 @@
 </p>
 
 <p>
-  <b>Tiposangre:</b>
+  <b>Tipo Sangre:</b>
   <%=h @paciente.tipoSangre %>
 </p>
 
@@ -66,7 +107,7 @@
 </p>
 
 <p>
-  <b>Religion:</b>
+  <b>Religión:</b>
   <%=h @paciente.religion %>
 </p>
 
@@ -76,25 +117,33 @@
 </p>
 
 <p>
-  <b>Preferenciasexual:</b>
+  <b>Preferencia Sexual:</b>
   <%=h @paciente.preferenciaSexual %>
 </p>
 
 <p>
-  <b>Ocupacion:</b>
+  <b>Ocupación:</b>
   <%=h @paciente.ocupacion %>
 </p>
 
 <p>
-  <b>Companiaseguros:</b>
+  <b>Compañia Seguros:</b>
   <%=h @paciente.companiaSeguros %>
 </p>
 
 <p>
+  <b>Telefono:</b>
+  <%=h @usuario.telefono %>
+</p>
+<br/>
+
   <b>Poliza:</b>
   <%=h @paciente.poliza %>
-</p>
 
-<%= link_to 'Editar', edit_paciente_path(@paciente) %>
-
+<%= link_to 'Expediente Médico', :controller => "pacientes", :action => "datos", :id => @paciente.id %>
+</div>
+<div class = "tablaAbajo">
+</div>
+</div>
+</div>
 

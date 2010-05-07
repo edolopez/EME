@@ -9,6 +9,8 @@ if request.post?
 			session[:original_uri] = nil
 			if usuario.datos_type == 'Clinica'
 			  redirect_to(clinica_path(Clinica.find(Usuario.find(session[:usuario_id]).datos_id)))
+		  elsif usuario.datos_type == 'Root'
+			  redirect_to(admins_path)
       elsif usuario.datos_type == 'Admin'
 			  redirect_to(admin_path(Admin.find(Usuario.find(session[:usuario_id]).datos_id)))
      elsif usuario.datos_type == 'Doctor'

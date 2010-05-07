@@ -1,13 +1,18 @@
 <h1>Pacientes</h1>
 
+<% form_tag({:controller => "usuarios", :action => "index"}, :method => 'GET') do %>
+<%= text_field_tag :busqueda %>
+<%= submit_tag "Buscar", :name => "" %>
+<% end %>
+
 <table>
   <tr>
     <th>Nombre</th>
-    <th>Apellidopaterno</th>
-    <th>Apellidomaterno</th>
-    <th>Ciudadnacimiento</th>
-    <th>Estadonacimiento</th>
-    <th>Companiaseguros</th>
+    <th>Apellido Paterno</th>
+    <th>Apellido Materno</th>
+    <th>Ciudad de Nacimiento</th>
+    <th>Estado de Nacimiento</th>
+    <th>Compania de seguros</th>
     <th>Poliza</th>
   </tr>
 
@@ -29,5 +34,5 @@
 
 <br />
 
-<%= link_to 'New paciente', new_paciente_path %>
+<%= link_to 'Agregar paciente', new_paciente_path %>
 

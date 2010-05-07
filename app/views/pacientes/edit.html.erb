@@ -1,4 +1,29 @@
+<br/>
+ <div class="body">
+	
+	<div class = "menu">
+
+		<div class = "menuArriba"></div>
+
+		<div class = "contenidomenu">
+
+			<%= link_to 'Atras', :controller => "pacientes", :action => "show", :id => @paciente.id %>
+
+
+		</div>
+		<div class = "menuAbajo"></div>
+	</div>
+	
+
+
+<div class = "tabla"> 
+<div class = "tablaArriba"> 
 <h1>Editando a <%= @usuario.nombre.titleize%></h1>
+</div>
+<div class = "contenidoTabla">
+
+
+
 
 
 <% form_for @paciente, :paciente,  :url => { :action => "update"}  do |f| %>
@@ -102,11 +127,16 @@
     <%= f.label :poliza, 'Poliza'  %><br />
     <%= f.text_field :poliza %>
   </p>
-  <p>
+
     <%= f.submit 'Actualizar' %>
-  </p>
+
 
   <% end %>
 <% end %>
 
-<%= link_to 'Atras', :controller => "pacientes", :action => "show", :id => @paciente.id %>
+</div>
+<div class = "tablaAbajo">
+</div>
+</div>
+</div>
+

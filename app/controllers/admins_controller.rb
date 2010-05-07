@@ -1,7 +1,7 @@
 class AdminsController < ApplicationController
 
 before_filter :autorizar, :only => [:show, :edit, :datos, :update, :destroy]
-  
+
 # GET /admins
   # GET /admins.xml
 
@@ -17,21 +17,11 @@ before_filter :autorizar, :only => [:show, :edit, :datos, :update, :destroy]
   # GET /admins/1.xml
   def show
 
-	if Usuario.find_by_datos_id(Paciente.find(Usuario.find(session[:usuario_id]).datos_id), :conditions => "datos_type ='Paciente'") != nil
-			redirect_to :controller => "pacientes", :action => "show", :id => Paciente.find(Usuario.find(session[:usuario_id]).datos_id)	
-			flash[:notice] = "Acceso denegado"
+@admin = Admin.find(params[:id])
+id = @admin.id
+@usuario = Usuario.find_by_datos_id(id, :conditions => "datos_type = 'Admin'")
 
-	elsif Usuario.find_by_datos_id(Doctor.find(Usuario.find(session[:usuario_id]).datos_id)	, :conditions => "datos_type ='Doctor'") != nil
-			redirect_to  :controller => "doctors", :action => "show", :id => Doctor.find(Usuario.find(session[:usuario_id]).datos_id)
-			flash[:notice] = "Acceso denegado"
-
-	elsif Usuario.find_by_datos_id(Clinica.find(Usuario.find(session[:usuario_id]).datos_id)	, :conditions => "datos_type ='Clinica'") != nil
-			redirect_to  clinica_path(Clinica.find(Usuario.find(session[:usuario_id]).datos_id))
-			flash[:notice] = "Acceso denegado"
-
-end
-		
-end
+  end
 
   # GET /admins/new
   # GET /admins/new.xml
@@ -44,7 +34,7 @@ end
 
   # GET /admins/1/edit
   def edit
-  
+
 @admin = Admin.find(params[:id])
 id = @admin.id
 @usuario = Usuario.find_by_datos_id(id, :conditions => "datos_type = 'Admin'")
@@ -62,8 +52,8 @@ id = @admin.id
       if @admin.valid? && @usuario.valid?
         @admin.save
         @usuario.save
-        flash[:notice] = 'Admin was successfully created.'
-        format.html { redirect_to(@admin) }
+        flash[:notice] = 'Administrador Creado.'
+        format.html { redirect_to admins_path }
         format.xml  { render :xml => @admin, :status => :created, :location => @admin }
       else
         format.html { render :action => "new" }
@@ -95,8 +85,9 @@ id = @admin.id
   # DELETE /admins/1
   # DELETE /admins/1.xml
   def destroy
-       @admin = Admin.find(Usuario.find(session[:usuario_id]).datos_id)
-		@usuario = Usuario.find(session[:usuario_id])
+    @admin = Admin.find(params[:id])
+		    id = @admin.id
+    @usuario = Usuario.find_by_datos_id(id, :conditions => "datos_type = 'Admin'")
 
     @admin.destroy
 		@usuario.destroy

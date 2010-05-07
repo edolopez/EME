@@ -1,4 +1,26 @@
+<br/>
+ <div class="body">
+	
+	<div class = "menu">
+
+		<div class = "menuArriba"></div>
+
+		<div class = "contenidomenu">
+
+			<%= link_to 'Atras', :controller => "doctors", :action => "show", :id => @doctor.id %>
+
+
+		</div>
+		<div class = "menuAbajo"></div>
+	</div>
+	
+
+
+<div class = "tabla"> 
+<div class = "tablaArriba"> 
 <h1>Editar Doctor</h1>
+</div>
+<div class = "contenidoTabla">
 
 <% form_for(@doctor) do |f| %>
   <% fields_for(@usuario) do |u| %>
@@ -64,6 +86,15 @@
   <% end %>
 <% end %>
 
-<%= link_to 'Show', @doctor %> |
-<%= link_to 'Back', doctors_path %>
+  <%=
+     link_to_if(Usuario.find(session[:usuario_id]).datos_type == "Doctor", "Atras", { :controller => "doctors", :action => "show", :id => Usuario.find(session[:usuario_id]).datos_id }) do
+       link_to("Ver doctores", :controller => "doctors", :action => "index")
+     end
+  %>
 
+
+</div>
+<div class = "tablaAbajo">
+</div>
+</div>
+</div>

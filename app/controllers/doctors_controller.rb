@@ -14,15 +14,15 @@ end
 
     @cont = 0 # Variable para acceso al arreglo de @usuarios en la vista
     @doctors = Doctor.all
-    @usuarios = Usuario.find(:all, :conditions => "datos_type = 'Doctor'")
+    #@usuarios = Usuario.find(:all, :conditions => "datos_type = 'Doctor'")
   end
 
   # GET /doctors/1
   # GET /doctors/1.xml
   def show
     @doctor = Doctor.find(Usuario.find(session[:usuario_id]).datos_id)
-	   @usuario = Usuario.find(session[:usuario_id])  
-   
+	   @usuario = Usuario.find(session[:usuario_id])
+
   end
 
   # GET /doctors/new
@@ -51,15 +51,15 @@ end
     respond_to do |format|
       if @doctor.valid? && @usuario.valid?
         @doctor.edad = Time.now.year - @doctor.fechaNacimiento.year
-        # relacion del trabajo entre doctor creado y clinica en el momento
-        Trabajo.create(:doctor => @doctor, :clinica => Clinica.find(Usuario.find(session[:usuario_id]).datos_id))
         @doctor.save
         @usuario.save
         flash[:notice] = 'El Doctor fue creado.'
-        if Usuario.find(session[:usuario_id]).datos_type = "Clinica"
+        if Usuario.find(session[:usuario_id]).datos_type == "Clinica"
+          # relacion del trabajo entre doctor creado y clinica en el momento
+          Trabajo.create(:doctor => @doctor, :clinica => Clinica.find(Usuario.find(session[:usuario_id]).datos_id))
           format.html { redirect_to trabajos_path }
         else
-          format.html { redirect_to perfil_path }
+          format.html { redirect_to doctors_path }
         end
         format.xml  { render :xml => @doctor, :status => :created, :location => @doctor }
       else

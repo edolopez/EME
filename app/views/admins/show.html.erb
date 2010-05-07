@@ -1,5 +1,7 @@
 <h1>Bienvenido <%=h @usuario.nombre.capitalize %></h1>
 
+<fieldset>
+<legend>Datos del usuario</legend>
 <p>
   <b>Nombre:</b>
   <%=h @usuario.nombre %>
@@ -14,6 +16,11 @@
   <b>Telefono:</b>
   <%=h @usuario.telefono %>
 </p>
-
-
 <%= link_to 'Edit', edit_admin_path(@admin) %>
+</fieldset>
+<br/>
+
+<%= link_to 'Clinicas', clinicas_path %> <br/>
+<%= link_to 'Doctores', doctors_path %> <br/>
+<%= link_to 'Pacientes', pacientes_path %> <br/>
+

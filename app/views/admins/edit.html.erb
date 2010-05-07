@@ -17,8 +17,14 @@
   </p>
 
   <p>
-    <%= u.submit 'Update' %>
+    <%= u.submit 'Guardar' %>
   </p>
 
-<% end %>	
-<%= link_to 'Back', @admin %>
+<% end %>
+
+  <%=
+     link_to_if(Usuario.find(session[:usuario_id]).datos_type == "Admin", "Atras", { :controller => "admins", :action => "show", :id => Usuario.find(session[:usuario_id]).datos_id }) do
+       link_to("Ver administradores", :controller => "admins", :action => "index")
+     end
+  %>
+

@@ -1,35 +1,44 @@
+<br/>
+ <div class="body">
+
+
+
+<div class = "tabla">
+<div class = "tablaArriba">
 <h1>Nuevo paciente</h1>
+</div>
+<div class = "contenidoTabla">
 
 <% form_for(@paciente) do |f| %>
   <% fields_for(@usuario) do |u| %>
   <%= error_messages_for :usuario, :paciente %>
-<fieldset>
-<legend>Datos del usuario</legend>
+
 		 <p>
-    <%= u.label :nombre, 'Nombre' %><br />
-    <%= u.text_field :nombre%>
+    <%= u.label :nombre, 'Nombre:'%><br />
+    <%= u.text_field :nombre, :class => 'round'%>
+
   </p>
  <p>
-    <%= f.label :apellidoPaterno, 'Apellido Paterno' %><br />
-    <%= f.text_field :apellidoPaterno %>
+    <%= f.label :apellidoPaterno, 'Apellido Paterno:' %><br />
+    <%= f.text_field :apellidoPaterno, :class => 'round' %>
   </p>
   <p>
-    <%= f.label :apellidoMaterno, 'Apellido Materno' %><br />
-    <%= f.text_field :apellidoMaterno %>
+    <%= f.label :apellidoMaterno, 'Apellido Materno:' %><br />
+    <%= f.text_field :apellidoMaterno, :class => 'round' %>
   </p>
 
     <p>
-    <%= u.label :usuario_password, 'Password' %><br />
-    <%= u.password_field :password %>
+    <%= u.label :usuario_password, 'Contraseña:' %><br />
+    <%= u.password_field :password, :class => 'round' %>
   </p>
 
   <p>
-    <%= u.label :usuario_password_confirmation, 'Confirmacion' %><br />
-    <%= u.password_field :password_confirmation %>
+    <%= u.label :usuario_password_confirmation, 'Confirmación de Contraseña:' %><br />
+    <%= u.password_field :password_confirmation, :class => 'round' %>
   </p>
 
    <p>
-  	<%= f.label :sexo, 'Sexo' %><br />
+  	<%= f.label :sexo, 'Sexo:' %><br />
         <%= label_tag(:sexo, "Masculino") %>
     <%= f.radio_button(:sexo, "Masculino") %>
         <%= label_tag(:sexo, "Femenino")  %>
@@ -37,35 +46,35 @@
   </p>
 
   <p>
-    <%= f.label :fechaNacimiento, 'Fecha de nacimiento' %><br />
+    <%= f.label :fechaNacimiento, 'Fecha de nacimiento:' %><br />
     <%= f.date_select :fechaNacimiento, :end_year => Time.now.year-150, :start_year => Time.now.year,
 					:prompt => {:day => "Dia", :month => 'Mes', :year => 'Año'}, :order => [:day,:month,:year] %>
   </p>
 
  <p>
-    <%= f.label :estadoNacimiento, 'Estado de nacimiento' %><br />
+    <%= f.label :estadoNacimiento, 'Estado de nacimiento:' %><br />
     <%= f.select :estadoNacimiento,
              Paciente::ESTADONACIMIENTO,
             :prompt => "Selecciona un estado"%>
   </p>
 
     <p>
-    <%= f.label :ciudadNacimiento, 'Ciudad de Nacimiento' %><br />
-    <%= f.text_field :ciudadNacimiento %>
+    <%= f.label :ciudadNacimiento, 'Ciudad de Nacimiento:' %><br />
+    <%= f.text_field :ciudadNacimiento, :class => 'round' %>
   </p>
 
    <p>
-    <%= u.label :correoElectronico, 'Correo electronico' %><br />
-    <%= u.text_field :correoElectronico%>
+    <%= u.label :correoElectronico, 'Correo electrónico:' %><br />
+    <%= u.text_field :correoElectronico, :class => 'round'%>
   </p>
 
   <p>
-    <%= u.label :telefono, 'Telefono' %><br />
-    <%= u.text_field :telefono, :placeholder => "(123) 555-1234" %>
+    <%= u.label :telefono, 'Telefono:' %><br />
+    <%= u.text_field :telefono, :placeholder => "(123) 555-1234", :class => 'round' %>
   </p>
 
 <p>
-    <%= f.label :estadoCivil, 'Estado civil' %><br />
+    <%= f.label :estadoCivil, 'Estado civil:' %><br />
     <%= f.select :estadoCivil,
              Paciente::ESTADOCIVIL,
             :prompt => "Selecciona un estado civil"
@@ -73,12 +82,12 @@
   </p>
 
   <p>
-    <%= f.label :estatura, 'Estatura' %><br />
-    <%= f.text_field :estatura %>
+    <%= f.label :estatura, 'Estatura:' %><br />
+    <%= f.text_field :estatura, :class => 'round' %>
   </p>
 
 <p>
-    <%= f.label :tipoSangre, 'Tipo de sangre' %><br />
+    <%= f.label :tipoSangre, 'Tipo de sangre:' %><br />
     <%= f.select :tipoSangre,
              Paciente::TIPOSANGRE,
             :prompt => "Selecciona un tipo de sangre"
@@ -86,52 +95,53 @@
   </p>
 
    <p>
-  	<%= f.label :tatuajes, 'Tatuajes' %><br />
+  	<%= f.label :tatuajes, 'Tatuajes:' %><br />
         <%= label_tag(:tatuajes, "Si") %>
     <%= f.radio_button(:tatuajes, 1) %>
         <%= label_tag(:tatuajes, "No")  %>
     <%= f.radio_button(:tatuajes, 0) %>
   </p>
   <p>
-    <%= f.label :religion, 'Religion' %><br />
+    <%= f.label :religion, 'Religión:' %><br />
     <%= f.select :religion,
              Paciente::RELIGION,
-            :prompt => "Selecciona una religion"
+            :prompt => "Selecciona una religión"
 %>
   </p>
   <p>
-    <%= f.label :peso, 'Peso' %><br />
-    <%= f.text_field :peso %>
+    <%= f.label :peso, 'Peso:' %><br />
+    <%= f.text_field :peso, :class => 'round' %>
   </p>
   <p>
-    <%= f.label :preferenciaSexual, 'Preferencia Sexual' %><br />
-    <%= f.text_field :preferenciaSexual %>
+    <%= f.label :preferenciaSexual, 'Preferencia Sexual:' %><br />
+    <%= f.text_field :preferenciaSexual, :class => 'round' %>
   </p>
   <p>
-    <%= f.label :ocupacion, 'Ocupacion' %><br />
-    <%= f.text_field :ocupacion %>
+    <%= f.label :ocupacion, 'Ocupacion:' %><br />
+    <%= f.text_field :ocupacion, :class => 'round' %>
   </p>
   <p>
-    <%= f.label :companiaSeguros, 'Compania de Seguros' %><br />
-    <%= f.text_field :companiaSeguros %>
+    <%= f.label :companiaSeguros, 'Compania de Seguros:' %><br />
+    <%= f.text_field :companiaSeguros, :class => 'round' %>
   </p>
   <p>
-    <%= f.label :poliza, 'Poliza' %><br />
-    <%= f.text_field :poliza %>
+    <%= f.label :poliza, 'Poliza:' %><br />
+    <%= f.text_field :poliza, :class => 'round' %>
   </p>
 
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
+<br/>
+    <%= f.submit '', :class => 'botonCrear' %>
 
-  </fieldset>
+
   <% end %>
 <% end %>
 
 <!--<%= link_to 'Back', pacientes_path %>-->
 
- <%=link_to_if(session[:usuario_id], "Atras", { :controller => "pacientes", :action => "index" }) do
-       link_to("Atras", {:controller => "admin", :action => "login"})
-    end
-  %>
+ <%= link_to 'Atras', :controller => "pacientes", :action => "index" %>
+</div>
+<div class = "tablaAbajo">
+</div>
+</div>
+</div>
 

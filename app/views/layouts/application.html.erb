@@ -1,27 +1,45 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
-  <head>
+<head>
     <title><%= title%></title>
-    <%= stylesheet_link_tag 'application' %>
+        <%= stylesheet_link_tag 'EMELoginCSS' %>
     <%= yield(:head) %>
-  </head>
-  <body>
-    <div id="container">
-<% if session[:usuario_id] == nil %>
-								
-			<% else %>
-<%= link_to "Cerrar sesión", :controller => "admin", :action => "logout" %>
-				
-			<% end %>
 
-      <%- flash.each do |name, msg| -%>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <%- end -%>
-      
-     
-      
-      <%= yield %>
+  </head>
+
+<body>
+    <div class="encabezado">
+    	<div class="content">
+        	<img class="logo" src="../imagenes/logo.png" />
+        </div>
     </div>
-  </body>
+
+<% if session[:usuario_id] == nil %>
+
+			<% else %>
+			<% @id = Usuario.find(session[:usuario_id]).datos_id %>
+      <% if Usuario.find(session[:usuario_id]).datos_type == 'Admin' %>
+        <%= link_to "Perfil", :controller => "admins", :action => "show", :id => @id %>
+      <% elsif Usuario.find(session[:usuario_id]).datos_type == 'Root' %>
+        <%= link_to "Perfil", admins_path %>
+      <% elsif Usuario.find(session[:usuario_id]).datos_type == 'Paciente' %>
+        <%= link_to "Perfil", :controller => "pacientes", :action => "show", :id => @id %>
+      <% elsif Usuario.find(session[:usuario_id]).datos_type == 'Doctor' %>
+        <%= link_to "Perfil", :controller => "doctors", :action => "show", :id => @id %>
+      <% elsif Usuario.find(session[:usuario_id]).datos_type == 'Clinica' %>
+        <%= link_to "Perfil", :controller => "clinicas", :action => "show", :id => @id %>
+    <% end %>
+<% end %>
+<% if session[:usuario_id] != nil %>
+| <%= link_to "Cerrar sesión", :controller => "admin", :action => "logout" %>
+<% end %>
+
+	 <%- flash.each do |name, msg| -%>
+	        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+	      <%- end -%>
+
+	<%=yield%>
+
+</body>
 </html>
+

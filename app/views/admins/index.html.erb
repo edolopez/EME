@@ -2,23 +2,24 @@
 
 <table>
 
-<% @admins.each do |admin| %>
   <tr>
       <th>Nombre</th>
       <th>Email</th>
   </tr>
+
+<% @admins.each do |admin| %>
   <tr>
     <td><%=h @usuarios[@cont].nombre %></td>
     <td><%=h @usuarios[@cont].correoElectronico %></td>
-    <td><%= link_to 'Show', :controller => "admins", :action => "datos", :id => admin.id  %></td>
-    <td><%= link_to 'Edit', edit_admin_path(admin) %></td>
-    <td><%= link_to 'Destroy', admin, :confirm => 'Are you sure?', :method => :delete %></td>
-    <% @cont = @cont + 1 %>  
+    <td><%= link_to 'Mostrar', :controller => "admins", :action => "datos", :id => admin.id  %></td>
+    <td><%= link_to 'Editar', edit_admin_path(admin) %></td>
+    <td><%= link_to 'Eliminar', admin, :confirm => '¿Seguro que quieres eliminar el registro?', :method => :delete %></td>
+    <% @cont = @cont + 1 %>
 </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New admin', new_admin_path %>
+<%= link_to 'Nuevo Administrador', new_admin_path %>
 

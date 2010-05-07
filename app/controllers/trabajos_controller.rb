@@ -34,6 +34,12 @@ before_filter :autorizar, :only => [:index, :show, :edit, :new]
     end
   end
 
+  def datos
+    #@doctor = Doctor.find()
+    #@usuario =
+
+  end
+
   # GET /trabajos/new
   # GET /trabajos/new.xml
   def new
