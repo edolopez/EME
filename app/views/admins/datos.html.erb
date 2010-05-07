@@ -1,0 +1,17 @@
+<p>
+  <b>Nombre:</b>
+  <%=h @usuario.nombre %>
+</p>
+
+<p>
+  <b>Correoelectronico:</b>
+  <%=h @usuario.correoElectronico %>
+</p>
+
+<p>
+  <b>Telefono:</b>
+  <%=h @usuario.telefono %>
+</p>
+
+<%= link_to 'Atras', admins_path %> | 
+<%= link_to 'Editar', edit_admin_path(@admin) %>

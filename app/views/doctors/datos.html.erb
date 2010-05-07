@@ -1,0 +1,64 @@
+<p>
+  <b>ID:</b>
+  <%=h @usuario.id %>
+</p>
+
+<p>
+  <b>Nombre:</b>
+  <%=h @usuario.nombre %>
+</p>
+
+<p>
+  <b>Apellido Paterno:</b>
+  <%=h @doctor.apellidoPaterno %>
+</p>
+
+<p>
+  <b>Apellido Materno:</b>
+  <%=h @doctor.apellidoMaterno %>
+</p>
+
+<p>
+  <b>Edad de inscripcion:</b>
+  <%=h @doctor.edad %>
+</p>
+
+<p>
+  <b>Sexo:</b>
+  <%=h @doctor.sexo %>
+</p>
+
+<p>
+  <b>Fecha de Nacimiento:</b>
+  <%=h @doctor.fechaNacimiento %>
+</p>
+
+<p>
+  <b>Ciudad de Nacimiento:</b>
+  <%=h @doctor.ciudadNacimiento %>
+</p>
+
+<p>
+  <b>Estado de Nacimiento:</b>
+  <%=h @doctor.estadoNacimiento %>
+</p>
+
+<p>
+  <b>Especialidad:</b>
+  <%=h @doctor.especialidad %>
+</p>
+
+<p>
+  <b>Correo Electronico:</b>
+  <%=h @usuario.correoElectronico %>
+</p>
+
+<p>
+  <b>Telefono:</b>
+  <%=h @usuario.telefono %>
+</p>
+
+
+<%= link_to 'Edit', edit_doctor_path(@doctor) %> |
+<%= link_to("Back", {:controller => "doctors", :action => "index"})%>
+
