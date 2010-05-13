@@ -1,3 +1,12 @@
+
+<h1>Bienvenido <%=h @usuario.nombre %></h1>
+<% if @usuario.datos_type == 'Clinica' %>
+<% form_tag({:controller => "usuarios", :action => "index"}, :method => 'GET') do %>
+<%= text_field_tag :busqueda %>
+<%= submit_tag "Buscar", :name => "" %>
+<% end %>
+<% end %>
+
 <fieldset>
 <legend>Datos del usuario</legend>
 <p>
@@ -30,6 +39,11 @@
   <%=h @clinica.sitioWeb %>
 </p>
 
+ <%= link_to 'Atras', clinicas_path %> | 
+ <%= link_to 'Editar', edit_clinica_path(@clinica) %>
 </fieldset>
-<%= link_to 'Atras', clinicas_path %>
+
+
+
+
 

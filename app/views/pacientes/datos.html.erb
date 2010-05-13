@@ -4,6 +4,7 @@
 </p>
 
 <p>
+
   <b>Correo Electronico:</b>
   <%=h @usuario.correoElectronico %>
 </p>
@@ -14,6 +15,7 @@
 </p>
 
 <p>
+
   <b>Apellido Paterno:</b>
   <%=h @paciente.apellidoPaterno %>
 </p>
@@ -45,10 +47,12 @@
 
 <p>
   <b>Estado de nacimiento:</b>
+
   <%=h @paciente.estadoNacimiento %>
 </p>
 
 <p>
+
   <b>Estado civil:</b>
   <%=h @paciente.estadoCivil %>
 </p>
@@ -89,6 +93,7 @@
 </p>
 
 <p>
+
   <b>Compania de Seguros:</b>
   <%=h @paciente.companiaSeguros %>
 </p>
@@ -97,6 +102,12 @@
   <b>Poliza:</b>
   <%=h @paciente.poliza %>
 </p>
+
+
+
+<%= link_to "Editar", edit_paciente_path(@paciente)%>
+<%= link_to ("Atras", {:controller => "pacientes", :action => "index"})%>
+
 
 <p>
   <fieldset>
@@ -145,4 +156,5 @@
        link_to("Atrás", { :controller => "pacientes", :action => "show", :id => Usuario.find(session[:usuario_id]).datos_id })
      end
   %>
+
 
