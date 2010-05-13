@@ -53,7 +53,7 @@ before_filter :autorizar, :only => [:show, :edit, :datos, :update, :destroy]
         @paciente.edad = Time.now.year - @paciente.fechaNacimiento.year
         @paciente.save
         @usuario.save
-        flash[:notice] = 'El paciente fue creado satisfactoriamente'
+        flash[:notice] = 'El paciente fue creado satisfactoriamente. ID: ' + @paciente.usuario.id.to_s
         format.html { redirect_to :controller => "pacientes", :action => "index" }
         format.xml  { render :xml => @paciente, :status => :created, :location => @paciente }
       else

@@ -52,7 +52,7 @@ id = @admin.id
       if @admin.valid? && @usuario.valid?
         @admin.save
         @usuario.save
-        flash[:notice] = 'Administrador Creado.'
+        flash[:notice] = 'Administrador Creado. ID: ' + @admin.usuario.id.to_s
         format.html { redirect_to admins_path }
         format.xml  { render :xml => @admin, :status => :created, :location => @admin }
       else

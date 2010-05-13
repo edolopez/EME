@@ -34,14 +34,14 @@ end
   # POST /usuarios.xml
   def create
     @usuario = Usuario.new(params[:usuario])
-		@paciente_id = Paciente.new(params[:usuario_id])
-		@usuario._id = @paciente_id
+    #@usuario.datos_id = -1
+    #@usuario.datos_type = "Root"
 
     respond_to do |format|
       if @usuario.save
         flash[:notice] = 'El usuario fue creado satisfactoriamente.'
 					session[:usuario_id] = @usuario.id
-        format.html { redirect_to perfil_path }
+        format.html { redirect_to(:controller => "admin", :action => "login" ) }
 
       else
         format.html { render :action => "new" }

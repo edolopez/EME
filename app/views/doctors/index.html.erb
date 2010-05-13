@@ -2,20 +2,20 @@
 
 <table>
   <tr>
-    <th>Apellidopaterno</th>
-    <th>Apellidomaterno</th>
+    <th>Nombre</th>
+    <th>Apellido Paterno</th>
+    <th>Apellido Materno</th>
     <th>Especialidad</th>
   </tr>
 
 <% @doctors.each do |doctor| %>
   <tr>
+    <td><%=h doctor.usuario.nombre %></td>
     <td><%=h doctor.apellidoPaterno %></td>
     <td><%=h doctor.apellidoMaterno %></td>
     <td><%=h doctor.especialidad %></td>
     <td><%= link_to 'Mostrar', :controller => "doctors", :action => "datos", :id => doctor.id %></td>
     <td><%= link_to 'Editar', edit_doctor_path(doctor) %></td>
-    <td><%= link_to 'Eliminar', doctor, :confirm => '¿Seguro que deseas eliminar el registro?', :method => :delete %></td>
-    <% @cont = @cont + 1 %>
   </tr>
 <% end %>
 </table>

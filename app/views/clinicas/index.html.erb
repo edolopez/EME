@@ -18,7 +18,6 @@
       <td><%=h clinica.sitioWeb %></td>
       <td><%= link_to 'Mostrar', :controller => "clinicas", :action => "datos", :id => clinica.id %>
       <td><%= link_to 'Editar', edit_clinica_path(clinica) %></td>
-      <td><%= link_to 'Eliminar', clinica, :confirm => '¿Seguro de querer eliminar el registro?', :method => :delete %></td>
       <% @cont = @cont + 1 %>
     </tr>
   <% end %>

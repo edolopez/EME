@@ -11,10 +11,8 @@ end
   # GET /doctors
   # GET /doctors.xml
   def index
-
-    @cont = 0 # Variable para acceso al arreglo de @usuarios en la vista
     @doctors = Doctor.all
-    #@usuarios = Usuario.find(:all, :conditions => "datos_type = 'Doctor'")
+    @usuarios = Usuario.find(:all, :conditions => "datos_type = 'Doctor'")
   end
 
   # GET /doctors/1
@@ -53,7 +51,7 @@ end
         @doctor.edad = Time.now.year - @doctor.fechaNacimiento.year
         @doctor.save
         @usuario.save
-        flash[:notice] = 'El Doctor fue creado.'
+        flash[:notice] = 'El Doctor fue creado. ID: ' + @doctor.usuario.id.to_s
         if Usuario.find(session[:usuario_id]).datos_type == "Clinica"
           # relacion del trabajo entre doctor creado y clinica en el momento
           Trabajo.create(:doctor => @doctor, :clinica => Clinica.find(Usuario.find(session[:usuario_id]).datos_id))

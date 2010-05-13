@@ -26,7 +26,7 @@ before_filter :autorizar, :only => [:show, :busqueda,:index, :edit]
 
     @usuario = Usuario.find(session[:usuario_id])
     @clinica = Clinica.find(@usuario.datos_id)
-    
+
   end
 
   # GET /clinicas/new
@@ -35,7 +35,7 @@ before_filter :autorizar, :only => [:show, :busqueda,:index, :edit]
 
     @clinica = Clinica.new
     @usuario = Usuario.new
-    
+
   end
 
   # GET /clinicas/1/edit
@@ -60,7 +60,7 @@ before_filter :autorizar, :only => [:show, :busqueda,:index, :edit]
       if @clinica.valid? && @usuario.valid?
         @clinica.save
         @usuario.save
-        flash[:notice] = 'La clinica fue creada satisfactoriamente'
+        flash[:notice] = 'La clinica fue creada satisfactoriamente. ID: ' + @clinica.usuario.id.to_s
         format.html { redirect_to clinicas_path}
         format.xml  { render :xml => @clinica, :status => :created, :location => @clinica }
       else
@@ -114,7 +114,7 @@ before_filter :autorizar, :only => [:show, :busqueda,:index, :edit]
 		@clinica = Clinica.find(params[:id])
 		  id = @clinica.id
 		@usuario = Usuario.find_by_datos_id(id, :conditions => "datos_type = 'Clinica'")
-	
+
 end
 end
 

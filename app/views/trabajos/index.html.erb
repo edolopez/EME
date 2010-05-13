@@ -15,9 +15,8 @@
       <td><%=h doctor.apellidoPaterno %></td>
       <td><%=h doctor.apellidoMaterno %></td>
       <td><%=h doctor.especialidad %></td>
-      <td><%= link_to 'Show', doctor %></td>
-      <td><%= link_to 'Edit', edit_doctor_path(doctor) %></td>
-      <td><%= link_to 'Destroy', doctor.trabajos[@cont], :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to 'Mostrar', doctor %></td>
+      <td><%= link_to 'Editar', edit_doctor_path(doctor) %></td>
       <% @cont = @cont + 1 %>
     </tr>
   <% end %>
